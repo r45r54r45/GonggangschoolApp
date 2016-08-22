@@ -1,0 +1,40 @@
+<!--
+  Generated template for the LoginRegisterPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar hideBackButton *navbar>
+    <!--<ion-title>login.register</ion-title>-->
+  </ion-navbar>
+  <ion-toolbar>
+    <div style="float:right">
+      <button (click)="backButton()">goback</button>
+    </div>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-input type="text" placeholder="이름" clearInput></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>학교</ion-label>
+      <ion-select [(ngModel)]="school">
+        <ion-option value="yonsei">연세대학교</ion-option>
+        <ion-option value="korea">고려대학교</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <div style="float:right">
+      <button (click)="registerComplete()">회원가입 메세지 화면으로</button>
+    </div>
+    <div style="clear:both;">
+      <span>회원가입 함으로써~</span><a (click)="openContract()">개인정보 취급방침</a>
+    </div>
+  </ion-toolbar>
+</ion-footer>
