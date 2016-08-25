@@ -4,15 +4,42 @@
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
+<!--<ion-header>-->
 
-  <ion-navbar>
-    <ion-title>home</ion-title>
-  </ion-navbar>
+  <!--<ion-navbar class="bar-clear">-->
+    <!--<ion-title>home</ion-title>-->
+  <!--</ion-navbar>-->
 
-</ion-header>
+<!--</ion-header>-->
 
 
-<ion-content padding>
-
+<ion-content>
+  <ion-list>
+    <ion-item style="height:30vh" (click)="clickClass()">
+      <div style="position: absolute; top:10px; right:10px;">
+        <span>12500원/시간</span>
+      </div>
+      <div>
+        <!--image-->
+      </div>
+      <div>
+        <span></span>
+      </div>
+      <div>
+        <span>title</span>
+      </div>
+    </ion-item>
+  </ion-list>
 </ion-content>
+<div style="position: absolute;top:10px; left:10px; z-index:1;">
+  <ion-item repeat="">
+    <ion-select [(ngModel)]="gender">
+      <ion-option value="f" selected="true">Female</ion-option>
+      <ion-option value="m">Male</ion-option>
+    </ion-select>
+    <ion-select [(ngModel)]="gender2">
+      <ion-option value="f" selected="true">Female</ion-option>
+      <ion-option value="m">Male</ion-option>
+    </ion-select>
+  </ion-item>
+</div>

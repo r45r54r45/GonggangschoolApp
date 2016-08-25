@@ -23,7 +23,7 @@ export class TabsPage {
     this.tab2Root = MyclassPage;
     this.tab3Root = TeachPage;
     this.tab4Root = ChatPage;
-    this.tab4Root = MypagePage;
+    this.tab5Root = MypagePage;
   }
 
 }

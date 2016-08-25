@@ -1,0 +1,45 @@
+<!--
+  Generated template for the MyclassReviewPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-toolbar>
+    <div style="position: absolute; top:10px; right:10px;">
+      <button (click)="goBack()">go back</button>
+    </div>
+    <span>수강 수업을 <br> 평가해주세요</span>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div>설명</div>
+  <div>
+    <rating [(ngModel)]="rate_0" [max]="5" [readonly]="false"
+            (onHover)="hoveringOver(0,$event)"></rating>
+  </div>
+  <div>성격</div>
+  <div>
+    <rating [(ngModel)]="rate_1" [max]="5" [readonly]="false"
+            (onHover)="hoveringOver(1,$event)"></rating>
+  </div>
+  <div>과목</div>
+  <div>
+    <rating [(ngModel)]="rate_2" [max]="5" [readonly]="false"
+            (onHover)="hoveringOver(2,$event)"></rating>
+  </div>
+  <div>수업방식</div>
+  <div>
+    <rating [(ngModel)]="rate_3" [max]="5" [readonly]="false"
+            (onHover)="hoveringOver(3,$event)"></rating>
+  </div>
+  <div>짧은 평</div>
+  <div><textarea [(ngModel)]="rate_description" placeholder="내용을 작성해주세요"></textarea></div>
+  <div>
+    <button style="float:right;" (click)="submit()">작성</button>
+  </div>
+</ion-content>
