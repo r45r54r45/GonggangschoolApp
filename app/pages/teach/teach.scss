@@ -1,3 +1,25 @@
-.teach {
-
+.teach-page {
+  ion-slides {
+    margin-left: 20vw;
+  }
+  ion-slide {
+    width: 20vw !important;
+    height: 20vw;
+    border: 1px solid white;
+    background: black;
+  }
+  ion-scroll {
+    height: 20vw;
+    margin-left: 20vw;
+    nth-child(0){
+    margin-left:0;
+  }
+    .scroll-item {
+      margin-left: -4px;
+      width: 20vw;
+      height: 20vw;
+      background: black;
+      display: inline-block;
+    }
+  }
 }
