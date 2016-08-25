@@ -9,8 +9,67 @@
 
 
 @import "../pages/home/home";
-
 @import "../pages/chat/chat.scss";
 @import "../pages/teach/teach.scss";
 @import "../pages/myclass/myclass.scss";
 @import "../pages/mypage/mypage.scss";
+
+@charset "utf-8";
+/*@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic);*/
+/*@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);*/
+
+@font-face {
+  font-family: 'Open Sans';
+  url('OpenSans-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+}
+
+$font-eng: 'Open Sans', sans-serif;
+$font-kor: 'Noto Sans KR', sans-serif;
+$grey: #525252;
+
+.eng{
+  font-family: $font-eng;
+}
+.kor{
+  font-family: $font-kor;
+}
+
+span.xtiny,p.xtiny,select.xtiny,input.xtiny, button.xtiny{
+  font-size:10px;
+}
+span.tiny,p.tiny,select.tiny,input.tiny, button.tiny{
+  font-size:12px;
+}
+span.small,p.small,select.small,input.small{
+  font-size:14px;
+}
+span.middle,p.middle,select.middle,input.middle{
+  font-size:25px;
+}
+span.big,p.big,select.big,input.big{
+  font-size:30px;
+}
+span.extra,p.extra,select.extra,input.extra{
+  font-size:32px;
+}
+div.center,input.center,select.center{
+  text-align: center;
+  text-align-last: center;
+}
+
+.white{
+  color:white;
+}
+.grey{
+  color:$grey;
+}
+
+.fontLight{
+  font-weight: 200;
+}
+.fontMedium{
+  font-weight: 300;
+}
+.fontBold{
+  font-weight: 600;
+}
