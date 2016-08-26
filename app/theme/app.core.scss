@@ -29,6 +29,7 @@
 //@font-face {
 //  font-family: 'Open Sans';
 //  url('OpenSans-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+
 //}
 
 $font-eng: 'Open Sans', sans-serif;
@@ -36,7 +37,7 @@ $font-kor: 'Noto Sans KR', sans-serif;
 $grey: #525252;
 $mainColor: #961a1d;
 
-.eng{
+.eng {
   font-family: $font-eng;
 }
 .kor{
@@ -60,7 +61,7 @@ $mainColor: #961a1d;
 }
 .extra{
   font-size:32px;
-}
+
 div.center,input.center,select.center{
   text-align: center;
   text-align-last: center;
