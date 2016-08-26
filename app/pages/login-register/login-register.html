@@ -10,18 +10,18 @@
   </ion-navbar>
   <ion-toolbar>
     <div style="float:right">
-      <button (click)="backButton()">goback</button>
+      <button (click)="backButton()" class="closeButton"><img src="build//images/close.svg"/></button>
     </div>
   </ion-toolbar>
 </ion-header>
-<ion-content padding>
-  <ion-list>
-    <ion-item>
-      <ion-input type="text" placeholder="이름" clearInput></ion-input>
+<ion-content padding class="mainColorBg">
+  <ion-list class="registrationText">
+    <ion-item class="transparent">
+      <ion-input class="big white" type="text" placeholder="이름" clearInput></ion-input>
     </ion-item>
-    <ion-item>
-      <ion-label>학교</ion-label>
-      <ion-select [(ngModel)]="school">
+    <ion-item class="transparent schoolSelect">
+      <ion-label class="kor fontLight big white">학교</ion-label>
+      <ion-select  [(ngModel)]="school">
         <ion-option value="yonsei">연세대학교</ion-option>
         <ion-option value="korea">고려대학교</ion-option>
       </ion-select>
@@ -31,10 +31,10 @@
 <ion-footer>
   <ion-toolbar>
     <div style="float:right">
-      <button (click)="registerComplete()">회원가입 메세지 화면으로</button>
+      <button (click)="registerComplete()" class="transparent largeButton">회원가입</button>
     </div>
     <div style="clear:both;">
-      <span>회원가입 함으로써~</span><a (click)="openContract()">개인정보 취급방침</a>
+      <span class="xtiny white">회원가입함으로서<a (click)="openContract()" class="xtiny white">개인정보 보호 정책과 서비스 이용약관</a>에 동의하는 것으로 간주합니다.</span>
     </div>
   </ion-toolbar>
 </ion-footer>

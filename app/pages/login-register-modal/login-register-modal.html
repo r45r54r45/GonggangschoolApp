@@ -10,7 +10,7 @@
   </ion-navbar>
   <ion-toolbar>
     <div style="float:right">
-      <button (click)="backButton()">goback</button>
+      <button (click)="backButton()" class="closeButton"><img src="build//images/closeDark.svg"/></button>
     </div>
   </ion-toolbar>
 
@@ -18,5 +18,6 @@
 
 
 <ion-content padding>
-  개인정보 취급 방침
+  <div class="center middle kor">개인정보 취급 방침</div>
+  <hr class="line">
 </ion-content>

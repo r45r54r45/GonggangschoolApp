@@ -26,14 +26,15 @@
 /*@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic);*/
 /*@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);*/
 
-@font-face {
-  font-family: 'Open Sans';
-  url('OpenSans-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
-}
+//@font-face {
+//  font-family: 'Open Sans';
+//  url('OpenSans-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+//}
 
 $font-eng: 'Open Sans', sans-serif;
 $font-kor: 'Noto Sans KR', sans-serif;
 $grey: #525252;
+$mainColor: #961a1d;
 
 .eng{
   font-family: $font-eng;
@@ -42,27 +43,35 @@ $grey: #525252;
   font-family: $font-kor;
 }
 
-span.xtiny,p.xtiny,select.xtiny,input.xtiny, button.xtiny{
+.xtiny{
   font-size:10px;
 }
-span.tiny,p.tiny,select.tiny,input.tiny, button.tiny{
+.tiny{
   font-size:12px;
 }
-span.small,p.small,select.small,input.small{
+.small{
   font-size:14px;
 }
-span.middle,p.middle,select.middle,input.middle{
-  font-size:25px;
+.middle{
+  font-size:18px;
 }
-span.big,p.big,select.big,input.big{
+.big{
   font-size:30px;
 }
-span.extra,p.extra,select.extra,input.extra{
+.extra{
   font-size:32px;
 }
 div.center,input.center,select.center{
   text-align: center;
   text-align-last: center;
+}
+div.right,input.right,select.right{
+  text-align: right;
+  text-align-last: right;
+}
+div.left,input.left,select.left{
+  text-align: left;
+  text-align-last: left;
 }
 
 .white{
@@ -79,5 +88,79 @@ div.center,input.center,select.center{
   font-weight: 300;
 }
 .fontBold{
-  font-weight: 600;
+  font-weight: 500;
+}
+
+.toolbar-background {
+    border-color: none !important;
+    border-style: none !important;
+    background: none !important;
+}
+.item-inner{
+  border:none;
+}
+.mainColor{
+  color:$mainColor;
+}
+.mainColorBg{
+  background-color:$mainColor;
+}
+.transparent{
+  background-color: rgba(0, 0, 0, .0);
+}
+.closeButton{
+  background-color: rgba(0, 0, 0, .0);
+  width:7vw;
+  margin: 0px 10px !important;
+  padding: 0px !important;
+
+}
+.largeButton{
+  border-radius: 25px;
+  height: 50px;
+  width: 100px;
+  margin-bottom: 8px;
+  border: 1px solid rgba(255,255,255, .6);
+  background-color: transparent;
+  color: rgba(255,255,255, 1);
+}
+
+.placeholderLarge::-webkit-input-placeholder {
+   color: white;
+   font-weight: 300;
+   height: 55px !important;
+}
+
+.placeholderLarge:-moz-placeholder { /* Firefox 18- */
+   color: white;
+   font-weight: 300;
+   height: 55px !important;
+}
+
+.placeholderLarge::-moz-placeholder {  /* Firefox 19+ */
+   color: white;
+   font-weight: 300;
+   height: 55px !important;
+}
+
+.placeholderLarge:-ms-input-placeholder {
+   color: white;
+   font-weight: 300;
+   height: 55px !important;
+}
+ion-list > .item:first-child, ion-list > .item:last-child, ion-list > .item >.item-inner{
+  border:none !important;
+  padding-left: 5px;
+}
+.select-icon{
+  display: none;
+}
+.line{
+  width:135px;
+}
+ion-footer{
+  padding:10px;
+}
+.text-input-clear-icon{
+  background-image: none;
 }
