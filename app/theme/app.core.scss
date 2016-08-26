@@ -1,13 +1,9 @@
 // http://ionicframework.com/docs/v2/theming/
-
-
 // App Shared Imports
 // --------------------------------------------------
 // These are the imports which make up the design of this app.
 // By default each design mode includes these shared imports.
 // App Shared Sass variables belong in app.variables.scss.
-
-
 @import "../pages/home/home";
 @import "../pages/chat/chat.scss";
 @import "../pages/teach/teach.scss";
@@ -20,7 +16,6 @@
 @import "../pages/login-register-modal/login-register-modal.scss";
 @import "../pages/home-detail-chat/home-detail-chat.scss";
 @import "../pages/home-detail-buy/home-detail-buy.scss";
-
 
 @charset "utf-8";
 /*@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic);*/
@@ -40,128 +35,151 @@ $mainColor: #961a1d;
 .eng {
   font-family: $font-eng;
 }
-.kor{
+
+.kor {
   font-family: $font-kor;
 }
 
-.xtiny{
-  font-size:10px;
+.xtiny {
+  font-size: 10px;
 }
-.tiny{
-  font-size:12px;
-}
-.small{
-  font-size:14px;
-}
-.middle{
-  font-size:18px;
-}
-.big{
-  font-size:30px;
-}
-.extra{
-  font-size:32px;
 
-div.center,input.center,select.center{
+.tiny {
+  font-size: 12px;
+}
+
+.small {
+  font-size: 14px;
+}
+
+.middle {
+  font-size: 18px;
+}
+
+.big {
+  font-size: 30px;
+}
+
+.extra {
+  font-size: 32px;
+}
+
+div.center, input.center, select.center {
   text-align: center;
   text-align-last: center;
 }
-div.right,input.right,select.right{
+
+div.right, input.right, select.right {
   text-align: right;
   text-align-last: right;
 }
-div.left,input.left,select.left{
+
+div.left, input.left, select.left {
   text-align: left;
   text-align-last: left;
 }
 
-.white{
-  color:white;
-}
-.grey{
-  color:$grey;
+.white {
+  color: white;
 }
 
-.fontLight{
+.grey {
+  color: $grey;
+}
+
+.fontLight {
   font-weight: 200;
 }
-.fontMedium{
+
+.fontMedium {
   font-weight: 300;
 }
-.fontBold{
+
+.fontBold {
   font-weight: 500;
 }
 
 .toolbar-background {
-    border-color: none !important;
-    border-style: none !important;
-    background: none !important;
+  border-color: transparent !important;
+  border-style: none !important;
+  background: none !important;
 }
-.item-inner{
-  border:none;
+
+.item-inner {
+  border: none;
 }
-.mainColor{
-  color:$mainColor;
+
+.mainColor {
+  color: $mainColor;
 }
-.mainColorBg{
-  background-color:$mainColor;
+
+.mainColorBg {
+  background-color: $mainColor;
 }
-.transparent{
+
+.transparent {
   background-color: rgba(0, 0, 0, .0);
 }
-.closeButton{
+
+.closeButton {
   background-color: rgba(0, 0, 0, .0);
-  width:7vw;
+  width: 7vw;
   margin: 0px 10px !important;
   padding: 0px !important;
 
 }
-.largeButton{
+
+.largeButton {
   border-radius: 25px;
   height: 50px;
   width: 100px;
   margin-bottom: 8px;
-  border: 1px solid rgba(255,255,255, .6);
+  border: 1px solid rgba(255, 255, 255, .6);
   background-color: transparent;
-  color: rgba(255,255,255, 1);
+  color: rgba(255, 255, 255, 1);
 }
 
 .placeholderLarge::-webkit-input-placeholder {
-   color: white;
-   font-weight: 300;
-   height: 55px !important;
+  color: white;
+  font-weight: 300;
+  height: 55px !important;
 }
 
 .placeholderLarge:-moz-placeholder { /* Firefox 18- */
-   color: white;
-   font-weight: 300;
-   height: 55px !important;
+  color: white;
+  font-weight: 300;
+  height: 55px !important;
 }
 
-.placeholderLarge::-moz-placeholder {  /* Firefox 19+ */
-   color: white;
-   font-weight: 300;
-   height: 55px !important;
+.placeholderLarge::-moz-placeholder { /* Firefox 19+ */
+  color: white;
+  font-weight: 300;
+  height: 55px !important;
 }
 
 .placeholderLarge:-ms-input-placeholder {
-   color: white;
-   font-weight: 300;
-   height: 55px !important;
+  color: white;
+  font-weight: 300;
+  height: 55px !important;
 }
-ion-list > .item:first-child, ion-list > .item:last-child, ion-list > .item >.item-inner{
-  border:none !important;
+
+ion-list > .item:first-child, ion-list > .item:last-child, ion-list > .item > .item-inner {
+  border: none !important;
   padding-left: 5px;
 }
-.select-icon{
+
+.select-icon {
   display: none;
 }
-.line{
-  width:135px;
+
+.line {
+  width: 135px;
 }
-ion-footer{
-  padding:10px;
+
+ion-footer {
+  padding: 10px;
 }
-.text-input-clear-icon{
+
+.text-input-clear-icon {
   background-image: none;
 }
