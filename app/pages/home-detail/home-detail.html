@@ -7,90 +7,92 @@
 <ion-header>
 
   <!--<ion-navbar>-->
-    <!--<ion-title>home.detail</ion-title>-->
+  <!--<ion-title>home.detail</ion-title>-->
   <!--</ion-navbar>-->
-<ion-toolbar>
-  <div style="height:32vh;" class="classListImage" style="height:auto;overflow:scroll;">
-    <div style="padding: 21px 0px 16px;">
-    <div style="position: absolute; top:0px; right:0px;">
-        <button (click)="goBack()" class="closeButton"><img src="build//images/close.svg"/></button>
-    </div>
-    <div class="center">
-      <img  class="classListProfile">
+  <ion-toolbar>
+    <div style="height:32vh;" class="classListImage" style="height:auto;overflow:scroll;">
+      <div style="padding: 21px 0px 16px;">
+        <div style="position: absolute; top:0px; right:0px;">
+          <button (click)="goBack()" class="closeButton"><img src="build//images/close.svg"/></button>
+        </div>
+        <div class="center">
+          <img class="classListProfile">
+        </div>
+        <div>
+          <span></span>
+        </div>
+        <div class="center">
+          <span class="regular white">정규인 | 생활과학 12</span> <img class="yonseiLogoSmall" src="build//images/yonsei.png"/>
+        </div>
+        <div class="center">
+          <span class="regularLarge fontBold white">기초부터 중급까지 누구나 포토샵</span>
+        </div>
+      </div>
     </div>
     <div>
-      <span></span>
+      <button (click)="slideMove(0)" class="classDetailTab regular grey">프로필</button>
+      <button (click)="slideMove(1)" class="classDetailTab regular grey">FAQ</button>
+      <button (click)="slideMove(2)" class="classDetailTab regular grey">학생리뷰</button>
     </div>
-    <div class="center">
-      <span class="regular white">정규인 | 생활과학 12</span> <img class="yonseiLogoSmall" src="build//images/yonsei.png" />
-    </div>
-    <div class="center">
-      <span class="regularLarge fontBold white">기초부터 중급까지 누구나 포토샵</span>
-    </div>
-    </div>
-  </div>
-  <div>
-    <button (click)="slideMove(0)" class="classDetailTab regular grey">프로필</button>
-    <button (click)="slideMove(1)" class="classDetailTab regular grey">FAQ</button>
-    <button (click)="slideMove(2)" class="classDetailTab regular grey">학생리뷰</button>
-  </div>
-</ion-toolbar>
+  </ion-toolbar>
 </ion-header>
 
 
 <ion-content>
   <ion-slides #mySlider [options]="mySlideOptions">
     <ion-slide>
-      <div class="center greeting">
-        <span class="regularLarge grey fontLight">안녕하세요,<br></span>
-        <span class="grey fontLight" style="font-size:20px;">이재하입니다!</span>
-      </div>
-      <div class="center">
-        <img  class="profileVerification">
-        <img  class="profileVerification">
-        <img  class="profileVerification">
-      </div>
-      <div class="lightGreyBg">
-        <div class="left floatLeft classProfileTitle regularLarge ">코치 경력</div>
-        <div >
-          <div class="left classProfile regular">14대 디자인 어워드 장려상</div>
-          <div class="left classProfile regular">상상창의 디자인 경진대회 대상</div>
-          <div class="left classProfile regular">사람사람 디자인 인턴</div>
+      <ion-list>
+        <div class="center greeting">
+          <span class="regularLarge grey fontLight">안녕하세요,<br></span>
+          <span class="grey fontLight" style="font-size:20px;">이재하입니다!</span>
         </div>
-      </div>
-      <div class="whiteBg">
-        <div class="left floatLeft classProfileTitle regularLarge ">켜리큘럼</div>
-        <div >
-          <div class="left classProfile regular">1회: 기초 및 툴 익히기 </div>
-          <div class="left classProfile regular">2회: 기초 및 툴 익히기 </div>
-          <div class="left classProfile regular">3회: 기초 및 툴 익히기 </div>
-          <div class="left classProfile regular">4회: 기초 및 툴 익히기 </div>
+        <div class="center">
+          <img class="profileVerification">
+          <img class="profileVerification">
+          <img class="profileVerification">
         </div>
-      </div>
-      <div class="lightGreyBg">
-        <div class="left floatLeft classProfileTitle regularLarge ">진행사항</div>
-        <div >
-          <div class="left classProfile regular">회당 1시간  총 4회</div>
+        <div class="lightGreyBg">
+          <div class="left floatLeft classProfileTitle regularLarge ">코치 경력</div>
+          <div>
+            <div class="left classProfile regular">14대 디자인 어워드 장려상</div>
+            <div class="left classProfile regular">상상창의 디자인 경진대회 대상</div>
+            <div class="left classProfile regular">사람사람 디자인 인턴</div>
+          </div>
         </div>
-      </div>
-      <div class="lightGreyBg">
-        <div class="left floatLeft classProfileTitle regularLarge ">수강료</div>
-        <div >
-          <div class="left classProfile regular">₩12,500 / 시간 총 ₩100,000</div>
+        <div class="whiteBg">
+          <div class="left floatLeft classProfileTitle regularLarge ">켜리큘럼</div>
+          <div>
+            <div class="left classProfile regular">1회: 기초 및 툴 익히기</div>
+            <div class="left classProfile regular">2회: 기초 및 툴 익히기</div>
+            <div class="left classProfile regular">3회: 기초 및 툴 익히기</div>
+            <div class="left classProfile regular">4회: 기초 및 툴 익히기</div>
+          </div>
         </div>
-      </div>
-      <div class="lightGreyBg">
-        <div class="left floatLeft classProfileTitle regularLarge ">장소</div>
-        <div >
-          <div class="left classProfile regular">언기도 세미나실 129호</div>
+        <div class="lightGreyBg">
+          <div class="left floatLeft classProfileTitle regularLarge ">진행사항</div>
+          <div>
+            <div class="left classProfile regular">회당 1시간 총 4회</div>
+          </div>
         </div>
-      </div>
-      <div class="lightGreyBg">
-        <div class="left floatLeft classProfileTitle regularLarge ">준비물</div>
-        <div >
-          <div class="left classProfile regular">포토샵 사용 가능한 컴퓨터</div>
+        <div class="lightGreyBg">
+          <div class="left floatLeft classProfileTitle regularLarge ">수강료</div>
+          <div>
+            <div class="left classProfile regular">₩12,500 / 시간 총 ₩100,000</div>
+          </div>
         </div>
-      </div>
+        <div class="lightGreyBg">
+          <div class="left floatLeft classProfileTitle regularLarge ">장소</div>
+          <div>
+            <div class="left classProfile regular">언기도 세미나실 129호</div>
+          </div>
+        </div>
+        <div class="lightGreyBg">
+          <div class="left floatLeft classProfileTitle regularLarge ">준비물</div>
+          <div>
+            <div class="left classProfile regular">포토샵 사용 가능한 컴퓨터</div>
+          </div>
+        </div>
+      </ion-list>
     </ion-slide>
     <ion-slide>
       <h1>Slide 2</h1>
