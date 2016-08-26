@@ -30,7 +30,7 @@
     </div>
   </div>
   <div>
-    <button (click)="slideMove(0)" class="classDetailTab regular grey">자기소개</button>
+    <button (click)="slideMove(0)" class="classDetailTab regular grey">프로필</button>
     <button (click)="slideMove(1)" class="classDetailTab regular grey">FAQ</button>
     <button (click)="slideMove(2)" class="classDetailTab regular grey">학생리뷰</button>
   </div>
@@ -38,11 +38,58 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
   <ion-slides #mySlider [options]="mySlideOptions">
     <ion-slide>
-      <div>
-        자기소개
+      <div class="center greeting">
+        <span class="regularLarge grey fontLight">안녕하세요,<br></span>
+        <span class="grey fontLight" style="font-size:20px;">이재하입니다!</span>
+      </div>
+      <div class="center">
+        <img  class="profileVerification">
+        <img  class="profileVerification">
+        <img  class="profileVerification">
+      </div>
+      <div class="lightGreyBg">
+        <div class="left floatLeft classProfileTitle regularLarge ">코치 경력</div>
+        <div >
+          <div class="left classProfile regular">14대 디자인 어워드 장려상</div>
+          <div class="left classProfile regular">상상창의 디자인 경진대회 대상</div>
+          <div class="left classProfile regular">사람사람 디자인 인턴</div>
+        </div>
+      </div>
+      <div class="whiteBg">
+        <div class="left floatLeft classProfileTitle regularLarge ">켜리큘럼</div>
+        <div >
+          <div class="left classProfile regular">1회: 기초 및 툴 익히기 </div>
+          <div class="left classProfile regular">2회: 기초 및 툴 익히기 </div>
+          <div class="left classProfile regular">3회: 기초 및 툴 익히기 </div>
+          <div class="left classProfile regular">4회: 기초 및 툴 익히기 </div>
+        </div>
+      </div>
+      <div class="lightGreyBg">
+        <div class="left floatLeft classProfileTitle regularLarge ">진행사항</div>
+        <div >
+          <div class="left classProfile regular">회당 1시간  총 4회</div>
+        </div>
+      </div>
+      <div class="lightGreyBg">
+        <div class="left floatLeft classProfileTitle regularLarge ">수강료</div>
+        <div >
+          <div class="left classProfile regular">₩12,500 / 시간 총 ₩100,000</div>
+        </div>
+      </div>
+      <div class="lightGreyBg">
+        <div class="left floatLeft classProfileTitle regularLarge ">장소</div>
+        <div >
+          <div class="left classProfile regular">언기도 세미나실 129호</div>
+        </div>
+      </div>
+      <div class="lightGreyBg">
+        <div class="left floatLeft classProfileTitle regularLarge ">준비물</div>
+        <div >
+          <div class="left classProfile regular">포토샵 사용 가능한 컴퓨터</div>
+        </div>
       </div>
     </ion-slide>
     <ion-slide>

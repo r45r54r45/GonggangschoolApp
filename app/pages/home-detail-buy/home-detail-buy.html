@@ -7,46 +7,50 @@
 <ion-header>
 
   <ion-toolbar>
-      <div style="position: absolute; top:10px; right:10px;">
-        <button (click)="goBack()">go back</button>
-      </div>
+    <div style="float:right">
+      <button (click)="goBack()" class="closeButton"><img src="build//images/close.svg"/></button>
+    </div>
   </ion-toolbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding class="mainColorBg">
   <ion-slides #mySlider [options]="mySlideOptions" >
     <ion-slide>
       <div>
         <ion-list>
 
-          <ion-item>
-            <ion-input type="text" placeholder="Username"></ion-input>
+          <ion-item class="transparent">
+            <ion-input type="text" class="big white" placeholder="학번"></ion-input>
           </ion-item>
 
-          <ion-item>
-            <ion-input type="password" placeholder="Password"></ion-input>
+          <ion-item class="transparent phoneNumber">
+            <ion-input type="text"  class="big white" placeholder="전화번호"></ion-input>
           </ion-item>
 
         </ion-list>
       </div>
     </ion-slide>
     <ion-slide>
-      <div>title</div>
-      <div>날짜</div>
-      <div>title</div>
-      <div>날짜</div>
-      <div>title</div>
-      <div>날짜</div>
+      <div class="big white bgFullTitle paddingBuy">기초부터 중급까지 누구나 포토샵</div>
+      <div class="regularLarge white paddingSmall">코칭 시작</div>
+      <div class="big white fontLight paddingLarge">2016년 3월 17일</div>
+      <div class="regularLarge white paddingSmall">코칭 종료</div>
+      <div class="big white fontLight paddingLarge">2016년 3월 27일</div>
+      <div class="regularLarge white paddingSmall">수강료</div>
+      <div class="big white fontLight paddingLarge">20,000 x 4 = 80,000</div>
     </ion-slide>
     <ion-slide>
-      <div>신청 완료되었습니다</div>
+      <div class="regularLarge white">신청 완료되었습니다</div>
+      <div class="regularLarge white paddingBuy">신청해주신 이메일 abc@gmail.com 으로 수강 확인증 보내드립니다.</div>
     </ion-slide>
   </ion-slides>
 </ion-content>
-<ion-footer>
+<ion-footer >
   <ion-toolbar>
-    <button (click)="next()">{{buttonText}}</button>
+    <div class="right">
+      <button (click)="next()" class="transparent largeButton">{{buttonText}}</button>
+    </div>
   </ion-toolbar>
 </ion-footer>

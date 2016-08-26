@@ -75,6 +75,47 @@
     padding:0px;
     margin:0px;
   }
+  .profileVerification{
+    border-radius: 50% ;
+    width: 3.5vh;
+    height: 3.5vh;
+    background-color: #525252;
+    margin:18px 5px 24px;
+  }
+  .floatLeft{
+    float:left;
+  }
+  .floatRight{
+    float:right;
+  }
 
+  .classProfile{
+    padding: 1vw 0vw 4vw 0vw;
+    margin-left: 30vw;
+  }
+  .classProfileTitle{
+    padding: 0vw 14vw 0vw 0vw;
+  }
+  .lightGreyBg{
+    background-color: #f2f2f2;
+    height:auto;
+    overflow:scroll;
+    color: grey;
+    padding: 15px;
+  }
+  .whiteBg{
+    background-color: white;
+    height:auto;
+    overflow:scroll;
+    color: grey;
+    padding: 15px;
+  }
+  scroll-content{
+    margin-left: calc(0vh) !important;
+    margin-right: calc(0vh) !important;
 
+  }
+  .greeting{
+    padding-top:4vh;
+  }
 }

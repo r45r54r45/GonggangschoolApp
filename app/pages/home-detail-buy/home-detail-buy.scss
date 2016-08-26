@@ -1,8 +1,41 @@
-.home-detail-buy-page {
+.home-detail-buy-page{
   .toolbar {
     .toolbar-background {
       background: transparent;
       border-color: transparent;
     }
   }
+  ion-select{
+    color: white;
+  }
+  .item-select{
+    color:white;
+  }
+  ion-label{
+    color:white;
+  }
+  input::-webkit-input-placeholder{
+    color:white;
+  }
+  .phoneNumber{
+    padding-top: 18vw;
+  }
+  .paddingLarge{
+    padding-top:2vh;
+  }
+  .paddingSmall{
+    padding-top:7vh;
+  }
+  .paddingBuy{
+    padding: 2vh 5vh 0px;
+  }
+  .bgFullTitle{
+    position: absolute;
+    top: 10px;
+  }
+  scroll-content{
+    margin-top: calc(0vh) !important;
+    margin-bottom: calc(0vh) !important;
+  }
+
 }

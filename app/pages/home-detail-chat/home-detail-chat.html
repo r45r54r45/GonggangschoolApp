@@ -5,22 +5,20 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar>
+  <ion-navbar class="chatNavBar">
     <ion-buttons start>
-      <button royal (click)="goBack()">
+      <button royal (click)="goBack()" class="white regularLarge">
         뒤로가기
       </button>
     </ion-buttons>
-    <ion-title>문의하기</ion-title>
+    <ion-title ><span class="white">문의하기</span></ion-title>
     <ion-buttons end (click)="submit()">
-      <button royal>
+      <button royal class="white regularLarge">
         보내기
       </button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
-<ion-content padding>
-  <textarea>
-
-  </textarea>
+<ion-content>
+  <textarea class="chatArea" placeholder="문의 내용을 입력하세요"></textarea>
 </ion-content>

@@ -55,12 +55,12 @@ body,p,span,html  {
 
 //30px
 .regularLarge {
-  font-size: 16px;
+  font-size: 15px;
 }
 
 //50px
 .big {
-  font-size: 30px;
+  font-size: 26px;
 }
 
 //60px
@@ -146,6 +146,10 @@ div.left, input.left, select.left {
   color: rgba(255, 255, 255, 1);
 }
 
+button.activated{
+  background-color: rgba(0, 0, 0, .0) !important;
+}
+
 .placeholderLarge::-webkit-input-placeholder {
   color: white;
   font-weight: 300;
@@ -195,4 +199,9 @@ ion-footer {
 .yonseiLogoSmall{
   width:5vw;
 
+}
+
+.toolbar-title{
+  font-size: 16px;
+  font-weight: 400;
 }

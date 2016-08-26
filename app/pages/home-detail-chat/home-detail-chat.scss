@@ -1,3 +1,39 @@
-.home-detail-chat {
+.home-detail-chat-page {
+  .chatArea{
+    width:100%;
+    padding:10px;
+    resize: none;
+    height:100%;
+  }
+  textarea::-webkit-input-placeholder {
+    color: grey;
+    font-weight: 300;
+    font-size: 12px;
+    height: 55px !important;
+  }
 
+  textarea:-moz-placeholder { /* Firefox 18- */
+    color: grey;
+    font-weight: 300;
+    font-size: 12px;
+    height: 55px !important;
+  }
+
+  textarea::-moz-placeholder { /* Firefox 19+ */
+    color: grey;
+    font-weight: 300;
+    font-size: 12px;
+    height: 55px !important;
+  }
+
+  textarea:-ms-input-placeholder {
+    color: grey;
+    font-weight: 300;
+    font-size: 12px;
+    height: 55px !important;
+  }
+  .chatNavBar{
+    background-color: #961a1d;
+    height: 48px;
+  }
 }
