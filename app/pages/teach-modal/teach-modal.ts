@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {NavController} from 'ionic-angular';
 import {Slides} from 'ionic-angular';
 import {ViewChild} from '@angular/core';
 /*
-  Generated class for the TeachModalPage page.
+ Generated class for the TeachModalPage page.
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
+ See http://ionicframework.com/docs/v2/components/#navigation for more info on
+ Ionic pages and navigation.
+ */
 @Component({
   templateUrl: 'build/pages/teach-modal/teach-modal.html',
 })
@@ -17,79 +17,142 @@ export class TeachModalPage {
     loop: false,
     onlyExternal: true
   };
-  private prevButtonShow: boolean=false;
-  private headerTitle: string[]=['수업 종류를<br/>선택해주세요','수업 정보를<br/>작성해주세요','코치 정보를<br/>작성해주세요'];
-  private headerTitleIndex:number=0;
-  private curriculum_list:Object[];
-  private class_duration:number=1;
-  private availTimeArray:string[]=[];
-  private availTime:string="";
+  private prevButtonShow:boolean = false;
+  private headerTitle:string[] = ['수업 종류를<br/>선택해주세요', '수업 정보를<br/>작성해주세요', '코치 정보를<br/>작성해주세요'];
+  private headerTitleIndex:number = 0;
+  private class_area:string="";
+  private class_category:string="";
+  private class_tag:string="";
+  private class_title:string="";
+  private class_weekend:string="";
+  private class_place:string="";
+
+  private class_curriculum_list:Object[];
+  private class_duration:number = 1;
+  private availTimeArray:string[] = [];
+  private availTime:string = "";
+  private selectedGroupId:number=0;
 
   @ViewChild('mySlider') slider:Slides;
-  constructor(private navCtrl: NavController) {
-    this.curriculum_list=[];
-    this.curriculum_list.push({description:""});
+
+  constructor(private navCtrl:NavController) {
+    this.class_curriculum_list = [];
+    this.class_curriculum_list.push({description: ""});
   }
+
   slideMove(moveTo) {
     this.slider.slideTo(moveTo, 500);
   }
-  backButton(){
+
+  backButton() {
     this.navCtrl.pop();
   }
-  prev(){
-    let current=this.slider.getActiveIndex();
+
+  prev() {
+    let current = this.slider.getActiveIndex();
     this.slideMove(--current);
     this.headerTitleIndex--;
-    if(this.slider.getActiveIndex()==0){
-      this.prevButtonShow=false;
+    if (this.slider.getActiveIndex() == 0) {
+      this.prevButtonShow = false;
     }
   }
-  next(){
-    let current=this.slider.getActiveIndex();
+
+  next() {
+    let current = this.slider.getActiveIndex();
+    switch(current){
+      case 0:
+        if(this.class_area==""||this.class_category==""||this.class_tag==""){
+          alert('모든 정보를 채워주세요');
+          return;
+        }
+        break;
+      case 1:
+        if(this.class_title==""||this.class_weekend==""||this.class_place==""||this.isCurriculumEmpty(this.class_curriculum_list)||this.availTimeArray.length==0){
+          alert('모든 정보를 채워주세요');
+          return;
+        }
+    }
     this.slideMove(++current);
-    this.prevButtonShow=true;
-    (this.headerTitleIndex<2?this.headerTitleIndex++:true);
+    this.prevButtonShow = true;
+    (this.headerTitleIndex < 2 ? this.headerTitleIndex++ : true);
   }
-  addCurriculum(){
-    this.curriculum_list.push({description:""});
-    console.log(this.curriculum_list);
+
+  addCurriculum() {
+    this.class_curriculum_list.push({description: ""});
+    console.log(this.class_curriculum_list);
   }
-  rmCurriculum(){
-    this.curriculum_list.pop();
+
+  rmCurriculum() {
+    this.class_curriculum_list.pop();
   }
-  addClassDuration(){
+
+  addClassDuration() {
     this.class_duration++;
     this.resetAvailTimeSchedule();
-    this.availTimeArray=[];
+    this.availTimeArray = [];
   }
-  minusClassDuration(){
-    (this.class_duration>1?this.class_duration--:true);
+
+  minusClassDuration() {
+    (this.class_duration > 1 ? this.class_duration-- : true);
     this.resetAvailTimeSchedule();
-    this.availTimeArray=[];
+    this.availTimeArray = [];
   }
-  availTimeClick(row,col){
+
+  availTimeClick(row, col) {
     console.log(row, col);
-    if(row+this.class_duration-1<=10){
-      for(let i=row; i<row+this.class_duration; i++){
-        document.getElementById("td_"+i+"_"+col).classList.add("selected");
-        this.availTimeArray.push(this.availTimeToString(i,col));
+    if (document.getElementById("td_" + row + "_" + col).classList.contains("selected")) {
+      let groupId=document.getElementById("td_" + row + "_" + col).classList.item(1);
+      let groupList=[].slice.call(document.getElementsByClassName(groupId));
+      groupList.forEach((item, index)=>{
+        item.classList.remove("selected");
+        item.classList.remove(groupId);
+        let splitedArray=item.id.split('_');
+        this.availTimeArray.splice(this.availTimeArray.indexOf(this.availTimeToString(splitedArray[1],splitedArray[2])),1);
+      });
+    }else if(this.isSelectedTimeOverlap(row,col)){
+      alert('기존에 선택된 시간하고 겹칩니다.');
+    }else if (row + this.class_duration - 1 <= 10) {
+      this.selectedGroupId++;
+      for (let i = row; i < row + this.class_duration; i++) {
+        let classList = document.getElementById("td_" + i + "_" + col).classList;
+        classList.add("selected");
+        classList.add("selectedGroup"+this.selectedGroupId);
+        this.availTimeArray.push(this.availTimeToString(i, col));
       }
-    }else{
+    } else {
       alert('해당 시간은 범위를 벗어납니다.');
     }
   }
 
-  submit(){
+  submit() {
 
-    this.availTime=this.availTimeArray.toString();
+    this.availTime = this.availTimeArray.toString();
   }
-  private resetAvailTimeSchedule(){
+  private isCurriculumEmpty(curriculumArray){
+    curriculumArray.forEach((item,index)=>{
+      if(item.description==""){
+        return true;
+      }
+    });
+    return false;
+  }
+  private isSelectedTimeOverlap(row, col){
+    for (let i = row; i < row + this.class_duration; i++) {
+      let classList = document.getElementById("td_" + i + "_" + col).classList;
+      if(classList.contains("selected")){
+        return true;
+      }
+    }
+    return false;
+  }
+  private resetAvailTimeSchedule() {
     let targetTdArray = [].slice.call(document.getElementsByClassName("selected"));
-    targetTdArray.forEach((item, index)=>{
+    targetTdArray.forEach((item, index)=> {
       item.classList.remove("selected");
     });
   }
-  private availTimeToString(row,col){
-    return '('+row+'_'+col+')';
+
+  private availTimeToString(row, col) {
+    return '(' + row + '_' + col + ')';
   }
 }

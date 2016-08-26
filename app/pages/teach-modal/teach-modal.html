@@ -23,27 +23,23 @@
       <ion-list>
         <ion-item>
           <ion-label>수업분야</ion-label>
-          <ion-select [(ngModel)]="gaming">
+          <ion-select [(ngModel)]="class_area">
             <ion-option value="nes">NES</ion-option>
             <ion-option value="n64">Nintendo64</ion-option>
             <ion-option value="ps">PlayStation</ion-option>
           </ion-select>
         </ion-item>
         <ion-item>
-          <ion-label>수업분야</ion-label>
-          <ion-select [(ngModel)]="gaming">
+          <ion-label>상세 카테고리</ion-label>
+          <ion-select [(ngModel)]="class_category">
             <ion-option value="nes">NES</ion-option>
             <ion-option value="n64">Nintendo64</ion-option>
             <ion-option value="ps">PlayStation</ion-option>
           </ion-select>
         </ion-item>
         <ion-item>
-          <ion-label>수업분야</ion-label>
-          <ion-select [(ngModel)]="gaming">
-            <ion-option value="nes">NES</ion-option>
-            <ion-option value="n64">Nintendo64</ion-option>
-            <ion-option value="ps">PlayStation</ion-option>
-          </ion-select>
+          <ion-label>수업 태그</ion-label>
+          <ion-input type="text" placeholder="Username" [(ngModel)]="class_tag"></ion-input>
         </ion-item>
       </ion-list>
     </ion-slide>
@@ -52,7 +48,7 @@
         <div>제목</div>
         <div>
           <ion-item>
-            <ion-input type="text" placeholder="Username"></ion-input>
+            <ion-input type="text" placeholder="Username" [(ngModel)]="class_title"></ion-input>
           </ion-item>
         </div>
         <div>
@@ -60,7 +56,7 @@
         </div>
         <div>
           <ion-list inset>
-            <ion-item *ngFor="let curriculum of curriculum_list; let i=index;">
+            <ion-item *ngFor="let curriculum of class_curriculum_list; let i=index;">
               <ion-label>{{i+1}}회차</ion-label>
               <ion-input type="text" [(ngModel)]="curriculum.description"></ion-input>
             </ion-item>
@@ -74,7 +70,7 @@
           주말에도 돼요?
         </div>
         <div>
-          <ion-input type="text" placeholder="Username"></ion-input>
+          <ion-input type="text" placeholder="Username" [(ngModel)]="class_weekend"></ion-input>
         </div>
         <div>
           회차당 수업시간
@@ -92,7 +88,7 @@
           수업 장소
         </div>
         <div>
-          <ion-input type="text" placeholder="Username"></ion-input>
+          <ion-input type="text" placeholder="Username" [(ngModel)]="class_place"></ion-input>
         </div>
         <div>
           언제 시간되어요?
@@ -119,7 +115,48 @@
       </ion-list>
     </ion-slide>
     <ion-slide>
-      <h1>Slide 3</h1>
+      <ion-list>
+        <div>
+          경력
+        </div>
+        <div>
+          자신의 경력을 마구 뽐내주세요
+        </div>
+        <div>
+          <textarea></textarea>
+        </div>
+        <div>0/500글자</div>
+        <div>
+          멘티들에게 한 마디
+        </div>
+        <div>
+          코치가 멘티에게...
+        </div>
+        <div>
+          <textarea></textarea>
+        </div>
+        <div>0/500글자</div>
+        <div>
+          전화번호
+        </div>
+        <div>
+          <ion-input type="number" placeholder="Username"></ion-input>
+        </div>
+        <div>
+          FAQ
+        </div>
+        <div>
+          주로 나오는 질문들의 대답을 적는 칸 입니다.
+        </div>
+        <div>
+          어떻게 가르치실 예정인가요?
+        </div>
+        <div>
+          <textarea></textarea>
+        </div>
+        <div>0/500글자</div>
+
+        </ion-list>
     </ion-slide>
   </ion-slides>
 </ion-content>
