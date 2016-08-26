@@ -13,6 +13,18 @@
   ion-toolbar{
     padding-top:0 !important;
     height: inherit !important;
+    .add-class-button-area{
+      position: absolute;
+      display: flex;
+      left:0;
+      top:0;
+      width:20vw;
+      height:20vw;
+      background: purple;
+      button{
+        margin:auto;
+      }
+    }
   }
   ion-scroll {
     height: 20vw;
@@ -33,5 +45,10 @@
 
       display: inline-block;
     }
+  }
+  .floating_button{
+    position: absolute;
+    bottom: 50px;
+    right:10px;
   }
 }
