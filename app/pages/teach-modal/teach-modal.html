@@ -123,7 +123,7 @@
           자신의 경력을 마구 뽐내주세요
         </div>
         <div>
-          <textarea></textarea>
+          <textarea [(ngModel)]="class_history"></textarea>
         </div>
         <div>0/500글자</div>
         <div>
@@ -133,14 +133,14 @@
           코치가 멘티에게...
         </div>
         <div>
-          <textarea></textarea>
+          <textarea [(ngModel)]="class_comment"></textarea>
         </div>
         <div>0/500글자</div>
         <div>
           전화번호
         </div>
         <div>
-          <ion-input type="number" placeholder="Username"></ion-input>
+          <ion-input type="number" placeholder="Username" [(ngModel)]="class_phone"></ion-input>
         </div>
         <div>
           FAQ
@@ -152,17 +152,19 @@
           어떻게 가르치실 예정인가요?
         </div>
         <div>
-          <textarea></textarea>
+          <textarea [(ngModel)]="class_faq"></textarea>
         </div>
         <div>0/500글자</div>
-
         </ion-list>
+    </ion-slide>
+    <ion-slide>
+      수고하셨어요~
     </ion-slide>
   </ion-slides>
 </ion-content>
 <ion-footer>
   <ion-toolbar>
     <button (click)="prev()" *ngIf="prevButtonShow === true">이전으로</button>
-    <button (click)="next()">다음</button>
+    <button (click)="next()">{{bottomRightButton}}</button>
   </ion-toolbar>
 </ion-footer>

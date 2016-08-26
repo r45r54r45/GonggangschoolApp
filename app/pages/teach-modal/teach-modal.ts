@@ -17,6 +17,7 @@ export class TeachModalPage {
     loop: false,
     onlyExternal: true
   };
+  private bottomRightButton:string="다음";
   private prevButtonShow:boolean = false;
   private headerTitle:string[] = ['수업 종류를<br/>선택해주세요', '수업 정보를<br/>작성해주세요', '코치 정보를<br/>작성해주세요'];
   private headerTitleIndex:number = 0;
@@ -26,6 +27,11 @@ export class TeachModalPage {
   private class_title:string="";
   private class_weekend:string="";
   private class_place:string="";
+  private class_history:string="";
+  private class_comment:string="";
+  private class_phone:string="";
+  private class_faq:string="";
+
 
   private class_curriculum_list:Object[];
   private class_duration:number = 1;
@@ -71,10 +77,27 @@ export class TeachModalPage {
           alert('모든 정보를 채워주세요');
           return;
         }
+            break;
+      case 2:
+         if(this.class_history==""||this.class_comment==""||this.class_phone==""||this.class_faq==""){
+           alert('모든 정보를 채워주세요');
+           return;
+         }
+        break;
     }
     this.slideMove(++current);
-    this.prevButtonShow = true;
-    (this.headerTitleIndex < 2 ? this.headerTitleIndex++ : true);
+    if(current==3){
+      //정보 보내고
+      //다음 페이지로 이동
+      this.headerTitle[3]=this.class_title;
+      this.headerTitleIndex++;
+      this.prevButtonShow = false;
+      this.bottomRightButton="확인";
+      this.navCtrl.pop();
+    }else{
+      this.prevButtonShow = true;
+      (this.headerTitleIndex < 2 ? this.headerTitleIndex++ : true);
+    }
   }
 
   addCurriculum() {
@@ -129,11 +152,11 @@ export class TeachModalPage {
     this.availTime = this.availTimeArray.toString();
   }
   private isCurriculumEmpty(curriculumArray){
-    curriculumArray.forEach((item,index)=>{
-      if(item.description==""){
+    for(let i=0; i<curriculumArray.length; i++){
+      if(curriculumArray[i].description==""){
         return true;
       }
-    });
+    }
     return false;
   }
   private isSelectedTimeOverlap(row, col){
