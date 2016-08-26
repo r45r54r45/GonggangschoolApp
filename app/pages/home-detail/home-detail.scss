@@ -12,4 +12,11 @@
     -ms-flex-align:initial;
     align-items:initial;
   }
+  scroll-content{
+    margin-top: calc(30vh + 51px) !important;
+  }
+  ion-toolbar{
+    padding-top:0 !important;
+    height: inherit !important;
+  }
 }

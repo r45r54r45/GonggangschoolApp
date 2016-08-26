@@ -1,24 +1,36 @@
 .teach-page {
-  ion-slides {
-    margin-left: 20vw;
+  .toolbar {
+    padding: 0;
   }
-  ion-slide {
-    width: 20vw !important;
-    height: 20vw;
-    border: 1px solid white;
-    background: black;
+  ion-content{
+    scroll-content{
+      margin-top: 20vw !important;
+    }
+  }
+  ion-slides{
+    height: inherit;
+  }
+  ion-toolbar{
+    padding-top:0 !important;
+    height: inherit !important;
   }
   ion-scroll {
     height: 20vw;
     margin-left: 20vw;
-    nth-child(0){
-    margin-left:0;
-  }
     .scroll-item {
+      &:nth-child(1) {
+        margin-left: 0 !important;
+      }
+      &:nth-child(2n) {
+        background: black;
+      }
+      &:nth-child(2n+1) {
+        background: red;
+      }
       margin-left: -4px;
       width: 20vw;
       height: 20vw;
-      background: black;
+
       display: inline-block;
     }
   }

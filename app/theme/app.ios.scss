@@ -29,3 +29,17 @@
 // App iOS Only Sass
 // --------------------------------------------------
 // CSS that should only apply to the iOS app
+
+.teach-page {
+  .ios-only-padding{
+    height:20px;
+    width:100%;
+    background:black;
+  }
+  ion-content{
+    scroll-content{
+      margin-top: calc(20vw + 20px) !important;
+    }
+  }
+
+}

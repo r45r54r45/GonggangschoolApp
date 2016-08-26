@@ -7,8 +7,9 @@
 <ion-header>
 
   <ion-toolbar>
+    <div class="ios-only-padding"></div>
     <ion-scroll scrollX="true">
-      <div style="width:160vw; height:20vw;">
+      <div style="width:160vw; height:20vw;" class="scroll-item-group">
         <div class="scroll-item">
         </div>
         <div class="scroll-item">
@@ -27,22 +28,39 @@
         </div>
       </div>
     </ion-scroll>
-    <!--<ion-slides>-->
-      <!--<ion-slide>-->
-        <!--<h1>Slide 1</h1>-->
-      <!--</ion-slide>-->
-      <!--<ion-slide>-->
-        <!--<h1>Slide 2</h1>-->
-      <!--</ion-slide>-->
-      <!--<ion-slide>-->
-        <!--<h1>Slide 3</h1>-->
-      <!--</ion-slide>-->
-    <!--</ion-slides>-->
   </ion-toolbar>
 
 </ion-header>
 
-
-<ion-content padding>
+<ion-content>
+  <div style="height:30vh; background:blue;">
+    <div>
+      <!--image-->
+    </div>
+    <div>
+      <span></span>
+    </div>
+    <div>
+      <span>title</span>
+    </div>
+  </div>
+  <div>
+    <button (click)="slideMove(0)">자기소개</button>
+    <button (click)="slideMove(1)">FAQ</button>
+    <button (click)="slideMove(2)">학생리뷰</button>
+  </div>
+  <ion-slides #mySlider [options]="mySlideOptions">
+    <ion-slide>
+      <div>
+        자기소개
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <h1>Slide 2</h1>
+    </ion-slide>
+    <ion-slide>
+      <h1>Slide 3</h1>
+    </ion-slide>
+  </ion-slides>
 
 </ion-content>
