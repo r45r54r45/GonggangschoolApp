@@ -128,6 +128,9 @@
     width:1.5vh;
     margin: 1.5px;
   }
+  .classRatingStarS{
+    width:1.2vh;
+  }
   .classRating>button{
     margin:0px !important;
     padding:0px;
@@ -144,5 +147,19 @@
   }
   .classRatingList{
     height:100vh;
+  }
+  .ratingProfile{
+    background-color: #525252;
+    width: 10vw;
+    border-radius: 50%;
+    margin: 0px 15px 15px 0px;
+  }
+  .ratingText{
+    padding-left:14vw;
+    display:inline-block;
+    line-height: 18px;
+  }
+  .ratingTextPadding{
+    padding-top:20px;
   }
 }
