@@ -6,13 +6,82 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>mypage</ion-title>
-  </ion-navbar>
+  <!--<ion-navbar>-->
+    <!--<ion-title>mypage</ion-title>-->
+  <!--</ion-navbar>-->
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+
+  <div>
+    <img src="">
+  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col width-33>이름</ion-col>
+      <ion-col width-67>
+        <div style="float:left">이재하</div>
+        <div style="float:right"><button (click)="edit('이름','placeholder',0)">수정</button></div>
+        <div style="clear:both"></div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col width-33>이메일</ion-col>
+      <ion-col width-67>
+        <div style="float:left">이재하</div>
+        <div style="float:right"><button (click)="edit('이메일','placeholder',1)">수정</button></div>
+        <div style="clear:both"></div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col width-33>전화번호</ion-col>
+      <ion-col width-67>
+        <div style="float:left">이재하</div>
+        <div style="float:right"><button (click)="edit('전화번호','placeholder',2)">수정</button></div>
+        <div style="clear:both"></div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col width-33>학교</ion-col>
+      <ion-col width-67>
+        <div style="float:left">이재하</div>
+        <div style="float:right"><button (click)="edit('학교','placeholder',3)">수정</button></div>
+        <div style="clear:both"></div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col width-33>학생 모집</ion-col>
+        <ion-col width-67>
+          <div style="float:left">모집중</div>
+          <div style="float:right"><ion-toggle disabled checked="false"></ion-toggle></div>
+          <div style="clear:both"></div>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col width-33>나의 시간표</ion-col>
+      <ion-col width-67>
+        <div style="float:right"><button (click)="editSchedule()">수정</button></div>
+        <div style="clear:both"></div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <table>
+    <thead>
+    <th></th>
+    <th>월</th>
+    <th>화</th>
+    <th>수</th>
+    <th>목</th>
+    <th>금</th>
+    </thead>
+    <tbody>
+    <tr *ngFor="let row of [1,2,3,4,5,6,7,8,9,10]; let rowIndex=index;">
+      <td>{{rowIndex+1}}</td>
+      <td [attr.id]="'td_' + (rowIndex+1)+'_'+(colIndex+1)" *ngFor="let col of [1,2,3,4,5]; let colIndex=index;"></td>
+    </tr>
+    </tbody>
+  </table>
 
 </ion-content>

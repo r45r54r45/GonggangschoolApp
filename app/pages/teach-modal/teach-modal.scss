@@ -17,14 +17,15 @@
     -ms-flex-align: initial;
     align-items: initial;
   }
-  table {
-    td {
-      width: calc(100vw / 6);
-      border: 1px solid black;
-      &:nth-child(1) {
-        width: 10vw;
-        border: none;
-      }
+
+}
+table {
+  td {
+    width: calc(100vw / 6);
+    border: 1px solid black;
+    &:nth-child(1) {
+      width: 10vw;
+      border: none;
     }
   }
 }

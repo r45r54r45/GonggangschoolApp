@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-
+import {MypageEditPage} from '../mypage-edit/mypage-edit';
+import {MypageSchedulePage} from '../mypage-schedule/mypage-schedule';
 /*
   Generated class for the MypagePage page.
 
@@ -15,5 +16,10 @@ export class MypagePage {
   constructor(private navCtrl: NavController) {
 
   }
-
+  edit(type:string,data:string,editType:number){
+    this.navCtrl.push(MypageEditPage,{type:type, data:data, editType:editType});
+  }
+  editSchedule(){
+    this.navCtrl.push(MypageSchedulePage);
+  }
 }
