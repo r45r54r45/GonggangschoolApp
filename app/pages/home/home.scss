@@ -11,7 +11,7 @@
     width: 15vh;
     height: 15vh;
     background-color: white;
-    margin:12px;
+    margin:22px 12px 2px;
   }
   .classPrice{
     background-color: rgba(0 , 0, 0, .8);
@@ -23,6 +23,9 @@
   }
   ion-list > .item:first-child, ion-list > .item:last-child, ion-list > .item > .item-inner, ion-item > .item-inner {
     border: none !important;
-    padding: 5px !important;
+    padding: 4px !important;
+  }
+  ion-label{
+    margin: 15px 0px 10px;
   }
 }

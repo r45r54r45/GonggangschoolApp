@@ -10,24 +10,29 @@
     <!--<ion-title>home.detail</ion-title>-->
   <!--</ion-navbar>-->
 <ion-toolbar>
-  <div style="height:30vh; background:blue;">
-    <div style="position: absolute; top:10px; right:10px;">
-      <button (click)="goBack()">go back</button>
+  <div style="height:32vh;" class="classListImage" style="height:auto;overflow:scroll;">
+    <div style="padding: 21px 0px 16px;">
+    <div style="position: absolute; top:0px; right:0px;">
+        <button (click)="goBack()" class="closeButton"><img src="build//images/close.svg"/></button>
     </div>
-    <div>
-      <!--image-->
+    <div class="center">
+      <img  class="classListProfile">
     </div>
     <div>
       <span></span>
     </div>
-    <div>
-      <span>title</span>
+    <div class="center">
+      <span class="regular white">정규인 | 생활과학 12</span> <img class="yonseiLogoSmall" src="build//images/yonsei.png" />
+    </div>
+    <div class="center">
+      <span class="regularLarge fontBold white">기초부터 중급까지 누구나 포토샵</span>
+    </div>
     </div>
   </div>
   <div>
-    <button (click)="slideMove(0)">자기소개</button>
-    <button (click)="slideMove(1)">FAQ</button>
-    <button (click)="slideMove(2)">학생리뷰</button>
+    <button (click)="slideMove(0)" class="classDetailTab regular grey">자기소개</button>
+    <button (click)="slideMove(1)" class="classDetailTab regular grey">FAQ</button>
+    <button (click)="slideMove(2)" class="classDetailTab regular grey">학생리뷰</button>
   </div>
 </ion-toolbar>
 </ion-header>
@@ -49,9 +54,9 @@
   </ion-slides>
 
 </ion-content>
-<ion-footer>
+<ion-footer class="noPadding">
   <ion-toolbar>
-    <button (click)="ask()">문의</button>
-    <button (click)="register()">신청하기</button>
+    <button (click)="ask()" class="footerButton1 regularLarge fontBold">문의</button>
+    <button (click)="register()" class="footerButton2 regularLarge fontBold">신청하기</button>
   </ion-toolbar>
 </ion-footer>

@@ -19,4 +19,62 @@
     padding-top:0 !important;
     height: inherit !important;
   }
+  .classListImage{
+    background:linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../images/class1.png') no-repeat center center ;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+  }
+  .classListProfile{
+    border-radius: 50% ;
+    width: 15vh;
+    height: 15vh;
+    background-color: white;
+    margin:22px 12px 2px;
+  }
+  .classPrice{
+    background-color: rgba(0 , 0, 0, .8);
+    color: white;
+    position: absolute;
+    top:0px;
+    right:0px;
+    padding: 3px 11px 6px;
+  }
+  ion-list > .item:first-child, ion-list > .item:last-child, ion-list > .item > .item-inner, ion-item > .item-inner {
+    border: none !important;
+    padding: 4px !important;
+  }
+  ion-label{
+    margin: 15px 0px 10px;
+  }
+  .toolbar{
+    padding:0px;
+  }
+  .footerButton1,.footerButton2{
+    width: 49%;
+    margin: 0px;
+    border-radius: 0px;
+    height: 8vh !important;
+  }
+  .footerButton1{
+    background-color: #262727;
+  }
+  .footerButton2{
+    background-color: #961a1d;
+  }
+  .classDetailTab{
+    width: 32.5%;
+    margin: 0px;
+    border-radius: 0px;
+    height: 6vh !important;
+    background-color: white;
+    border-bottom: 1px solid rgba(82, 82, 82, .2);
+  }
+  .noPadding{
+    padding:0px;
+    margin:0px;
+  }
+
+
 }
