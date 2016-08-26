@@ -20,7 +20,7 @@
       <ion-input class="big white" type="text" placeholder="이름" clearInput></ion-input>
     </ion-item>
     <ion-item class="transparent schoolSelect">
-      <ion-label class="kor fontLight big white">학교</ion-label>
+      <ion-label class=" fontLight big white">학교</ion-label>
       <ion-select  [(ngModel)]="school">
         <ion-option value="yonsei">연세대학교</ion-option>
         <ion-option value="korea">고려대학교</ion-option>
@@ -34,7 +34,7 @@
       <button (click)="registerComplete()" class="transparent largeButton">회원가입</button>
     </div>
     <div style="clear:both;">
-      <span class="xtiny white">회원가입함으로서<a (click)="openContract()" class="xtiny white">개인정보 보호 정책과 서비스 이용약관</a>에 동의하는 것으로 간주합니다.</span>
+      <span class=" white" style="font-size:9.5px;">회원가입함으로서<a (click)="openContract()" class="small white" style="font-size:9.5px;">개인정보 보호 정책과 서비스 이용약관</a>에 동의하는 것으로 간주합니다.</span>
     </div>
   </ion-toolbar>
 </ion-footer>

@@ -23,14 +23,14 @@
     padding-top: 16vh;
   }
   .mainLogo{
-    padding-top: 14vh;
+    padding-top: 15vh;
   }
   .logo{
     padding: 3vh;
     height:14.5vh;
   }
   .background {
-    background:url("../images/background.png") no-repeat center center fixed;
+    background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/background.png") no-repeat center center fixed;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -41,4 +41,3 @@
   }
 
 }
-

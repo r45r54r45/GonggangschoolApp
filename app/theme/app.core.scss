@@ -18,8 +18,8 @@
 @import "../pages/home-detail-buy/home-detail-buy.scss";
 
 @charset "utf-8";
-/*@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic);*/
-/*@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);*/
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic);
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
 
 //@font-face {
 //  font-family: 'Open Sans';
@@ -32,34 +32,36 @@ $font-kor: 'Noto Sans KR', sans-serif;
 $grey: #525252;
 $mainColor: #961a1d;
 
-.eng {
-  font-family: $font-eng;
-}
-
-.kor {
+body,p,span,html  {
   font-family: $font-kor;
 }
 
-.xtiny {
+//18px
+.tiny {
+  font-size: 8px;
+}
+
+//20px
+.small {
   font-size: 10px;
 }
 
-.tiny {
+//25px
+.regular {
   font-size: 12px;
 }
 
-.small {
-  font-size: 14px;
+//30px
+.regularLarge {
+  font-size: 16px;
 }
 
-.middle {
-  font-size: 18px;
-}
-
+//50px
 .big {
   font-size: 30px;
 }
 
+//60px
 .extra {
   font-size: 32px;
 }
@@ -88,15 +90,18 @@ div.left, input.left, select.left {
 }
 
 .fontLight {
-  font-weight: 200;
+  font-weight: 300;
 }
 
 .fontMedium {
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .fontBold {
   font-weight: 500;
+}
+.fontExtraBold {
+  font-weight: 600;
 }
 
 .toolbar-background {
@@ -182,4 +187,10 @@ ion-footer {
 
 .text-input-clear-icon {
   background-image: none;
+}
+
+
+.yonseiLogoSmall{
+  width:5vw;
+
 }

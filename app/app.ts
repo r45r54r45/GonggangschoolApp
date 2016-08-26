@@ -13,7 +13,7 @@ export class MyApp {
   private rootPage: any;
 
   constructor(private platform: Platform) {
-    // this.rootPage = LoginPage;
+    //this.rootPage = LoginPage;
     this.rootPage = TabsPage;
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
