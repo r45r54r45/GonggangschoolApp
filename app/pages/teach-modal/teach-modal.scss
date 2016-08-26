@@ -1,3 +1,33 @@
-.teach-modal {
-
+.teach-modal-page {
+  ion-slide {
+    overflow-y: scroll;
+  }
+  ion-content {
+    scroll-content {
+      overflow-y: hidden;
+    }
+  }
+  .swiper-slide {
+    -webkit-box-pack: initial;
+    -webkit-justify-content: initial;
+    -ms-flex-pack: initial;
+    justify-content: initial;
+    -webkit-box-align: initial;
+    -webkit-align-items: initial;
+    -ms-flex-align: initial;
+    align-items: initial;
+  }
+  table {
+    td {
+      width: calc(100vw / 6);
+      border: 1px solid black;
+      &:nth-child(1) {
+        width: 10vw;
+        border: none;
+      }
+      &.selected{
+        background:red;
+      }
+    }
+  }
 }

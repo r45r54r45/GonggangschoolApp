@@ -7,15 +7,19 @@
 <ion-header>
 
   <ion-toolbar>
+    <div style="float:left">
+      <span [innerHTML]="headerTitle[headerTitleIndex]"></span>
+    </div>
     <div style="float:right">
       <button (click)="backButton()" class="closeButton"><img src="build//images/close.svg"/></button>
     </div>
   </ion-toolbar>
 
 </ion-header>
-<ion-content padding>
+<ion-content>
   <ion-slides #mySlider [options]="mySlideOptions">
     <ion-slide>
+      <!--1페이지-->
       <ion-list>
         <ion-item>
           <ion-label>수업분야</ion-label>
@@ -44,7 +48,75 @@
       </ion-list>
     </ion-slide>
     <ion-slide>
-      <h1>Slide 2</h1>
+      <ion-list>
+        <div>제목</div>
+        <div>
+          <ion-item>
+            <ion-input type="text" placeholder="Username"></ion-input>
+          </ion-item>
+        </div>
+        <div>
+          희망회차 및 커리큘럼
+        </div>
+        <div>
+          <ion-list inset>
+            <ion-item *ngFor="let curriculum of curriculum_list; let i=index;">
+              <ion-label>{{i+1}}회차</ion-label>
+              <ion-input type="text" [(ngModel)]="curriculum.description"></ion-input>
+            </ion-item>
+          </ion-list>
+        </div>
+        <div>
+          <button (click)="rmCurriculum()">회차 삭제</button>
+          <button (click)="addCurriculum()">회차 추가</button>
+        </div>
+        <div>
+          주말에도 돼요?
+        </div>
+        <div>
+          <ion-input type="text" placeholder="Username"></ion-input>
+        </div>
+        <div>
+          회차당 수업시간
+        </div>
+        <div>
+          <button (click)="addClassDuration()">plus</button>
+        </div>
+        <div>
+          <span>{{class_duration}}</span>시간
+        </div>
+        <div>
+          <button (click)="minusClassDuration()">minus</button>
+        </div>
+        <div>
+          수업 장소
+        </div>
+        <div>
+          <ion-input type="text" placeholder="Username"></ion-input>
+        </div>
+        <div>
+          언제 시간되어요?
+        </div>
+        <div>
+          <table>
+            <thead>
+              <th></th>
+              <th>월</th>
+              <th>화</th>
+              <th>수</th>
+              <th>목</th>
+              <th>금</th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let row of [1,2,3,4,5,6,7,8,9,10]; let rowIndex=index;">
+                <td>{{rowIndex+1}}</td>
+                <td [attr.id]="'td_' + (rowIndex+1)+'_'+(colIndex+1)" (click)="availTimeClick(rowIndex+1,colIndex+1)" *ngFor="let col of [1,2,3,4,5]; let colIndex=index;"></td>
+              </tr>
+            </tbody>
+          </table>
+          <div>구체적인 시간은 학생과 협의할 수 있습니다</div>
+        </div>
+      </ion-list>
     </ion-slide>
     <ion-slide>
       <h1>Slide 3</h1>
@@ -53,6 +125,7 @@
 </ion-content>
 <ion-footer>
   <ion-toolbar>
-    <button (click)="next()">{{buttonText}}</button>
+    <button (click)="prev()" *ngIf="prevButtonShow === true">이전으로</button>
+    <button (click)="next()">다음</button>
   </ion-toolbar>
 </ion-footer>

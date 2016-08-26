@@ -26,6 +26,9 @@
       }
     }
   }
+  .scroll-item-group{
+    font-size:0;
+  }
   ion-scroll {
     height: 20vw;
     margin-left: 20vw;
@@ -39,7 +42,6 @@
       &:nth-child(2n+1) {
         background: red;
       }
-      margin-left: -4px;
       width: 20vw;
       height: 20vw;
 
