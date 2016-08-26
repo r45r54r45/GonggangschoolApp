@@ -92,7 +92,11 @@
   }
 
   .classProfile{
-    padding: 1vw 0vw 4vw 0vw;
+    padding: 0vw 0vw 4vw 0vw;
+    margin-left: 30vw;
+  }
+  .classProfileS{
+    padding: 0vw 0vw 0vw 0vw;
     margin-left: 30vw;
   }
   .classProfileTitle{
@@ -103,14 +107,14 @@
     height:auto;
     overflow:scroll;
     color: grey;
-    padding: 15px;
+    padding: 15px 15px 0px ;
   }
   .whiteBg{
     background-color: white;
     height:auto;
     overflow:scroll;
     color: grey;
-    padding: 15px;
+    padding: 15px 15px 0px;
   }
   scroll-content{
     margin-left: calc(0vh) !important;
@@ -119,5 +123,23 @@
   }
   .greeting{
     padding-top:4vh;
+  }
+  .classRatingStar{
+    width:1.5vh;
+    margin: 1.5px;
+  }
+  .classRating>button{
+    margin:0px !important;
+    padding:0px;
+    height:2em;
+  }
+  .classRating{
+    padding:0px 15px;
+  }
+  .classRatingSection{
+    height:auto;
+    overflow:scroll;
+    border-bottom: 1px solid rgba(82, 82, 82, .2);;
+    padding-bottom: 2.5vh;
   }
 }
