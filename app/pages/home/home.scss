@@ -1,12 +1,16 @@
 .home-page {
   .classListImage{
-    background:linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../images/class1.png') no-repeat center center ;
+    background-position: center center;
+    background-repeat: no-repeat;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
   }
   .classListProfile{
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
     border-radius: 50% ;
     width: 15vh;
     height: 15vh;
