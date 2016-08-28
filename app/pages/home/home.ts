@@ -17,26 +17,26 @@ export class HomePage {
   public classList:any = [];
   private startCounter=0;
 
-  constructor(private navCtrl:NavController, private classService:Class, private loadingController:LoadingController) {
-    classService.getCourseList(this.startCounter).subscribe(data => {
-      console.log(jsonify(data));
-      this.classList = this.classList.concat(jsonify(data));
-    });
+  constructor(private navCtrl:NavController, private classService:Class) {
+    // classService.getCourseList(this.startCounter).subscribe(data => {
+    //   console.log(jsonify(data));
+    //   this.classList = this.classList.concat(jsonify(data));
+    // });
   }
 
   clickClass() {
     this.navCtrl.push(HomeDetailPage);
   }
   doInfinite(infinite){
-    this.startCounter+=10;
-    this.classService.getCourseList(this.startCounter).subscribe(data => {
-      if(jsonify(data).length==0){
-        infinite.enable(false);
-      }else{
-        this.classList = this.classList.concat(jsonify(data));
-        infinite.complete();
-      }
-    });
+  //   this.startCounter+=10;
+  //   this.classService.getCourseList(this.startCounter).subscribe(data => {
+  //     if(jsonify(data).length==0){
+  //       infinite.enable(false);
+  //     }else{
+  //       this.classList = this.classList.concat(jsonify(data));
+  //       infinite.complete();
+  //     }
+  //   });
   }
 }
 
