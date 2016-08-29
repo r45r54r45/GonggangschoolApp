@@ -5,10 +5,10 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
+  <div class="statusBar"></div>
   <ion-toolbar>
     <div style="float:left" class="addClassTitle">
-      <span class="big fontMedium " [innerHTML]="headerTitle[headerTitleIndex]"></span>
+      <span class="big fontMedium grey" [innerHTML]="headerTitle[headerTitleIndex]"></span>
     </div>
     <div style="float:right">
       <button (click)="backButton()" class="closeButton"><img src="build//images/closeDark.svg"/></button>
@@ -24,15 +24,16 @@
         <ion-item class="center">
           <ion-label class="regularLarge fontMedium">수업분야</ion-label>
           <ion-select [(ngModel)]="class_area">
-            <ion-option value="nes" class="big grey">음악</ion-option>
+            <ion-option value="" class="big grey" selected>음악</ion-option>
             <ion-option value="n64">Nintendo64</ion-option>
             <ion-option value="ps">PlayStation</ion-option>
           </ion-select>
         </ion-item>
         <ion-item class="center">
           <ion-label class="regularLarge fontMedium">상세 카테고리</ion-label>
+          <br>
           <ion-select [(ngModel)]="class_category">
-            <ion-option value="nes">악기</ion-option>
+            <ion-option value="" selected>악기</ion-option>
             <ion-option value="n64">Nintendo64</ion-option>
             <ion-option value="ps">PlayStation</ion-option>
           </ion-select>

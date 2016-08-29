@@ -44,4 +44,14 @@ table {
   .floatLeft{
     float:left !important;
   }
+  ion-header{
+    position:relative;
+  }
+  .statusBar{
+    position: absolute;
+    top: 0px;
+    height: 1vw;
+    width: calc(100%/3);
+    background-color: #961a1d;
+  }
 }
