@@ -1,3 +1,49 @@
-.myclass {
-
+.myclass-page {
+  .classListImage{
+    background:linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../images/class1.png') no-repeat center center ;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    position: relative;
+  }
+  .classListProfile{
+    border-radius: 50% ;
+    width: 15vh;
+    height: 15vh;
+    background-color: white;
+    margin:22px 12px 2px;
+  }
+  .classDate{
+    background-color: rgba(150  , 26, 29, .9);
+    color: white;
+    position: absolute;
+    top:0px;
+    right:0px;
+    padding: 3px 26px 6px;
+  }
+  ion-list > .item:first-child, ion-list > .item:last-child, ion-list > .item > .item-inner, ion-item > .item-inner {
+    border: none !important;
+    padding: 4px !important;
+  }
+  ion-label{
+    margin: 15px 0px 15px;
+  }
+  .blackOverlay{
+    background-color: rgba(0, 0, 0, .6);
+    height:100vh;
+    width: 100vw;
+    z-index: 1;
+    position: absolute;
+    top:0px;
+    left:0px;
+  }
+  .topLayer{
+    z-index: 2;
+    height:100vh;
+    width: 100vw;
+    position: absolute;
+    top:35%;
+    left:0px;
+  }
 }

@@ -1,3 +1,24 @@
-.chat {
-
+.chat-page{
+  .chatProfile{
+    max-width:14.5vw !important;
+    max-height:14.5vw !important;
+  }
+  ion-list > .item:first-child, ion-list > .item:last-child{
+    border-bottom: 1px solid rgba(82, 82, 82, .2) !important;
+    padding: 5px 15px !important;
+  }
+  ion-content > scroll-content{
+    padding:0px !important;
+    margin-top: calc(0vw) !important;
+  }
+  ion-item>.item-inner{
+    padding:0px !important;
+  }
+  .lightGreyBg{
+    background-color: #f2f2f2;
+    height:auto;
+    overflow:scroll;
+    color: grey;
+    height: 100vh;
+  }
 }

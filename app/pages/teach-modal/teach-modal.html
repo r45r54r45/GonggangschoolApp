@@ -7,11 +7,11 @@
 <ion-header>
 
   <ion-toolbar>
-    <div style="float:left">
-      <span [innerHTML]="headerTitle[headerTitleIndex]"></span>
+    <div style="float:left" class="addClassTitle">
+      <span class="big fontMedium " [innerHTML]="headerTitle[headerTitleIndex]"></span>
     </div>
     <div style="float:right">
-      <button (click)="backButton()" class="closeButton"><img src="build//images/close.svg"/></button>
+      <button (click)="backButton()" class="closeButton"><img src="build//images/closeDark.svg"/></button>
     </div>
   </ion-toolbar>
 
@@ -21,25 +21,25 @@
     <ion-slide>
       <!--1페이지-->
       <ion-list>
-        <ion-item>
-          <ion-label>수업분야</ion-label>
+        <ion-item class="center">
+          <ion-label class="regularLarge fontMedium">수업분야</ion-label>
           <ion-select [(ngModel)]="class_area">
-            <ion-option value="nes">NES</ion-option>
+            <ion-option value="nes" class="big grey">음악</ion-option>
             <ion-option value="n64">Nintendo64</ion-option>
             <ion-option value="ps">PlayStation</ion-option>
           </ion-select>
         </ion-item>
-        <ion-item>
-          <ion-label>상세 카테고리</ion-label>
+        <ion-item class="center">
+          <ion-label class="regularLarge fontMedium">상세 카테고리</ion-label>
           <ion-select [(ngModel)]="class_category">
-            <ion-option value="nes">NES</ion-option>
+            <ion-option value="nes">악기</ion-option>
             <ion-option value="n64">Nintendo64</ion-option>
             <ion-option value="ps">PlayStation</ion-option>
           </ion-select>
         </ion-item>
-        <ion-item>
-          <ion-label>수업 태그</ion-label>
-          <ion-input type="text" placeholder="Username" [(ngModel)]="class_tag"></ion-input>
+        <ion-item class="center">
+          <ion-label class="regularLarge fontMedium">수업 태그</ion-label>
+          <ion-input type="text" placeholder="ex. 피아노" [(ngModel)]="class_tag"></ion-input>
         </ion-item>
       </ion-list>
     </ion-slide>
@@ -165,6 +165,7 @@
 <ion-footer>
   <ion-toolbar>
     <button (click)="prev()" *ngIf="prevButtonShow === true">이전으로</button>
-    <button (click)="next()">{{bottomRightButton}}</button>
+    <button class="transparent  largeButtonLight" style="float:right;" (click)="next()">{{bottomRightButton}}</button>
+    <!--이거 왜 이럼-->
   </ion-toolbar>
 </ion-footer>

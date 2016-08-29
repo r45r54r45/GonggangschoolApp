@@ -6,10 +6,10 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>시간표 수정</ion-title>
+  <ion-navbar class="NavBar">
+    <ion-title class="white regularLarge"><span class="white regularLarge">시간표 수정</span></ion-title>
     <ion-buttons end>
-      <button (click)="submit()">
+      <button class="white regularLarge" (click)="submit()">
         확인
       </button>
     </ion-buttons>
@@ -22,15 +22,15 @@
   <table>
     <thead>
     <th></th>
-    <th>월</th>
-    <th>화</th>
-    <th>수</th>
-    <th>목</th>
-    <th>금</th>
+    <th><span class="regular grey fontMedium">월</span></th>
+    <th><span class="regular grey fontMedium">화</span></th>
+    <th><span class="regular grey fontMedium">수</span></th>
+    <th><span class="regular grey fontMedium">목</span></th>
+    <th><span class="regular grey fontMedium">금</span></th>
     </thead>
     <tbody>
     <tr *ngFor="let row of [1,2,3,4,5,6,7,8,9,10]; let rowIndex=index;">
-      <td>{{rowIndex+1}}</td>
+      <td><span class="regular grey">{{rowIndex+1}}</span></td>
       <td [attr.id]="'td_' + (rowIndex+1)+'_'+(colIndex+1)" (click)="availTimeClick(rowIndex+1,colIndex+1)" *ngFor="let col of [1,2,3,4,5]; let colIndex=index;"></td>
     </tr>
     </tbody>

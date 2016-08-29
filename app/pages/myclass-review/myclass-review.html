@@ -7,39 +7,53 @@
 <ion-header>
 
   <ion-toolbar>
-    <div style="position: absolute; top:10px; right:10px;">
-      <button (click)="goBack()">go back</button>
+    <div style="float:right">
+      <button (click)="goBack()" class="closeButton"><img src="build//images/closeDark.svg"/></button>
     </div>
-    <span>수강 수업을 <br> 평가해주세요</span>
+    <span class="big fontMedium">수강 수업을 <br> 평가해주세요!</span>
   </ion-toolbar>
 
 </ion-header>
 
 
-<ion-content padding>
-  <div>설명</div>
+<ion-content >
+  <div class="big fontMedium center fontLight grey">설명</div>
   <div>
-    <rating [(ngModel)]="rate_0" [max]="5" [readonly]="false"
-            (onHover)="hoveringOver(0,$event)"></rating>
+    <!--<button class="transparent floatRight">
+      <img class="classRatingStar" src="build/images/star.svg"/>
+      <img class="classRatingStar" src="build/images/star.svg"/>
+      <img class="classRatingStar" src="build/images/star.svg"/>
+      <img class="classRatingStar" src="build/images/star.svg"/>
+      <img class="classRatingStar" src="build/images/starLine.svg"/>
+    </button>-->
+    <button class="transparent floatRight">
+      <img class="classRatingStar" src="build/images/star.svg"/>
+      <img class="classRatingStar" src="build/images/star.svg"/>
+      <img class="classRatingStar" src="build/images/star.svg"/>
+      <img class="classRatingStar" src="build/images/star.svg"/>
+      <img class="classRatingStar" src="build/images/starLine.svg"/>
+    </button>
   </div>
-  <div>성격</div>
+  <div class="big fontMedium center fontLight grey">성격</div>
   <div>
-    <rating [(ngModel)]="rate_1" [max]="5" [readonly]="false"
-            (onHover)="hoveringOver(1,$event)"></rating>
+    <!--<rating [(ngModel)]="rate_1" [max]="5" [readonly]="false"
+            (onHover)="hoveringOver(1,$event)"></rating>-->
   </div>
-  <div>과목</div>
+  <div class="big fontMedium center fontLight grey">과목</div>
   <div>
-    <rating [(ngModel)]="rate_2" [max]="5" [readonly]="false"
-            (onHover)="hoveringOver(2,$event)"></rating>
+    <!--<rating [(ngModel)]="rate_2" [max]="5" [readonly]="false"
+            (onHover)="hoveringOver(2,$event)"></rating>-->
   </div>
-  <div>수업방식</div>
+  <div class="big fontMedium center fontLight grey">수업방식</div>
   <div>
-    <rating [(ngModel)]="rate_3" [max]="5" [readonly]="false"
-            (onHover)="hoveringOver(3,$event)"></rating>
+    <!--<rating [(ngModel)]="rate_3" [max]="5" [readonly]="false"
+            (onHover)="hoveringOver(3,$event)"></rating>-->
   </div>
-  <div>짧은 평</div>
-  <div><textarea [(ngModel)]="rate_description" placeholder="내용을 작성해주세요"></textarea></div>
+  <div class=" fontMedium  fontMedium grey" style="font-size:20px;">짧은 평</div>
   <div>
-    <button style="float:right;" (click)="submit()">작성</button>
+    <textarea class="reviewArea" placeholder="문의 내용을 입력하세요"></textarea>
+  </div>
+  <div>
+    <button class="largeButtonLight" style="float:right;" (click)="submit()">작성</button>
   </div>
 </ion-content>

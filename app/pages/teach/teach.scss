@@ -2,11 +2,11 @@
   .toolbar {
     padding: 0;
   }
-  ion-content{
-    scroll-content{
-      margin-top: 20vw !important;
-    }
-  }
+  //ion-content{
+  //  scroll-content{
+  //    margin-top: 20vw !important;
+  //  }
+  //}
   ion-slides{
     height: inherit;
   }
@@ -20,7 +20,7 @@
       top:0;
       width:20vw;
       height:20vw;
-      background: purple;
+      background: #961a1d;
       button{
         margin:auto;
       }
@@ -37,10 +37,10 @@
         margin-left: 0 !important;
       }
       &:nth-child(2n) {
-        background: black;
+        //background: black;
       }
       &:nth-child(2n+1) {
-        background: red;
+        //background: red;
       }
       width: 20vw;
       height: 20vw;
@@ -52,5 +52,164 @@
     position: absolute;
     bottom: 50px;
     right:10px;
+  }
+  .teachClassList{
+    background:linear-gradient(rgba(0, 0, 0, .0), rgba(0, 0, 0, .0)), url('../images/sampleClass1.png') no-repeat center center ;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+  }
+  .teachClassList2{
+    background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/sampleClass2.png') no-repeat center center ;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+  }
+  .addButton{
+    width:6vw;
+  }
+  .teachClassStatus{
+    z-index: 1;
+    color: white;
+    font-size: 14px;
+    position: absolute;
+    top: 7.5vw;
+    left: 26.5vw;
+  }
+  .teachClassActive{
+    z-index: 2;
+    height: 1.5vw;
+    width: 20vw;
+    background-color: #961a1d;
+    position: absolute;
+    bottom:0vw;
+    left: 0vw;
+  }
+  .TeachImage{
+    background:linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../images/class1.png') no-repeat center center ;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    position: relative;
+  }
+  .TeachProfile{
+    border-radius: 50% ;
+    width: 15vh;
+    height: 15vh;
+    background-color: white;
+    margin:22px 12px 2px;
+  }
+  .classDetailTab{
+    width: calc(97% / 3);
+    margin: 0px;
+    border-radius: 0px;
+    height: 6vh !important;
+    background-color: white;
+    border-bottom: 1px solid rgba(82, 82, 82, .2);
+  }
+  .noPadding{
+    padding:0px;
+    margin:0px;
+  }
+  .profileVerification{
+    border-radius: 50% ;
+    width: 3.5vh;
+    height: 3.5vh;
+    background-color: #525252;
+    margin:18px 5px 24px;
+  }
+  .floatLeft{
+    float:left;
+  }
+  .floatRight{
+    float:right;
+  }
+
+  .classProfile{
+    padding: 0vw 0vw 4vw 0vw;
+    margin-left: 30vw;
+  }
+  .classProfileS{
+    padding: 0vw 0vw 0vw 0vw;
+    margin-left: 30vw;
+  }
+  .classProfileTitle{
+    padding: 0vw 14vw 0vw 0vw;
+  }
+  .lightGreyBg{
+    background-color: #f2f2f2;
+    height:auto;
+    overflow:scroll;
+    color: grey;
+    padding: 15px 15px 0px ;
+  }
+  .whiteBg{
+    background-color: white;
+    height:auto;
+    overflow:scroll;
+    color: grey;
+    padding: 15px 15px 0px;
+  }
+  ion-content>scroll-content,{
+    margin-top: calc(90vw) !important;
+
+  }
+
+  .greeting{
+    padding-top:4vh;
+  }
+  .classRatingStar{
+    width:1.5vh;
+    margin: 1.5px;
+  }
+  .classRatingStarS{
+    width:1.2vh;
+  }
+  .classRating>button{
+    margin:0px !important;
+    padding:0px;
+    height:2em;
+  }
+  .classRating{
+    padding:0px 15px;
+  }
+  .classRatingSection{
+    height:auto;
+    overflow:scroll;
+    border-bottom: 1px solid rgba(82, 82, 82, .2);;
+    padding-bottom: 2.5vh;
+  }
+  .classRatingList{
+    padding-bottom: 20px;
+    height: initial;
+  }
+  .ratingProfile{
+    background-color: #525252;
+    width: 10vw;
+    border-radius: 50%;
+    margin: 0px 15px 15px 0px;
+  }
+  .ratingText{
+    padding-left:14vw;
+    display:inline-block;
+    line-height: 18px;
+  }
+  .ratingTextPadding{
+    padding-top:20px;
+  }
+  .teachEdit{
+    border-radius: 50%;
+    background-color: #961a1d;
+    color: white;
+    width:14vw;
+    height:14vw;
+    z-index: 1;
+    margin-bottom: 3.5vw;
+  }
+  .slide-zoom{
+    text-align: left;
   }
 }

@@ -9,26 +9,29 @@
   <ion-toolbar>
     <div class="ios-only-padding"></div>
     <div class="add-class-button-area">
-      <button (click)="addClass()">추가</button>
+      <button class="transparent" (click)="addClass()"><img class="addButton" src="build//images/add.svg"></button>
     </div>
     <ion-scroll scrollX="true">
       <div style="width:160vw; height:20vw;" class="scroll-item-group">
-        <div class="scroll-item">
+        <div class="scroll-item teachClassList">
+          <span class="teachClassStatus">마감</span>
+          <div class="teachClassActive"></div>
         </div>
-        <div class="scroll-item">
+        <div class="scroll-item teachClassList2">
         </div>
-        <div class="scroll-item">
+        <div class="scroll-item teachClassList2">
         </div>
-        <div class="scroll-item">
+        <div class="scroll-item teachClassList2">
         </div>
-        <div class="scroll-item">
+        <div class="scroll-item teachClassList2">
         </div>
-        <div class="scroll-item">
+        <div class="scroll-item teachClassList2">
         </div>
-        <div class="scroll-item">
+        <div class="scroll-item teachClassList2">
         </div>
-        <div class="scroll-item">
+        <div class="scroll-item teachClassList2">
         </div>
+
       </div>
     </ion-scroll>
   </ion-toolbar>
@@ -36,42 +39,196 @@
 </ion-header>
 
 <ion-content>
-  <div style="height:30vh; background:blue;">
-    <div>
-      <!--image-->
-    </div>
-    <div>
-      <span></span>
-    </div>
-    <div>
-      <span>title</span>
+  <div style="height:32vh;" class="TeachImage" style="height:auto;overflow:scroll;">
+    <div style="padding: 21px 0px 16px;">
+      <div class="center">
+        <img class="TeachProfile">
+      </div>
+      <div>
+        <span></span>
+      </div>
+      <div class="center">
+        <span class="regular white">정규인 | 생활과학 12</span> <img class="yonseiLogoSmall" src="build//images/yonsei.png"/>
+      </div>
+      <div class="center">
+        <span class="regularLarge fontBold white">기초부터 중급까지 누구나 포토샵</span>
+      </div>
     </div>
   </div>
   <div>
-    <button (click)="slideMove(0)">자기소개</button>
-    <button (click)="slideMove(1)">FAQ</button>
-    <button (click)="slideMove(2)">학생리뷰</button>
+    <button (click)="slideMove(0)" class="classDetailTab regular grey">자기소개</button>
+    <button (click)="slideMove(1)" class="classDetailTab regular grey">FAQ</button>
+    <button (click)="slideMove(2)" class="classDetailTab regular grey">학생리뷰</button>
   </div>
   <ion-slides #mySlider [options]="mySlideOptions">
     <ion-slide>
-      <div>
-        자기소개
-      </div>
+      <ion-list>
+        <div class="center greeting">
+          <span class="regularLarge grey fontLight">안녕하세요,<br></span>
+          <span class="grey fontLight" style="font-size:20px;">이재하입니다!</span>
+        </div>
+        <div class="center">
+          <img class="profileVerification">
+          <img class="profileVerification">
+          <img class="profileVerification">
+        </div>
+        <div class="lightGreyBg">
+          <div class="left floatLeft classProfileTitle regularLarge grey ">코치 경력</div>
+          <div>
+            <div class="left classProfile regular">14대 디자인 어워드 장려상</div>
+            <div class="left classProfile regular">상상창의 디자인 경진대회 대상</div>
+            <div class="left classProfile regular">사람사람 디자인 인턴</div>
+          </div>
+        </div>
+        <div class="whiteBg">
+          <div class="left floatLeft classProfileTitle regularLarge grey">켜리큘럼</div>
+          <div>
+            <div class="left classProfile regular">1회: 기초 및 툴 익히기</div>
+            <div class="left classProfile regular">2회: 기초 및 툴 익히기</div>
+            <div class="left classProfile regular">3회: 기초 및 툴 익히기</div>
+            <div class="left classProfile regular">4회: 기초 및 툴 익히기</div>
+          </div>
+        </div>
+        <div class="lightGreyBg">
+          <div class="left floatLeft classProfileTitle regularLarge grey">진행사항</div>
+          <div>
+            <div class="left classProfileS regular">회당 1시간 총 4회</div>
+          </div>
+        </div>
+        <div class="lightGreyBg">
+          <div class="left floatLeft classProfileTitle regularLarge grey">수강료</div>
+          <div>
+            <div class="left classProfileS regular">₩12,500 / 시간 총 ₩100,000</div>
+          </div>
+        </div>
+        <div class="lightGreyBg">
+          <div class="left floatLeft classProfileTitle regularLarge grey">장소</div>
+          <div>
+            <div class="left classProfileS regular">언기도 세미나실 129호</div>
+          </div>
+        </div>
+        <div class="lightGreyBg" style="padding-bottom:15px;">
+          <div class="left floatLeft classProfileTitle regularLarge grey">준비물</div>
+          <div>
+            <div class="left classProfileS regular">포토샵 사용 가능한 컴퓨터</div>
+          </div>
+        </div>
+      </ion-list>
     </ion-slide>
     <ion-slide>
       <h1>Slide 2</h1>
     </ion-slide>
     <ion-slide>
-      <h1>Slide 3</h1>
+      <div class="classRatingSection">
+        <div class="whiteBg classRating">
+          <button class="transparent">
+            <div class="left regular grey ">설명</div>
+          </button>
+          <button class="transparent floatRight">
+            <img class="classRatingStar" src="build/images/star.svg"/>
+            <img class="classRatingStar" src="build/images/star.svg"/>
+            <img class="classRatingStar" src="build/images/star.svg"/>
+            <img class="classRatingStar" src="build/images/star.svg"/>
+            <img class="classRatingStar" src="build/images/starLine.svg"/>
+          </button>
+        </div>
+        <div class="whiteBg classRating">
+          <button class="transparent">
+            <div class="left regular grey">성격</div>
+          </button>
+          <button class="transparent floatRight">
+            <img class="classRatingStar" src="build/images/star.svg"/>
+            <img class="classRatingStar" src="build/images/star.svg"/>
+            <img class="classRatingStar" src="build/images/starLine.svg"/>
+            <img class="classRatingStar" src="build/images/starLine.svg"/>
+            <img class="classRatingStar" src="build/images/starLine.svg"/>
+          </button>
+        </div>
+        <div class="whiteBg classRating">
+          <button class="transparent ">
+            <div class="left regular grey">과목</div>
+          </button>
+          <button class="transparent floatRight">
+            <img class="classRatingStar" src="build/images/star.svg"/>
+            <img class="classRatingStar" src="build/images/star.svg"/>
+            <img class="classRatingStar" src="build/images/star.svg"/>
+            <img class="classRatingStar" src="build/images/star.svg"/>
+            <img class="classRatingStar" src="build/images/starLine.svg"/>
+          </button>
+        </div>
+        <div class="whiteBg classRating">
+          <button class="transparent">
+            <div class="left regular grey">수업방식</div>
+          </button>
+          <button class="transparent floatRight">
+            <img class="classRatingStar" src="build/images/star.svg"/>
+            <img class="classRatingStar" src="build/images/star.svg"/>
+            <img class="classRatingStar" src="build/images/star.svg"/>
+            <img class="classRatingStar" src="build/images/starLine.svg"/>
+            <img class="classRatingStar" src="build/images/starLine.svg"/>
+          </button>
+        </div>
+        <div class="whiteBg classRating">
+          <button class="transparent floatRight grey small">
+            <br>
+            리뷰 8개
+          </button>
+        </div>
+      </div>
+      <div class="lightGreyBg classRatingList">
+        <div class="">
+          <img src="build//images/yonsei.png"class="floatLeft ratingProfile"/>
+          <div class="transparent floatRight tiny grey">
+            07.28.16
+          </div>
+          <div class="left regular grey" style="line-height: 22px;">
+            헬로우톡우
+            <div class="transparent">
+              <img class="classRatingStarS" src="build/images/star.svg"/>
+              <img class="classRatingStarS" src="build/images/star.svg"/>
+              <img class="classRatingStarS" src="build/images/star.svg"/>
+              <img class="classRatingStarS" src="build/images/starLine.svg"/>
+              <img class="classRatingStarS" src="build/images/starLine.svg"/>
+            </div>
+            <span class="regular ratingText">
+              수업 설명 계속 합니다. 수업 설명 계 속 합니다속 합니다속 합니다.
+              업 설속 합니다합니다 설명 계속 합속 합니다니다속 합속 합니니다
+              합니다계속 속 합니다설명 계속 합니다.
+            </span>
+          </div>
+
+          <div style="clear:both"></div>
+        </div>
+        <div class="ratingTextPadding">
+          <img src="build//images/yonsei.png"class="floatLeft ratingProfile"/>
+          <div class="transparent floatRight tiny grey">
+            07.28.16
+          </div>
+          <div class="left regular grey" style="line-height: 22px;">
+            헬로우톡우
+            <div class="transparent">
+              <img class="classRatingStarS" src="build/images/star.svg"/>
+              <img class="classRatingStarS" src="build/images/star.svg"/>
+              <img class="classRatingStarS" src="build/images/star.svg"/>
+              <img class="classRatingStarS" src="build/images/starLine.svg"/>
+              <img class="classRatingStarS" src="build/images/starLine.svg"/>
+            </div>
+            <span class="regular ratingText">
+              수업 설명 계속 합니다. 수업 설명 계 속 합니다속 합니다속 합니다.
+              업 설속 합니다합니다 설명 계속 합속 합니다니다속 합속 합니니다
+              합니다계속 속 합니다설명 계속 합니다.
+            </span>
+          </div>
+
+          <div style="clear:both"></div>
+        </div>
+      </div>
     </ion-slide>
   </ion-slides>
 
 </ion-content>
 <div class="floating_button">
   <div>
-    <button>버튼1</button>
-  </div>
-  <div>
-    <button>버튼1</button>
+    <button class="teachEdit regular">수정</button>
   </div>
 </div>

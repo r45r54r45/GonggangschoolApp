@@ -19,7 +19,7 @@ export class TeachModalPage {
   };
   private bottomRightButton:string="다음";
   private prevButtonShow:boolean = false;
-  private headerTitle:string[] = ['수업 종류를<br/>선택해주세요', '수업 정보를<br/>작성해주세요', '코치 정보를<br/>작성해주세요'];
+  private headerTitle:string[] = ['1:1 수업 종류를<br/>선택해주세요!', '1:1 수업 정보를<br/>작성해주세요!', '코치 정보를<br/>작성해주세요!'];
   private headerTitleIndex:number = 0;
   private class_area:string="";
   private class_category:string="";

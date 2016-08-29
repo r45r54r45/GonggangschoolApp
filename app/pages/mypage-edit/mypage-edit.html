@@ -7,10 +7,10 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{pageTitle}}</ion-title>
+    <ion-title class="mainColorBg white regularLarge"><span class="white regularLarge">{{pageTitle}}</span></ion-title>
     <ion-buttons end>
-      <button (click)="submit()">
-        <ion-icon name="options"></ion-icon>
+      <button class="transparent regularLarge white" (click)="submit()">
+        확인
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -18,6 +18,7 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding class="inputArea">
   <ion-input [(ngModel)]="targetData" type="text" clearInput></ion-input>
+  <div class="lightGreyBg"></div>
 </ion-content>

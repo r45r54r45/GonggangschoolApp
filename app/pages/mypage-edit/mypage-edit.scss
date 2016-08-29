@@ -1,3 +1,46 @@
-.mypage-edit {
+.mypage-edit-page {
+  ion-title{
+    padding-top:2px;
+  }
+  input::-webkit-input-placeholder {
+    color: rgba(82, 82, 82, .2) !important;
+    font-weight: 300;
+    font-size: 12px;
+  }
 
+  ion-input:-moz-placeholder { /* Firefox 18- */
+    color: rgba(82, 82, 82, .2) !important;
+    font-weight: 300;
+    font-size: 12px;
+  }
+
+  input::-moz-placeholder { /* Firefox 19+ */
+    color: rgba(82, 82, 82, .2) !important;
+    font-weight: 300;
+    font-size: 12px;
+  }
+
+  input:-ms-input-placeholder {
+    color: rgba(82, 82, 82, .2) !important;
+    font-weight: 300;
+    font-size: 12px;
+
+  }
+  scroll-content{
+    padding: 0px;
+  }
+  .lightGreyBg{
+    background-color: #f2f2f2;
+    height:auto;
+    overflow:scroll;
+    color: grey;
+    height: 100vh;
+  }
+  ion-content{
+    color:rgba(82, 82, 82, .4) !important;
+    padding: 0px 15px;
+  }
+  .text-input{
+    padding:0px 15px;
+  }
 }

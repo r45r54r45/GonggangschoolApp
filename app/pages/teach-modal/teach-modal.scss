@@ -28,4 +28,20 @@ table {
       border: none;
     }
   }
+  .closeButton {
+    background-color: rgba(0, 0, 0, .0);
+    width: 7vw;
+    margin: 0px 10px !important;
+    padding: 0px !important;
+
+  }
+  .addClassTitle{
+    padding: 15px;
+  }
+  .floatRight{
+    float:right !important;
+  }
+  .floatLeft{
+    float:left !important;
+  }
 }

@@ -23,8 +23,8 @@
 
 
 @charset "utf-8";
-//@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic);
-//@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic);
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
 
 //@font-face {
 //  font-family: 'Open Sans';
@@ -71,7 +71,7 @@ body,p,span,html  {
   font-size: 32px;
 }
 
-div.center, input.center, select.center {
+div.center, input.center, select.center, ion-col.center {
   text-align: center;
   text-align-last: center;
 }
@@ -148,6 +148,15 @@ div.left, input.left, select.left {
   background-color: transparent;
   color: rgba(255, 255, 255, 1);
 }
+.largeButtonLight {
+  border-radius: 25px;
+  height: 50px;
+  width: 100px;
+  margin-bottom: 8px;
+  border: 1px solid rgba(82, 82, 82, .6);
+  background-color: transparent;
+  color: rgba(82, 82, 82, .6);
+}
 
 button.activated{
   background-color: rgba(0, 0, 0, .0) !important;
@@ -213,4 +222,10 @@ td{
   &.selected{
     background:red;
   }
+}
+.floatRight{
+  float:right;
+}
+.floatLeft{
+  float:left;
 }

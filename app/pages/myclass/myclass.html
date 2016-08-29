@@ -13,35 +13,39 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
   <ion-list>
-    <ion-item style="height:30vh">
-      <div style="position: absolute; top:10px; right:10px;">
-        <span>12500원/시간</span>
+    <ion-item style="height:32vh;background-color:grey" class="classListImage">
+      <div class="classDate">
+        <span class="regular fontBold">7월28일</span>
       </div>
-      <div>
-        <!--image-->
+      <div class="center">
+        <img class="classListProfile" >
       </div>
       <div>
         <span></span>
       </div>
-      <div>
-        <span>title</span>
+      <div class="center">
+        <span class="regular white">이재하</span> <img class="yonseiLogoSmall" src="build//images/yonsei.png" />
+      </div>
+      <div class="center">
+        <span class="regularLarge fontBold white">기초부터 중급까지 누구나 포토샵</span>
       </div>
     </ion-item>
-    <ion-item style="height:30vh">
-      <div>
-        <!--image-->
+    <ion-item style="height:32vh;background-color:grey" class="classListImage">
+      <div class="blackOverlay"></div>
+      <div class="center">
+        <img class="classListProfile" >
       </div>
-      <div>
-        <span></span>
+      <div class="center">
+        <span class="regular white">이재하</span> <img class="yonseiLogoSmall" src="build//images/yonsei.png" />
       </div>
-      <div>
-        <span>title</span>
+      <div class="center">
+        <span class="regularLarge fontBold white">기초부터 중급까지 누구나 포토샵</span>
       </div>
-      <div style="position: absolute; width:100%; height:100%; background:rgba(0,0,0,0.4); left:0; top:0;">
-        <div>기초부터 중급까지 포토샵</div>
-        <button (click)="openReview()">리뷰하기</button>
+      <div class="topLayer center">
+        <div class="white regularLarge fontBold">기초부터 중급까지 누구나 포토샵<br></div>
+        <button (click)="openReview()" class="transparent largeButton regularLarge" style="margin-top:6vw;">리뷰하기</button>
       </div>
     </ion-item>
   </ion-list>

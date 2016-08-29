@@ -1,3 +1,19 @@
-.mypage-schedule {
+.mypage-schedule-page {
 
+  td{
+    height: 5.8vh;
+    border: 1px solid rgba(0,0,0,.1);
+  }
+  th{
+        padding: 20px 0px 10px;
+  }
+  td:nth-child(1){
+    width: 5vw;
+  }
+  table{
+    margin:auto;
+  }
+  .NavBar{
+    background-color: #961a1d;
+  }
 }
