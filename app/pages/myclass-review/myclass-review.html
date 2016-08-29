@@ -10,14 +10,14 @@
     <div style="float:right">
       <button (click)="goBack()" class="closeButton"><img src="build//images/closeDark.svg"/></button>
     </div>
-    <span class="big fontMedium">수강 수업을 <br> 평가해주세요!</span>
+    <span class="big fontMedium grey">수강 수업을 <br> 평가해주세요!</span>
   </ion-toolbar>
 
 </ion-header>
 
 
 <ion-content >
-  <div class="big fontMedium center fontLight grey">설명</div>
+  <div class="big fontLight center fontLight grey paddingTop">설명</div>
   <div>
     <!--<button class="transparent floatRight">
       <img class="classRatingStar" src="build/images/star.svg"/>
@@ -26,7 +26,8 @@
       <img class="classRatingStar" src="build/images/star.svg"/>
       <img class="classRatingStar" src="build/images/starLine.svg"/>
     </button>-->
-    <button class="transparent floatRight">
+    <div class="center">
+    <button class="transparent ">
       <img class="classRatingStar" src="build/images/star.svg"/>
       <img class="classRatingStar" src="build/images/star.svg"/>
       <img class="classRatingStar" src="build/images/star.svg"/>
@@ -34,22 +35,50 @@
       <img class="classRatingStar" src="build/images/starLine.svg"/>
     </button>
   </div>
-  <div class="big fontMedium center fontLight grey">성격</div>
+  </div>
+  <div class="big fontLight center fontLight grey paddingTop">성격</div>
+  <div class="center">
+    <button class="transparent ">
+      <img class="classRatingStar" src="build/images/star.svg"/>
+      <img class="classRatingStar" src="build/images/star.svg"/>
+      <img class="classRatingStar" src="build/images/star.svg"/>
+      <img class="classRatingStar" src="build/images/star.svg"/>
+      <img class="classRatingStar" src="build/images/starLine.svg"/>
+    </button>
+  </div>
   <div>
     <!--<rating [(ngModel)]="rate_1" [max]="5" [readonly]="false"
             (onHover)="hoveringOver(1,$event)"></rating>-->
   </div>
-  <div class="big fontMedium center fontLight grey">과목</div>
+  <div class="big fontLight center fontLight grey paddingTop">과목</div>
+  <div class="center">
+    <button class="transparent ">
+      <img class="classRatingStar" src="build/images/star.svg"/>
+      <img class="classRatingStar" src="build/images/star.svg"/>
+      <img class="classRatingStar" src="build/images/star.svg"/>
+      <img class="classRatingStar" src="build/images/star.svg"/>
+      <img class="classRatingStar" src="build/images/starLine.svg"/>
+    </button>
+  </div>
   <div>
     <!--<rating [(ngModel)]="rate_2" [max]="5" [readonly]="false"
             (onHover)="hoveringOver(2,$event)"></rating>-->
   </div>
-  <div class="big fontMedium center fontLight grey">수업방식</div>
+  <div class="big fontLight center fontLight grey paddingTop">수업방식</div>
+  <div class="center">
+    <button class="transparent">
+      <img class="classRatingStar" src="build/images/star.svg"/>
+      <img class="classRatingStar" src="build/images/star.svg"/>
+      <img class="classRatingStar" src="build/images/star.svg"/>
+      <img class="classRatingStar" src="build/images/star.svg"/>
+      <img class="classRatingStar" src="build/images/starLine.svg"/>
+    </button>
+  </div>
   <div>
     <!--<rating [(ngModel)]="rate_3" [max]="5" [readonly]="false"
             (onHover)="hoveringOver(3,$event)"></rating>-->
   </div>
-  <div class=" fontMedium  fontMedium grey" style="font-size:20px;">짧은 평</div>
+  <div class=" fontLight  fontMedium grey paddingTop" style="font-size:20px;">짧은 평</div>
   <div>
     <textarea class="reviewArea" placeholder="문의 내용을 입력하세요"></textarea>
   </div>
