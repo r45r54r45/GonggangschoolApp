@@ -22,6 +22,7 @@
     font-size:0;
   }
   .classListImage{
+    height:auto;overflow:scroll;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -30,6 +31,9 @@
     -o-background-size: cover;
   }
   .classListProfile{
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
     border-radius: 50% ;
     width: 15vh;
     height: 15vh;

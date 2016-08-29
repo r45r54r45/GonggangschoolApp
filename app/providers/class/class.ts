@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
-import {Http} from '@angular/http';
+import {Http, Headers, RequestOptions} from '@angular/http';
 import 'rxjs/add/operator/map';
-import {Observable} from 'rxjs/Observable';
 import {SERVER_URL} from '../config';
 /*
  Generated class for the Class provider.
@@ -11,18 +10,45 @@ import {SERVER_URL} from '../config';
  */
 @Injectable()
 export class Class {
-
+  public headers:Headers;
   constructor(private http:Http) {
+    this.headers = new Headers({ 'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNDcxMTEwODEyfQ.cVs-bqvTpr47Ts2pF5RDT5n8E6snUE7_nOF9OnRE8ww' });
   }
 
   getCourseList(start){
-    let repos = this.http.get(SERVER_URL+`courses/list?start=${start}`);
-    return repos;
+    let courses = this.http.get(SERVER_URL+`courses/list?start=${start}`);
+    return courses;
+  }
+  getBasic(courseId){
+    return this.http.get(SERVER_URL+`courses/watch/basic?courseId=${courseId}`);
+  }
+  getProfile(courseId){
+    return this.http.get(SERVER_URL+`courses/watch/profile?courseId=${courseId}`);
+  }
+  getFaq(courseId){
+  return this.http.get(SERVER_URL+`courses/watch/faq?courseId=${courseId}`);
+  }
+  getRating(courseId){
+    return this.http.get(SERVER_URL+`courses/watch/review/rating?courseId=${courseId}`);
+  }
+  getComment(courseId,start){
+    return this.http.get(SERVER_URL+`courses/watch/review/comment?courseId=${courseId}&start=${start}`);
   }
 
-  test2(username){
-    let repos = this.http.get(`https://api.github.com/users/${username}/repos`);
-    return ;
+
+  //결제부분
+  getRegisterPrepare(courseId){
+
+    //
+    return this.http.get(SERVER_URL+`courses/register/prepare?courseId=${courseId}`,{ headers: this.headers });
+  }
+
+  //개인정보부분
+  editSchoolId(data){
+    return this.http.patch(SERVER_URL+`users/info/schoolId`,{schoolId:data}, { headers: this.headers});
+  }
+  editPhone(data){
+    return this.http.patch(SERVER_URL+`users/info/phone`,{phone:data},{ headers: this.headers});
   }
 }
 

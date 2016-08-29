@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {LoginRegisterPage} from '../login-register/login-register';
-import {Page, Platform} from 'ionic-angular';
+import {Page, Platform,Storage, SqlStorage} from 'ionic-angular';
 import {InAppBrowser} from 'ionic-native';
 import {CordovaOauth, Facebook, Google} from 'ng2-cordova-oauth/core';
 /*

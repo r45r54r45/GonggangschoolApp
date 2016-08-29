@@ -22,11 +22,11 @@
         <ion-list>
 
           <ion-item class="transparent">
-            <ion-input type="text" class="big white" placeholder="학번"></ion-input>
+            <ion-input type="text" class="big white" placeholder="학번" [(ngModel)]="prepare_data.school_id"></ion-input>
           </ion-item>
 
           <ion-item class="transparent phoneNumber">
-            <ion-input type="text"  class="big white" placeholder="전화번호"></ion-input>
+            <ion-input type="text"  class="big white" placeholder="전화번호" [(ngModel)]="prepare_data.phone"></ion-input>
           </ion-item>
 
         </ion-list>
@@ -39,7 +39,7 @@
       <div class="regularLarge white paddingSmall">코칭 종료</div>
       <div class="big white fontLight paddingLarge">2016년 3월 27일</div>
       <div class="regularLarge white paddingSmall">수강료</div>
-      <div class="big white fontLight paddingLarge">20,000 x 4 = 80,000</div>
+      <div class="big white fontLight paddingLarge">{{prepare_data.price*prepare_data.class_duration}} x 4 = {{prepare_data.price*prepare_data.class_duration*4}}</div>
     </ion-slide>
     <ion-slide>
       <div class="regularLarge white">신청 완료되었습니다</div>
