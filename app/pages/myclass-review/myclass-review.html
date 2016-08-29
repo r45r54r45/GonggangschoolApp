@@ -18,46 +18,26 @@
 
 <ion-content >
   <div class="big fontLight center fontLight grey paddingTop">설명</div>
-  <div>
-    <!--<button class="transparent floatRight">
-      <img class="classRatingStar" src="build/images/star.svg"/>
-      <img class="classRatingStar" src="build/images/star.svg"/>
-      <img class="classRatingStar" src="build/images/star.svg"/>
-      <img class="classRatingStar" src="build/images/star.svg"/>
-      <img class="classRatingStar" src="build/images/starLine.svg"/>
-    </button>-->
     <div class="center">
     <button class="transparent ">
-      <img class="classRatingStar" src="build/images/star.svg"/>
-      <img class="classRatingStar" src="build/images/star.svg"/>
-      <img class="classRatingStar" src="build/images/star.svg"/>
-      <img class="classRatingStar" src="build/images/star.svg"/>
-      <img class="classRatingStar" src="build/images/starLine.svg"/>
+      <rating [(ngModel)]="rate_1" [max]="5" [readonly]="false"
+              (onHover)="hoveringOver(1,$event)"></rating>
     </button>
-  </div>
   </div>
   <div class="big fontLight center fontLight grey paddingTop">성격</div>
   <div class="center">
     <button class="transparent ">
-      <img class="classRatingStar" src="build/images/star.svg"/>
-      <img class="classRatingStar" src="build/images/star.svg"/>
-      <img class="classRatingStar" src="build/images/star.svg"/>
-      <img class="classRatingStar" src="build/images/star.svg"/>
-      <img class="classRatingStar" src="build/images/starLine.svg"/>
+      <rating [(ngModel)]="rate_2" [max]="5" [readonly]="false"
+              (onHover)="hoveringOver(2,$event)"></rating>
     </button>
   </div>
   <div>
-    <!--<rating [(ngModel)]="rate_1" [max]="5" [readonly]="false"
-            (onHover)="hoveringOver(1,$event)"></rating>-->
   </div>
   <div class="big fontLight center fontLight grey paddingTop">과목</div>
   <div class="center">
     <button class="transparent ">
-      <img class="classRatingStar" src="build/images/star.svg"/>
-      <img class="classRatingStar" src="build/images/star.svg"/>
-      <img class="classRatingStar" src="build/images/star.svg"/>
-      <img class="classRatingStar" src="build/images/star.svg"/>
-      <img class="classRatingStar" src="build/images/starLine.svg"/>
+      <rating [(ngModel)]="rate_3" [max]="5" [readonly]="false"
+              (onHover)="hoveringOver(3,$event)"></rating>
     </button>
   </div>
   <div>
@@ -67,11 +47,8 @@
   <div class="big fontLight center fontLight grey paddingTop">수업방식</div>
   <div class="center">
     <button class="transparent">
-      <img class="classRatingStar" src="build/images/star.svg"/>
-      <img class="classRatingStar" src="build/images/star.svg"/>
-      <img class="classRatingStar" src="build/images/star.svg"/>
-      <img class="classRatingStar" src="build/images/star.svg"/>
-      <img class="classRatingStar" src="build/images/starLine.svg"/>
+      <rating [(ngModel)]="rate_4" [max]="5" [readonly]="false"
+              (onHover)="hoveringOver(4,$event)"></rating>
     </button>
   </div>
   <div>

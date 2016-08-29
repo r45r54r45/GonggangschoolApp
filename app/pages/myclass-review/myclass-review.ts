@@ -1,5 +1,5 @@
 import { Component} from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController,NavParams } from 'ionic-angular';
 import {RatingComponent} from './rating';
 /*
   Generated class for the MyclassReviewPage page.
@@ -18,11 +18,11 @@ export class MyclassReviewPage {
   private rate_3: number=0;
   private rate_description:string;
   private ratings:number[]=[];
-  constructor(private navCtrl: NavController) {
+  constructor(private navCtrl: NavController, private params: NavParams) {
 
   }
   hoveringOver(num,evt){
-    this.ratings[num]=evt;
+    this.ratings[num-1]=evt;
     console.log(this.ratings);
   }
   goBack(){

@@ -4,6 +4,7 @@ import {LoginRegisterPage} from '../login-register/login-register';
 import {Page, Platform,Storage, SqlStorage} from 'ionic-angular';
 import {InAppBrowser} from 'ionic-native';
 import {CordovaOauth, Facebook, Google} from 'ng2-cordova-oauth/core';
+import {Class} from '../../providers/class/class';
 /*
   Generated class for the LoginPage page.
 
@@ -12,14 +13,16 @@ import {CordovaOauth, Facebook, Google} from 'ng2-cordova-oauth/core';
 */
 @Component({
   templateUrl: 'build/pages/login/login.html',
+  providers: [Class]
 })
 export class LoginPage {
+  private userData:any;
   private cordovaOauth: CordovaOauth;
-  constructor(private navCtrl: NavController,private platform: Platform) {
+  constructor(private navCtrl: NavController,private platform: Platform, private classService:Class) {
 
   }
-  loginComplete(){
-    this.navCtrl.push(LoginRegisterPage);
+  loginComplete(data){
+    this.navCtrl.push(LoginRegisterPage,{data:data});
   }
   login() {
     // this.platform.ready().then(() => {
@@ -29,14 +32,22 @@ export class LoginPage {
     //     alert(error);
     //   });
     // });
-    this.loginComplete();
+    this.loginComplete({});
   }
   public facebookLogin() {
     this.cordovaOauth = new CordovaOauth(new Facebook({clientId: "214340015575657", appScope: ["email"]}));
     this.platform.ready().then(() => {
       this.cordovaOauth.login().then(success => {
-        console.log("RESULT: " + JSON.stringify(success));
-        this.loginComplete();
+        // console.log("RESULT: " + JSON.stringify(success));
+        this.userData=success;
+        this.classService.loginUser(this.userData.access_token).subscribe(data=>{
+          console.log(data.json());
+          this.classService.verifyUser(data.json().email).subscribe(data=>{
+            if(data.json().isNew){
+              this.loginComplete(data.json());
+            }
+          });
+        });
       }, error => {
         console.log("ERROR: ", error);
       });
@@ -47,7 +58,7 @@ export class LoginPage {
     this.platform.ready().then(() => {
       this.cordovaOauth.login().then(success => {
         console.log("RESULT: " + JSON.stringify(success));
-        this.loginComplete();
+        this.loginComplete({});
       }, error => {
         console.log("ERROR: ", error);
       });

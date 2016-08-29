@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController,NavParams } from 'ionic-angular';
 import { LoginCompletePage } from '../login-complete/login-complete';
 import { ModalController } from 'ionic-angular';
 import { LoginRegisterModalPage } from '../login-register-modal/login-register-modal';
@@ -13,9 +13,9 @@ import { LoginRegisterModalPage } from '../login-register-modal/login-register-m
   templateUrl: 'build/pages/login-register/login-register.html',
 })
 export class LoginRegisterPage {
-
-  constructor(private navCtrl: NavController, private Modal : ModalController) {
-
+  private data:any={};
+  constructor(private navCtrl: NavController, private Modal : ModalController,private params:NavParams) {
+    this.data=this.params.get("data");
   }
   backButton(){
     this.navCtrl.pop();

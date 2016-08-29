@@ -15,6 +15,13 @@ export class Class {
     this.headers = new Headers({ 'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNDcxMTEwODEyfQ.cVs-bqvTpr47Ts2pF5RDT5n8E6snUE7_nOF9OnRE8ww' });
   }
 
+  // 유저부분
+  loginUser(token){
+    return this.http.get("https://graph.facebook.com/v2.7/me?fields=email%2Cname&access_token="+token);
+  }
+  verifyUser(email){
+    return this.http.get("https://graph.facebook.com/v2.7/me?fields=email%2Cname&access_token="+email);
+  }
   getCourseList(start){
     let courses = this.http.get(SERVER_URL+`courses/list?start=${start}`);
     return courses;
