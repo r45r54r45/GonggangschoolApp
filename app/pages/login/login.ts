@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {LoginRegisterPage} from '../login-register/login-register';
-import {Page, Platform,Storage, SqlStorage} from 'ionic-angular';
+import {Page, Platform, Storage, SqlStorage} from 'ionic-angular';
 import {InAppBrowser} from 'ionic-native';
 import {CordovaOauth, Facebook, Google} from 'ng2-cordova-oauth/core';
+import {Class} from '../../providers/class/class';
 /*
   Generated class for the LoginPage page.
 
@@ -12,31 +13,44 @@ import {CordovaOauth, Facebook, Google} from 'ng2-cordova-oauth/core';
 */
 @Component({
   templateUrl: 'build/pages/login/login.html',
+  providers: [Class]
 })
 export class LoginPage {
+  private userData:any;
   private cordovaOauth: CordovaOauth;
-  constructor(private navCtrl: NavController,private platform: Platform) {
+  constructor(private navCtrl: NavController,private platform: Platform, private classService:Class) {
 
   }
-  loginComplete(){
-    this.navCtrl.push(LoginRegisterPage);
+  goToRegister(data){
+    this.navCtrl.push(LoginRegisterPage,{data:data});
   }
-  login() {
-    // this.platform.ready().then(() => {
-    //   this.naverLogin().then((success) => {
-    //     alert(success['access_token']);
-    //   }, (error) => {
-    //     alert(error);
-    //   });
-    // });
-    this.loginComplete();
+  goToMenu(){
+
   }
   public facebookLogin() {
     this.cordovaOauth = new CordovaOauth(new Facebook({clientId: "214340015575657", appScope: ["email"]}));
     this.platform.ready().then(() => {
       this.cordovaOauth.login().then(success => {
-        console.log("RESULT: " + JSON.stringify(success));
-        this.loginComplete();
+        // console.log("RESULT: " + JSON.stringify(success));
+        this.userData=success;
+        this.classService.loginUser("facebook",this.userData.access_token).subscribe(data=>{
+          console.log(data.json());
+          let receivedData=data.json();
+          let formData= {
+            email: receivedData.email,
+            name: receivedData.name,
+            profile: receivedData.picture.data.url
+          };
+          this.classService.verifyUser(formData).subscribe(data=>{
+            if(data.json().isNew){
+              this.goToRegister(formData);
+            }else{
+              let storage = new Storage(SqlStorage);
+              storage.set('token', data.json().token);
+              this.goToMenu();
+            }
+          });
+        });
       }, error => {
         console.log("ERROR: ", error);
       });
@@ -47,7 +61,21 @@ export class LoginPage {
     this.platform.ready().then(() => {
       this.cordovaOauth.login().then(success => {
         console.log("RESULT: " + JSON.stringify(success));
-        this.loginComplete();
+        this.classService.loginUser("google",this.userData.access_token).subscribe(data=>{
+          let receivedData=data.json();
+          let formData= {
+            email: receivedData.emails[0].value,
+            name: receivedData.name.familyName + receivedData.name.givenName,
+            profile: receivedData.image.url
+          }
+          this.classService.verifyUser(formData).subscribe(data=>{
+            if(data.json().isNew){
+              this.goToRegister(data.json());
+            }else{
+              this.goToMenu();
+            }
+          });
+        });
       }, error => {
         console.log("ERROR: ", error);
       });

@@ -15,9 +15,10 @@ const KeyboardEvent = (global as any).KeyboardEvent as KeyboardEvent;
   /* tslint:enable */
   directives: [NgFor],
   template: `
-    <span (mouseleave)="reset()" (keydown)="onKeydown($event)" tabindex="0" role="slider" aria-valuemin="0" [attr.aria-valuemax]="range.length" [attr.aria-valuenow]="value">
+    <span style="font-size:0;" (mouseleave)="reset()" (keydown)="onKeydown($event)" tabindex="0" role="slider" aria-valuemin="0" [attr.aria-valuemax]="range.length" [attr.aria-valuenow]="value">
       <template ngFor let-r [ngForOf]="range" let-index="index">
-        <ion-icon [name]="index < value ? 'star': 'star-outline'" (mouseenter)="enter(index + 1)" (click)="rate(index + 1)" [title]="r.title" ></ion-icon>
+        <!--<ion-icon class="classRatingStar" [name]="index < value ? 'star': 'star-outline'" (mouseenter)="enter(index + 1)" (click)="rate(index + 1)" [title]="r.title" ></ion-icon>-->
+        <img class="classRatingStar"  [src]="(index<value?'build/images/star.svg':'build/images/starLine.svg')" (mouseenter)="enter(index + 1)" (click)="rate(index + 1)" [title]="r.title"/>
       </template>
     </span>
   `
