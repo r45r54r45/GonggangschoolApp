@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Http, Headers, RequestOptions} from '@angular/http';
 import 'rxjs/add/operator/map';
 import {SERVER_URL} from '../config';
+import {Storage, SqlStorage} from 'ionic-angular';
 /*
  Generated class for the Class provider.
 
@@ -12,16 +13,30 @@ import {SERVER_URL} from '../config';
 export class Class {
   public headers:Headers;
   constructor(private http:Http) {
-    this.headers = new Headers({ 'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNDcxMTEwODEyfQ.cVs-bqvTpr47Ts2pF5RDT5n8E6snUE7_nOF9OnRE8ww' });
+    let storage = new Storage(SqlStorage);
+    storage.get('token').then((token) => {
+      this.headers = new Headers({ 'Authorization': token });
+    });
   }
+  getAuth(){
+
+  };
+
 
   // 유저부분
-  loginUser(token){
-    return this.http.get("https://graph.facebook.com/v2.7/me?fields=email%2Cname&access_token="+token);
+  loginUser(type,token){
+    if(type=="facebook"){
+      return this.http.get("https://graph.facebook.com/v2.7/me?fields=email%2Cname&access_token="+token);
+    }else{
+      return this.http.get("https://www.googleapis.com/plus/v1/people/me?access_token="+token);
+    }
   }
-  verifyUser(email){
-    return this.http.get("https://graph.facebook.com/v2.7/me?fields=email%2Cname&access_token="+email);
+  verifyUser(userdata){
+    return this.http.post(SERVER_URL+"users/verify",userdata);
   }
+
+
+
   getCourseList(start){
     let courses = this.http.get(SERVER_URL+`courses/list?start=${start}`);
     return courses;
