@@ -17,39 +17,20 @@
     -ms-flex-align: initial;
     align-items: initial;
   }
-
-}
-table {
-  td {
-    width: calc(100vw / 6);
-    border: 1px solid black;
-    &:nth-child(1) {
-      width: 10vw;
-      border: none;
-    }
+  .statusBar{
+    position: absolute;
+    top: 0px;
+    height: 1vw;
+    width: calc(100% / 3);
+    background-color: #961a1d;
   }
   .closeButton {
     background-color: rgba(0, 0, 0, .0);
     width: 7vw;
     margin: 0px 10px !important;
     padding: 0px !important;
-
   }
   .addClassTitle{
     padding: 15px;
-  }
-  .floatRight{
-    float:right !important;
-  }
-  .floatLeft{
-    float:left !important;
-  }
-  ion-header{
-    position:relative;
-  }
-  .statusBar{
-    height: 1vw;
-    width: calc(100% / 3);
-    background-color: #961a1d;
   }
 }
