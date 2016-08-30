@@ -31,7 +31,7 @@
     <tbody>
     <tr *ngFor="let row of [1,2,3,4,5,6,7,8,9,10]; let rowIndex=index;">
       <td><span class="regular grey">{{rowIndex+1}}</span></td>
-      <td [attr.id]="'td_' + (rowIndex+1)+'_'+(colIndex+1)" (click)="availTimeClick(rowIndex+1,colIndex+1)" *ngFor="let col of [1,2,3,4,5]; let colIndex=index;"></td>
+      <td [attr.id]="'edit_td_' + (rowIndex+1)+'_'+(colIndex+1)" (click)="availTimeClick(rowIndex+1,colIndex+1)" *ngFor="let col of [1,2,3,4,5]; let colIndex=index;"></td>
     </tr>
     </tbody>
   </table>

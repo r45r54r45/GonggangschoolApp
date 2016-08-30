@@ -31,24 +31,24 @@
 // CSS that should only apply to the iOS app
 
 .teach-page {
-  .ios-only-padding{
-    height:20px;
-    width:100%;
-    background:black;
-  }
+  //.ios-only-padding{
+  //  height:20px;
+  //  width:100%;
+  //  background:black;
+  //}
   ion-content{
     scroll-content{
-      margin-top: calc(20vw + 20px) !important;
+      margin-top: calc(20vw) !important;
     }
   }
-  .add-class-button-area {
-    top:20px !important;
-  }
+  //.add-class-button-area {
+  //  top:20px !important;
+  //}
 }
 .chat-page {
-  .ios-only-padding{
-    height:20px;
-    width:100%;
-    background:black;
-  }
+  //.ios-only-padding{
+  //  height:20px;
+  //  width:100%;
+  //  background:black;
+  //}
 }

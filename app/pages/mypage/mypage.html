@@ -20,45 +20,45 @@
   </div>
   <ion-grid>
     <ion-row style="position:relative">
-      <ion-col width-100 class="center" ><img class="myPageProfile"><img class="myPageSchool"></ion-col>
+      <ion-col width-100 class="center" ><img class="myPageProfile" [ngStyle]='{"background-image": "url("+userData.profile+") "}'><img class="myPageSchool"></ion-col>
     </ion-row>
     <ion-row class="myProfileListItem myProfileItemHeight">
       <ion-col width-33 class="white regular fontMedium vertC">이름</ion-col>
       <ion-col width-67>
-        <div style="float:left" class="white regular fontLight vertC">이재하</div>
-        <div style="float:right"><button class="transparent" (click)="edit('이름','placeholder',0)"><img class="editIcon" src="build//images/edit.svg"></button></div>
+        <div style="float:left" class="white regular fontLight vertC">{{userData.name}}</div>
+        <div style="float:right"><button class="transparent" (click)="edit('이름',userData.name,0)"><img class="editIcon" src="build//images/edit.svg"></button></div>
         <div style="clear:both"></div>
       </ion-col>
     </ion-row>
     <ion-row class="myProfileListItem myProfileItemHeight">
       <ion-col width-33 class="white regular fontMedium vertC">이메일</ion-col>
       <ion-col width-67>
-        <div style="float:left" class="white regular fontLight vertC">이재하</div>
-        <div style="float:right"><button class="transparent" (click)="edit('이메일','placeholder',1)"><img class="editIcon" src="build//images/edit.svg"></button></div>
+        <div style="float:left" class="white regular fontLight vertC">{{userData.email}}</div>
+        <div style="float:right"><button class="transparent" (click)="edit('이메일',userData.email,1)"><img class="editIcon" src="build//images/edit.svg"></button></div>
         <div style="clear:both"></div>
       </ion-col>
     </ion-row>
     <ion-row class="myProfileListItem myProfileItemHeight">
       <ion-col width-33 class="white regular fontMedium vertC">전화번호</ion-col>
       <ion-col width-67>
-        <div style="float:left" class="white regular fontLight vertC">이재하</div>
-        <div style="float:right"><button class="transparent" (click)="edit('전화번호','placeholder',2)"><img class="editIcon" src="build//images/edit.svg"></button></div>
+        <div style="float:left" class="white regular fontLight vertC">{{userData.phone}}</div>
+        <div style="float:right"><button class="transparent" (click)="edit('전화번호',userData.phone,2)"><img class="editIcon" src="build//images/edit.svg"></button></div>
         <div style="clear:both"></div>
       </ion-col>
     </ion-row>
     <ion-row class="myProfileListItem myProfileItemHeight">
       <ion-col width-33 class="white regular fontMedium vertC">학교</ion-col>
       <ion-col width-67>
-        <div style="float:left" class="white regular fontLight vertC">이재하</div>
-        <div style="float:right"><button class="transparent" (click)="edit('학교','placeholder',3)"><img class="editIcon" src="build//images/edit.svg"></button></div>
+        <div style="float:left" class="white regular fontLight vertC">{{userData.school}}</div>
+        <div style="float:right"><button class="transparent" (click)="edit('학교',userData.school,3)"><img class="editIcon" src="build//images/edit.svg"></button></div>
         <div style="clear:both"></div>
       </ion-col>
     </ion-row>
     <ion-row class="myProfileListItem myProfileItemHeight">
       <ion-col width-33 class="white regular fontMedium vertC">학생 모집</ion-col>
         <ion-col width-67 >
-          <div style="float:left" class="white regular fontLight vertC">모집중</div>
-          <div style="float:right" class="toggleButton"><ion-toggle disabled checked="false"></ion-toggle></div>
+          <div style="float:left" class="white regular fontLight vertC">{{(userData.status=='ON'?'모집중':'모집 안함')}}</div>
+          <div style="float:right" class="toggleButton"><ion-toggle (click)="editStatus(userData.status)" checked="{{(userData.status=='ON'?true:false)}}"></ion-toggle></div>
           <div style="clear:both"></div>
         </ion-col>
     </ion-row>
@@ -82,7 +82,7 @@
     <tbody>
     <tr *ngFor="let row of [1,2,3,4,5,6,7,8,9,10]; let rowIndex=index;">
       <td><span class="regular white">{{rowIndex+1}}</span></td>
-      <td [attr.id]="'td_' + (rowIndex+1)+'_'+(colIndex+1)" (click)="availTimeClick(rowIndex+1,colIndex+1)" *ngFor="let col of [1,2,3,4,5]; let colIndex=index;"></td>
+      <td class="mypage_td" [attr.id]="'td_' + (rowIndex+1)+'_'+(colIndex+1)" *ngFor="let col of [1,2,3,4,5]; let colIndex=index;"></td>
     </tr>
     </tbody>
   </table>

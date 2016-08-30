@@ -54,13 +54,16 @@
     right:10px;
   }
   .teachClassList{
-    background:linear-gradient(rgba(0, 0, 0, .0), rgba(0, 0, 0, .0)), url('../images/sampleClass1.png') no-repeat center center ;
+    position: relative;
+    background-position: center center;
+    background-repeat: no-repeat;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
   }
   .teachClassList2{
+    position: relative;
     background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/sampleClass2.png') no-repeat center center ;
     background-size: cover;
     -webkit-background-size: cover;
@@ -75,8 +78,10 @@
     color: white;
     font-size: 14px;
     position: absolute;
-    top: 7.5vw;
-    left: 26.5vw;
+    top: 50%;
+    left: 50%;
+    margin-top:-10px;
+    margin-left:-13px;
   }
   .teachClassActive{
     z-index: 2;
@@ -96,6 +101,9 @@
     position: relative;
   }
   .TeachProfile{
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
     border-radius: 50% ;
     width: 15vh;
     height: 15vh;
@@ -153,7 +161,7 @@
     color: grey;
     padding: 15px 15px 0px;
   }
-  ion-content>scroll-content,{
+  ion-content>scroll-content{
     margin-top: calc(90vw) !important;
 
   }
@@ -211,5 +219,8 @@
   }
   .slide-zoom{
     text-align: left;
+  }
+  .scroll-item-group{
+    background: #71151d;
   }
 }

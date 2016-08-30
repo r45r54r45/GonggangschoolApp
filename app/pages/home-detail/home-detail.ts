@@ -31,10 +31,12 @@ export class HomeDetailPage {
   private tabBarElement: any;
   constructor(private navCtrl:NavController, private Modal : ModalController, private classService:Class,public params: NavParams) {
     this.tabBarElement = document.querySelector('#default_tabs_bar ion-tabbar');
-    classService.getBasic(this.params.get('courseId')).subscribe(data => {
+  }
+  onPageDidEnter(){
+    this.classService.getBasic(this.params.get('courseId')).subscribe(data => {
       this.basic=jsonify(data);
     });
-    classService.getProfile(this.params.get('courseId')).subscribe(data =>{
+    this.classService.getProfile(this.params.get('courseId')).subscribe(data =>{
       this.profile=jsonify(data);
       this.profile.availTime.forEach((item,index)=>{
         let start_loc=item.start_time.split('_');
@@ -43,23 +45,24 @@ export class HomeDetailPage {
         }
       })
     });
-    classService.getFaq(this.params.get('courseId')).subscribe(data =>{
+    this.classService.getFaq(this.params.get('courseId')).subscribe(data =>{
       this.faq=jsonify(data);
     });
-    classService.getRating(this.params.get('courseId')).subscribe(data =>{
+    this.classService.getRating(this.params.get('courseId')).subscribe(data =>{
       this.rating=jsonify(data);
       this.rating.avg_time=makeStarRating(this.rating.avg_time,"classRatingStar");
       this.rating.avg_curriculum=makeStarRating(this.rating.avg_curriculum,"classRatingStar");
       this.rating.avg_feedback=makeStarRating(this.rating.avg_feedback,"classRatingStar");
       this.rating.avg_prepare=makeStarRating(this.rating.avg_prepare,"classRatingStar");
     });
-    classService.getComment(this.params.get('courseId'),0).subscribe(data =>{
+    this.classService.getComment(this.params.get('courseId'),0).subscribe(data =>{
       this.comment=jsonify(data);
       this.comment.forEach((item,index)=>{
         item.star=makeStarRating(Math.floor(item.avg_total),"classRatingStarS");
       });
     });
   }
+
   onPageWillEnter()
   {
     this.tabBarElement.style.display = 'none';

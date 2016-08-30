@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Http, Headers, RequestOptions} from '@angular/http';
 import 'rxjs/add/operator/map';
 import {SERVER_URL} from '../config';
+import {DEV} from '../config';
 import {Storage, SqlStorage} from 'ionic-angular';
 /*
  Generated class for the Class provider.
@@ -11,66 +12,112 @@ import {Storage, SqlStorage} from 'ionic-angular';
  */
 @Injectable()
 export class Class {
-  public headers:Headers;
-  constructor(private http:Http) {
+  public headers: Headers;
+
+  constructor(private http: Http) {
     let storage = new Storage(SqlStorage);
-    storage.get('token').then((token) => {
-      this.headers = new Headers({ 'Authorization': token });
-    });
+    if (DEV) {
+      console.log("Dev Mode");
+      this.headers = new Headers({'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNDcxMTEwODEyfQ.cVs-bqvTpr47Ts2pF5RDT5n8E6snUE7_nOF9OnRE8ww'});
+    } else {
+      storage.get('token').then((token) => {
+        this.headers = new Headers({'Authorization': token});
+      });
+    }
   }
-  getAuth(){
+
+  getAuth() {
 
   };
 
 
   // 유저부분
-  loginUser(type,token){
-    if(type=="facebook"){
-      return this.http.get("https://graph.facebook.com/v2.7/me?fields=email%2Cname&access_token="+token);
-    }else{
-      return this.http.get("https://www.googleapis.com/plus/v1/people/me?access_token="+token);
+  loginUser(type, token) {
+    if (type == "facebook") {
+      return this.http.get("https://graph.facebook.com/v2.7/me?fields=email%2Cname%2Cpicture&access_token=" + token);
+    } else {
+      return this.http.get("https://www.googleapis.com/plus/v1/people/me?access_token=" + token);
     }
   }
-  verifyUser(userdata){
-    return this.http.post(SERVER_URL+"users/verify",userdata);
+
+  verifyUser(userdata) {
+    return this.http.post(SERVER_URL + "users/verify", userdata);
+  }
+
+  registerUser(userdata) {
+    return this.http.post(SERVER_URL + "users/register", userdata);
+  }
+
+  getUserInfo() {
+    return this.http.get(SERVER_URL + "users/info", {headers: this.headers});
   }
 
 
-
-  getCourseList(start){
-    let courses = this.http.get(SERVER_URL+`courses/list?start=${start}`);
+  getCourseList(start) {
+    let courses = this.http.get(SERVER_URL + `courses/list?start=${start}`);
     return courses;
   }
-  getBasic(courseId){
-    return this.http.get(SERVER_URL+`courses/watch/basic?courseId=${courseId}`);
+
+  getBasic(courseId) {
+    return this.http.get(SERVER_URL + `courses/watch/basic?courseId=${courseId}`);
   }
-  getProfile(courseId){
-    return this.http.get(SERVER_URL+`courses/watch/profile?courseId=${courseId}`);
+
+  getProfile(courseId) {
+    return this.http.get(SERVER_URL + `courses/watch/profile?courseId=${courseId}`);
   }
-  getFaq(courseId){
-  return this.http.get(SERVER_URL+`courses/watch/faq?courseId=${courseId}`);
+
+  getFaq(courseId) {
+    return this.http.get(SERVER_URL + `courses/watch/faq?courseId=${courseId}`);
   }
-  getRating(courseId){
-    return this.http.get(SERVER_URL+`courses/watch/review/rating?courseId=${courseId}`);
+
+  getRating(courseId) {
+    return this.http.get(SERVER_URL + `courses/watch/review/rating?courseId=${courseId}`);
   }
-  getComment(courseId,start){
-    return this.http.get(SERVER_URL+`courses/watch/review/comment?courseId=${courseId}&start=${start}`);
+
+  getComment(courseId, start) {
+    return this.http.get(SERVER_URL + `courses/watch/review/comment?courseId=${courseId}&start=${start}`);
   }
 
 
   //결제부분
-  getRegisterPrepare(courseId){
+  getRegisterPrepare(courseId) {
 
     //
-    return this.http.get(SERVER_URL+`courses/register/prepare?courseId=${courseId}`,{ headers: this.headers });
+    return this.http.get(SERVER_URL + `courses/register/prepare?courseId=${courseId}`, {headers: this.headers});
   }
 
   //개인정보부분
-  editSchoolId(data){
-    return this.http.patch(SERVER_URL+`users/info/schoolId`,{schoolId:data}, { headers: this.headers});
+  editSchoolId(data) {
+    return this.http.patch(SERVER_URL + `users/info/schoolId`, {schoolId: data}, {headers: this.headers});
   }
-  editPhone(data){
-    return this.http.patch(SERVER_URL+`users/info/phone`,{phone:data},{ headers: this.headers});
+
+  editPhone(data) {
+    return this.http.patch(SERVER_URL + `users/info/phone`, {phone: data}, {headers: this.headers});
+  }
+  editName(data){
+    return this.http.patch(SERVER_URL + `users/info/name`, {name: data}, {headers: this.headers});
+  }
+  editSchool(data){
+    return this.http.patch(SERVER_URL + `users/info/school`, {school: data}, {headers: this.headers});
+  }
+  editStatus(data){
+    return this.http.post(SERVER_URL + `users/publish`, {on: data}, {headers: this.headers});
+  }
+  editEmail(data){
+    return this.http.patch(SERVER_URL + `users/info/email`, {email: data}, {headers: this.headers});
+  }
+  editSchedule(data){
+    return this.http.patch(SERVER_URL + `users/info/schedule`, {schedule: data}, {headers: this.headers});
+  }
+
+  // 강사페이지
+  getTeachList(){
+    return this.http.get(SERVER_URL+ 'users/teach/list',{headers: this.headers});
+  }
+
+  //내가 들은 강의
+  getMineList(){
+    return this.http.get(SERVER_URL+ 'users/mine/list',{headers: this.headers});
   }
 }
 

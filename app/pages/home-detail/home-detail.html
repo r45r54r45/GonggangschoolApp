@@ -16,13 +16,11 @@
           <button (click)="goBack()" class="closeButton"><img src="build/images/close.svg"/></button>
         </div>
         <div class="center">
-          <img class="classListProfile" [ngStyle]='{"background-image": "url("+basic.owner.profile+") "}'>
-        </div>
-        <div>
-          <span></span>
+          <img class="classListProfile" *ngIf="basic.cover_image" [ngStyle]='{"background-image": "url("+basic.owner.profile+") "}'>
         </div>
         <div class="center">
-          <span class="regular white">{{basic.owner.name}}{{(basic.owner.major?"|":"")}}{{basic.owner.major||""}}</span> <img class="yonseiLogoSmall" src="build//images/yonsei.png"/>
+          <span class="regular white">{{basic.owner.name}}{{(basic.owner.major?"|":"")}}{{basic.owner.major||""}}</span>
+          <img class="yonseiLogoSmall" src="build/images/yonsei.png"/>
         </div>
         <div class="center">
           <span class="regularLarge fontBold white">{{basic.title}}</span>
@@ -62,7 +60,9 @@
         <div class="whiteBg">
           <div class="left floatLeft classProfileTitle regularLarge grey">켜리큘럼</div>
           <div>
-            <div class="left classProfile regular" *ngFor="let curriculum of profile.Curriculums; let i=index;">{{i+1}}회: {{curriculum.description}}</div>
+            <div class="left classProfile regular" *ngFor="let curriculum of profile.Curriculums; let i=index;">
+              {{i+1}}회: {{curriculum.description}}
+            </div>
           </div>
         </div>
         <div class="lightGreyBg">
@@ -74,7 +74,9 @@
         <div class="lightGreyBg">
           <div class="left floatLeft classProfileTitle regularLarge grey">수강료</div>
           <div>
-            <div class="left classProfileS regular">₩{{profile.price}} / 시간 총 ₩{{profile.price*profile.class_duration*4}}</div>
+            <div class="left classProfileS regular">₩{{profile.price}} / 시간 총
+              ₩{{profile.price*profile.class_duration*4}}
+            </div>
           </div>
         </div>
         <div class="lightGreyBg">
@@ -101,7 +103,8 @@
           <tbody>
           <tr *ngFor="let row of [1,2,3,4,5,6,7,8,9,10]; let rowIndex=index;">
             <td>{{rowIndex+1}}</td>
-            <td [attr.id]="'td_' + (rowIndex+1)+'_'+(colIndex+1)" *ngFor="let col of [1,2,3,4,5]; let colIndex=index;"></td>
+            <td [attr.id]="'td_' + (rowIndex+1)+'_'+(colIndex+1)"
+                *ngFor="let col of [1,2,3,4,5]; let colIndex=index;"></td>
           </tr>
           </tbody>
         </table>
@@ -166,27 +169,27 @@
           <div style="clear:both"></div>
         </div>
         <!--<div class="ratingTextPadding">-->
-          <!--<img src="build//images/yonsei.png"class="floatLeft ratingProfile"/>-->
-          <!--<div class="transparent floatRight tiny grey">-->
-            <!--07.28.16-->
-          <!--</div>-->
-          <!--<div class="left regular grey" style="line-height: 22px;">-->
-            <!--헬로우톡우-->
-            <!--<div class="transparent">-->
-              <!--<img class="classRatingStarS" src="build/images/star.svg"/>-->
-              <!--<img class="classRatingStarS" src="build/images/star.svg"/>-->
-              <!--<img class="classRatingStarS" src="build/images/star.svg"/>-->
-              <!--<img class="classRatingStarS" src="build/images/starLine.svg"/>-->
-              <!--<img class="classRatingStarS" src="build/images/starLine.svg"/>-->
-            <!--</div>-->
-            <!--<span class="regular ratingText">-->
-              <!--수업 설명 계속 합니다. 수업 설명 계 속 합니다속 합니다속 합니다.-->
-              <!--업 설속 합니다합니다 설명 계속 합속 합니다니다속 합속 합니니다-->
-              <!--합니다계속 속 합니다설명 계속 합니다.-->
-            <!--</span>-->
-          <!--</div>-->
+        <!--<img src="build//images/yonsei.png"class="floatLeft ratingProfile"/>-->
+        <!--<div class="transparent floatRight tiny grey">-->
+        <!--07.28.16-->
+        <!--</div>-->
+        <!--<div class="left regular grey" style="line-height: 22px;">-->
+        <!--헬로우톡우-->
+        <!--<div class="transparent">-->
+        <!--<img class="classRatingStarS" src="build/images/star.svg"/>-->
+        <!--<img class="classRatingStarS" src="build/images/star.svg"/>-->
+        <!--<img class="classRatingStarS" src="build/images/star.svg"/>-->
+        <!--<img class="classRatingStarS" src="build/images/starLine.svg"/>-->
+        <!--<img class="classRatingStarS" src="build/images/starLine.svg"/>-->
+        <!--</div>-->
+        <!--<span class="regular ratingText">-->
+        <!--수업 설명 계속 합니다. 수업 설명 계 속 합니다속 합니다속 합니다.-->
+        <!--업 설속 합니다합니다 설명 계속 합속 합니다니다속 합속 합니니다-->
+        <!--합니다계속 속 합니다설명 계속 합니다.-->
+        <!--</span>-->
+        <!--</div>-->
 
-          <!--<div style="clear:both"></div>-->
+        <!--<div style="clear:both"></div>-->
         <!--</div>-->
       </div>
 

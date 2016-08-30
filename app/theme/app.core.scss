@@ -230,3 +230,12 @@ td{
 .floatLeft{
   float:left;
 }
+ion-backdrop{
+  opacity:0.5;
+}
+.loading-wrapper{
+  background:rgba(255,255,255,0.5);
+  .loading-content{
+    display:none;
+  }
+}

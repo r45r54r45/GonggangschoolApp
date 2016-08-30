@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController ,LoadingController } from 'ionic-angular';
 import { ModalController } from 'ionic-angular';
 import {MyclassReviewPage} from '../myclass-review/myclass-review';
+import {Class} from '../../providers/class/class';
 /*
   Generated class for the MyclassPage page.
 
@@ -10,11 +11,21 @@ import {MyclassReviewPage} from '../myclass-review/myclass-review';
 */
 @Component({
   templateUrl: 'build/pages/myclass/myclass.html',
+  providers:[Class]
 })
 export class MyclassPage {
-
-  constructor(private navCtrl: NavController, private Modal : ModalController) {
-
+  private mineList:any=[];
+  constructor(private navCtrl: NavController, private Modal : ModalController, private classService:Class,private loadingCtrl: LoadingController) {
+  }
+  onPageDidEnter(){
+    let loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+    loading.present();
+    this.classService.getMineList().subscribe(data=>{
+      this.mineList=data.json();
+      loading.dismiss();
+    });
   }
   openReview(){
     let modal=this.Modal.create(MyclassReviewPage);

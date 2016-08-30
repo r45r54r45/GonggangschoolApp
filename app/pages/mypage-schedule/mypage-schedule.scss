@@ -3,6 +3,9 @@
   td{
     height: 5.8vh;
     border: 1px solid rgba(0,0,0,.1);
+    .selected{
+      background: red;
+    }
   }
   th{
         padding: 20px 0px 10px;
@@ -16,4 +19,5 @@
   .NavBar{
     background-color: #961a1d;
   }
+
 }

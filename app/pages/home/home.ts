@@ -17,13 +17,19 @@ export class HomePage {
   public classList:any = [];
   private startCounter=0;
 
-  constructor(private navCtrl:NavController, private classService:Class) {
-    classService.getCourseList(this.startCounter).subscribe(data => {
-      console.log(jsonify(data));
-      this.classList = this.classList.concat(jsonify(data));
+  constructor(private navCtrl:NavController, private classService:Class,private loadingCtrl: LoadingController) {
+
+  }
+  onPageDidEnter(){
+    let loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+    loading.present();
+    this.classService.getCourseList(this.startCounter).subscribe(data => {
+      this.classList = jsonify(data);
+      loading.dismiss();
     });
   }
-
   clickClass(courseId) {
     this.navCtrl.push(HomeDetailPage,{courseId: courseId});
   }

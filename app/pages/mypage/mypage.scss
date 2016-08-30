@@ -39,7 +39,8 @@
     border-radius: 50%;
     width:33vw;
     height:33vw;
-    background: url('../images/emptyProfile.png') no-repeat center center;
+    background-repeat: no-repeat;
+    background-position: center center;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;

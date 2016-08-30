@@ -15,35 +15,21 @@
 
 <ion-content>
   <ion-list>
-    <ion-item style="height:32vh;background-color:grey" class="classListImage">
-      <div class="classDate">
-        <span class="regular fontBold">7월28일</span>
+    <div *ngIf="mineList.length==0">아무것도 없당~</div>
+    <ion-item style="height:32vh;background-color:grey" class="classListImage" *ngFor="let mine of mineList" [ngStyle]='{"background-image": "url("+mine.cover_image+") "}'>
+      <!--<div class="classDate">-->
+        <!--<span class="regular fontBold">7월28일</span>-->
+      <!--</div>-->
+      <div class="center">
+        <img class="classListProfile" [ngStyle]='{"background-image": "url("+mine.owner.profile+") "}'>
       </div>
       <div class="center">
-        <img class="classListProfile" >
-      </div>
-      <div>
-        <span></span>
+        <span class="regular white">{{mine.owner.name}}</span> <img class="yonseiLogoSmall" src="build//images/yonsei.png" />
       </div>
       <div class="center">
-        <span class="regular white">이재하</span> <img class="yonseiLogoSmall" src="build//images/yonsei.png" />
+        <span class="regularLarge fontBold white">{{mine.title}}</span>
       </div>
-      <div class="center">
-        <span class="regularLarge fontBold white">기초부터 중급까지 누구나 포토샵</span>
-      </div>
-    </ion-item>
-    <ion-item style="height:32vh;background-color:grey" class="classListImage">
-      <div class="blackOverlay"></div>
-      <div class="center">
-        <img class="classListProfile" >
-      </div>
-      <div class="center">
-        <span class="regular white">이재하</span> <img class="yonseiLogoSmall" src="build//images/yonsei.png" />
-      </div>
-      <div class="center">
-        <span class="regularLarge fontBold white">기초부터 중급까지 누구나 포토샵</span>
-      </div>
-      <div class="topLayer center">
+      <div class="topLayer center" *ngIf="mine.hasRating">
         <div class="white regularLarge fontBold">기초부터 중급까지 누구나 포토샵<br></div>
         <button (click)="openReview()" class="transparent largeButton regularLarge" style="margin-top:6vw;">리뷰하기</button>
       </div>
