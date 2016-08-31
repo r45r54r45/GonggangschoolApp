@@ -221,7 +221,7 @@ ion-footer {
 
 td{
   &.selected{
-    background:red;
+    background:$mainColor;
   }
 }
 .floatRight{
@@ -238,15 +238,24 @@ ion-backdrop{
   background:rgba(255,255,255,0.5);
   .loading-content{
     display:none;
+  }
+}
 
-
-table {
-  td {
+table{
+  margin:auto;
+  td{
+    height: 5.8vh;
     width: calc(100vw / 6);
-    border: 1px solid black;
-    &:nth-child(1) {
-      width: 10vw;
-      border: none;
+    border: 1px solid rgba(0,0,0,.1);
+    .selected{
+      background: #961a1d;
     }
+  }
+  th{
+        padding: 20px 0px 10px;
+  }
+  td:nth-child(1){
+    width: 5vw;
+    border:none;
   }
 }
