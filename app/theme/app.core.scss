@@ -241,14 +241,17 @@ ion-backdrop{
   }
 }
 
-table{
-  margin:auto;
-  td{
+
+
+table {
+  margin: auto;
+  td {
     height: 5.8vh;
     width: calc(100vw / 6);
     border: 1px solid rgba(0,0,0,.1);
     .selected{
       background: #961a1d;
+      }
     }
   }
   th{
