@@ -33,4 +33,32 @@
   .addClassTitle{
     padding: 15px;
   }
+  table{
+      th{
+        font-weight: 300;
+      }
+  }
+  .bottomBack{
+    max-width: 8vw;
+  }
+  ion-list >.item-inner{
+    padding:0px !important;
+  }
+  ion-select{
+    padding:0px !important;
+  }
+  .addMinus{
+    width:20vw;
+  }
+  .slide-zoom{
+    text-align: left !important;
+  }
+  .addClassTextarea{
+    width:100vw;
+    height:20vh;
+    resize;none;
+  }
+  .item-inner{
+      border: 1px solid rgba(0, 0, 0, 0) !important;
+  }
 }

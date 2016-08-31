@@ -22,87 +22,92 @@
       <!--1페이지-->
       <ion-list>
         <ion-item class="center">
-          <ion-label class="regularLarge fontMedium">수업분야</ion-label>
-          <ion-select [(ngModel)]="class_area">
-            <ion-option value="음악" class="big grey" selected>음악</ion-option>
+          <div class="regularLarge grey fontMedium">수업분야</div>
+        </ion-item>
+        <ion-item class="center">
+          <ion-select [(ngModel)]="class_area" class="big grey fontLight">
+            <ion-option value="" class="big grey" selected>음악</ion-option>
             <ion-option value="n64">Nintendo64</ion-option>
             <ion-option value="ps">PlayStation</ion-option>
           </ion-select>
         </ion-item>
         <ion-item class="center">
-          <ion-label class="regularLarge fontMedium">상세 카테고리</ion-label>
-          <br>
-          <ion-select [(ngModel)]="class_category">
-            <ion-option value="악기" selected>악기</ion-option>
+          <div class="regularLarge grey fontMedium">상세 카테고리</div>
+        </ion-item>
+        <ion-item class="center">
+          <ion-select [(ngModel)]="class_category" class="big grey fontLight">
+            <ion-option value="" selected>악기</ion-option>
             <ion-option value="n64">Nintendo64</ion-option>
             <ion-option value="ps">PlayStation</ion-option>
           </ion-select>
         </ion-item>
         <ion-item class="center">
-          <ion-label class="regularLarge fontMedium">수업 태그</ion-label>
-          <ion-input type="text" placeholder="ex. 피아노" [(ngModel)]="class_tag"></ion-input>
+          <div class="regularLarge grey fontMedium">수업 태그</div>
+        </ion-item>
+        <ion-item class="center">
+          <ion-input class="big grey fontLight" type="text" placeholder="ex. 피아노" [(ngModel)]="class_tag"></ion-input>
         </ion-item>
       </ion-list>
     </ion-slide>
     <ion-slide>
       <ion-list>
-        <div>제목</div>
+        <div class="big grey fontLight">제목</div>
         <div>
           <ion-item>
-            <ion-input type="text" placeholder="Username" [(ngModel)]="class_title"></ion-input>
+            <ion-input type="text" placeholder="제목을 입력해주세요" [(ngModel)]="class_title"></ion-input>
           </ion-item>
         </div>
-        <div>
+        <div class="big grey fontLight">
           희망회차 및 커리큘럼
         </div>
         <div>
           <ion-list inset>
             <ion-item *ngFor="let curriculum of class_curriculum_list; let i=index;">
               <ion-label>{{i+1}}회차</ion-label>
-              <ion-input type="text" [(ngModel)]="curriculum.description"></ion-input>
+              <ion-input type="text" placeholder="해당 회차 커리큐럼을 작성해주세요" class="center regularLarge" [(ngModel)]="curriculum.description"></ion-input>
             </ion-item>
           </ion-list>
         </div>
         <div>
-          <button (click)="rmCurriculum()">회차 삭제</button>
-          <button (click)="addCurriculum()">회차 추가</button>
+          <button class="transparent" (click)="rmCurriculum()"><img class=" addMinus" src="build/images/minusCircle.svg"></button>
+          <button class="transparent" (click)="addCurriculum()"><img class=" addMinus" src="build/images/addCircle.svg"></button>
         </div>
-        <div>
+        <div class="big grey fontLight">
           주말에도 돼요?
         </div>
         <div>
-          <ion-input type="text" placeholder="Username" [(ngModel)]="class_weekend"></ion-input>
+          <ion-input type="text" class="regularLarge center" placeholder="아니요" [(ngModel)]="class_weekend"></ion-input>
         </div>
-        <div>
+        <div class="big grey fontLight">
           회차당 수업시간
         </div>
         <div>
-          <button (click)="addClassDuration()">plus</button>
+          <button class="transparent" (click)="addClassDuration()"><img class=" addMinus" src="build/images/addCircle.svg"></button>
         </div>
         <div>
-          <span>{{class_duration}}</span>시간
+          <span style="font-size:40px;" class="grey fontLight">{{class_duration}}</span><span class="big grey fontLight">시간</span>
         </div>
         <div>
-          <button (click)="minusClassDuration()">minus</button>
+          <button class="transparent" (click)="minusClassDuration()"><img class="  addMinus" src="build/images/minusCircle.svg"></button>
         </div>
-        <div>
+        <div class="big grey fontLight">
           수업 장소
         </div>
         <div>
-          <ion-input type="text" placeholder="Username" [(ngModel)]="class_place"></ion-input>
+          <ion-input type="text" class="regularLarge center" placeholder="수업하실 장소를 입력해주세요 (ex.중앙도서관)" [(ngModel)]="class_place"></ion-input>
         </div>
-        <div>
+        <div class="big grey fontLight">
           언제 시간되어요?
         </div>
         <div>
-          <table>
+          <table class="regular grey fontMedium">
             <thead>
-              <th></th>
-              <th>월</th>
-              <th>화</th>
-              <th>수</th>
-              <th>목</th>
-              <th>금</th>
+              <th class="fontMedium"></th>
+              <th class="fontMedium">월</th>
+              <th class="fontMedium">화</th>
+              <th class="fontMedium">수</th>
+              <th class="fontMedium">목</th>
+              <th class="fontMedium">금</th>
             </thead>
             <tbody>
               <tr *ngFor="let row of [1,2,3,4,5,6,7,8,9,10]; let rowIndex=index;">
@@ -111,51 +116,57 @@
               </tr>
             </tbody>
           </table>
-          <div>구체적인 시간은 학생과 협의할 수 있습니다</div>
+          <div class="fontMedium regular">구체적인 시간은 학생과 협의할 수 있습니다</div>
         </div>
       </ion-list>
     </ion-slide>
     <ion-slide>
       <ion-list>
-        <div>
+        <div class="big grey fontLight">
           경력
         </div>
-        <div>
+        <div class="regularLarge grey fontLight">
           자신의 경력을 마구 뽐내주세요
         </div>
         <div>
-          <textarea [(ngModel)]="class_history"></textarea>
+          <textarea placeholder="ex. -공모전 수상 경력" [(ngModel)]="class_history"></textarea>
         </div>
-        <div>0/500글자</div>
-        <div>
+        <div class="fontLight regular">0/500글자</div>
+        <div class="big grey fontLight">
           멘티들에게 한 마디
         </div>
-        <div>
+        <div class="regularLarge grey fontLight">
           코치가 멘티에게...
         </div>
         <div>
-          <textarea [(ngModel)]="class_comment"></textarea>
+          <textarea class="addClassTextarea" [(ngModel)]="class_comment"></textarea>
         </div>
-        <div>0/500글자</div>
-        <div>
+        <div class="fontLight regular">0/500글자</div>
+        <div class="big grey fontLight">
           전화번호
         </div>
-        <div>
-          <ion-input type="number" placeholder="Username" [(ngModel)]="class_phone"></ion-input>
+        <div class="regularLarge grey fontLight">
+          공강스쿨 코치 매니저와의 연락을 위한 것으로써 공개되지 않습니다
         </div>
         <div>
+          <ion-input type="number" placeholder="010.1234.1234" [(ngModel)]="class_phone"></ion-input>
+        </div>
+        <div class="big grey fontLight">
           FAQ
         </div>
-        <div>
+        <div class="regularLarge grey fontLight">
           주로 나오는 질문들의 대답을 적는 칸 입니다.
         </div>
-        <div>
+        <div class="big grey fontLight">
           어떻게 가르치실 예정인가요?
+        </div>
+        <div class="regularLarge grey fontLight">
+          ex. 자체 교재 및 커리큘럼을 따를 생각입니다.
         </div>
         <div>
           <textarea [(ngModel)]="class_faq"></textarea>
         </div>
-        <div>0/500글자</div>
+        <div class="fontLight regular">0/500글자</div>
         </ion-list>
     </ion-slide>
     <ion-slide>
@@ -165,7 +176,7 @@
 </ion-content>
 <ion-footer>
   <ion-toolbar>
-    <button (click)="prev()" *ngIf="prevButtonShow === true">이전으로</button>
+    <button (click)="prev()" class="transparent bottomBack" *ngIf="prevButtonShow === true"><img src="build//images/arrow.svg"/></button>
     <button class="transparent  largeButtonLight" style="float:right;" (click)="next()">{{bottomRightButton}}</button>
     <!--이거 왜 이럼-->
   </ion-toolbar>
