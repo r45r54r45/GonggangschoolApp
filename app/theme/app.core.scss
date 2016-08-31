@@ -42,6 +42,10 @@ body,p,span,html  {
   font-family: $font-kor;
 }
 
+.eng{
+  font-family: $font-eng;
+}
+
 //18px
 .tiny {
   font-size: 8px;
@@ -253,7 +257,7 @@ table {
       background: #961a1d;
       }
     }
-  }
+
   th{
         padding: 20px 0px 10px;
   }
@@ -261,4 +265,8 @@ table {
     width: 5vw;
     border:none;
   }
+}
+
+.clearBoth{
+  clear:both;
 }
