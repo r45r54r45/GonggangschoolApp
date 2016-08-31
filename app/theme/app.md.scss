@@ -29,10 +29,3 @@
 // App Material Design Only Sass
 // --------------------------------------------------
 // CSS that should only apply to the Material Design app
-
-
-@media (min-width: 768px) {
-    .myelements {
-        @include box-shadow(0px white);
-    }
-}
