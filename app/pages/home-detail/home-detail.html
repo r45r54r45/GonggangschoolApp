@@ -16,7 +16,7 @@
           <button (click)="goBack()" class="closeButton"><img src="build/images/close.svg"/></button>
         </div>
         <div class="center">
-          <img class="classListProfile" *ngIf="basic.cover_image" [ngStyle]='{"background-image": "url("+basic.owner.profile+") "}'>
+          <img (click)="profileClick(basic.owner.id)" class="classListProfile" *ngIf="basic.cover_image" [ngStyle]='{"background-image": "url("+basic.owner.profile+") "}'>
         </div>
         <div class="center">
           <span class="regular white">{{basic.owner.name}}{{(basic.owner.major?"|":"")}}{{basic.owner.major||""}}</span>

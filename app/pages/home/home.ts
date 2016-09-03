@@ -14,31 +14,30 @@ import {LoadingController} from 'ionic-angular';
   providers: [Class]
 })
 export class HomePage {
-  public classList:any = [];
-  private startCounter=0;
+  public classList: any = [];
+  private startCounter = 0;
 
-  constructor(private navCtrl:NavController, private classService:Class,private loadingCtrl: LoadingController) {
+  constructor(private navCtrl: NavController, private classService: Class, private loadingCtrl: LoadingController) {
 
   }
   onPageDidEnter(){
-    let loading = this.loadingCtrl.create({
-      content: 'Please wait...'
-    });
-    loading.present();
     this.classService.getCourseList(this.startCounter).subscribe(data => {
       this.classList = jsonify(data);
-      loading.dismiss();
+      console.log(this.classList);
+      // loading.dismiss();
     });
   }
   clickClass(courseId) {
-    this.navCtrl.push(HomeDetailPage,{courseId: courseId});
+    this.navCtrl.push(HomeDetailPage, {courseId: courseId});
+
   }
-  doInfinite(infinite){
-    this.startCounter+=10;
+
+  doInfinite(infinite) {
+    this.startCounter += 10;
     this.classService.getCourseList(this.startCounter).subscribe(data => {
-      if(jsonify(data).length==0){
+      if (jsonify(data).length == 0) {
         infinite.enable(false);
-      }else{
+      } else {
         this.classList = this.classList.concat(jsonify(data));
         infinite.complete();
       }

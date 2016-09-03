@@ -1,0 +1,16 @@
+.profile-page {
+  .profileImage{
+    width: 20vw;
+    height:20vw;
+    position: absolute;
+    bottom: 0;
+    left:50%;
+    margin-left: -10vw;
+    margin-top:-10vw;
+    background: red;
+  }
+  .coverImage{
+    height: 30vh;
+    background: black;
+  }
+}
