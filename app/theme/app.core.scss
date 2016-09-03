@@ -78,9 +78,11 @@ body,p,span,html  {
   font-size: 32px;
 }
 
-div.center, input.center, select.center, ion-col.center {
-  text-align: center;
-  text-align-last: center;
+div,input,select,ion-col ,thead{
+   &.center{
+    text-align: center;
+    text-align-last: center;
+  }
 }
 
 div.right, input.right, select.right {

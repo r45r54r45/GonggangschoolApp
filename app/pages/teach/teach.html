@@ -99,17 +99,17 @@
           </div>
         </div>
         <table>
-          <thead>
+          <thead class="center">
           <th></th>
-          <th>월</th>
-          <th>화</th>
-          <th>수</th>
-          <th>목</th>
-          <th>금</th>
+          <th><span class="regular grey fontMedium">월</span></th>
+          <th><span class="regular grey fontMedium">화</span></th>
+          <th><span class="regular grey fontMedium">수</span></th>
+          <th><span class="regular grey fontMedium">목</span></th>
+          <th><span class="regular grey fontMedium">금</span></th>
           </thead>
           <tbody>
           <tr *ngFor="let row of [1,2,3,4,5,6,7,8,9,10]; let rowIndex=index;">
-            <td>{{rowIndex+1}}</td>
+            <td class="regular grey">{{rowIndex+1}}</td>
             <td [attr.id]="'teach_td_' + (rowIndex+1)+'_'+(colIndex+1)"
                 *ngFor="let col of [1,2,3,4,5]; let colIndex=index;"></td>
           </tr>

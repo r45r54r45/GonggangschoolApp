@@ -41,3 +41,33 @@ ion-header::after{
 ion-footer::before{
   background-image:none !important;
 }
+.toolbar-title{
+  text-align: center;
+}
+
+.mypage-edit-page{
+  .back-button{
+    display: none !important;
+  }
+}
+.toggle-checked,.toggle-inner{
+  background-color: #262727;
+}
+.toggle-activated,.toggle-inner{
+  background-color: #262727 !important;
+}
+.toggle-icon{
+  height:26px;
+}
+.toggle-inner{
+  top:1px !important;
+  left:1px;
+  width:24px;
+  height:24px;
+}
+.mypage-page.toggle-icon{
+  background-color: white !important;
+}
+.toggle-icon{
+  width:42px !important;
+}
