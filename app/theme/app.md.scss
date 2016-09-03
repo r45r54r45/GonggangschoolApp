@@ -29,3 +29,16 @@
 // App Material Design Only Sass
 // --------------------------------------------------
 // CSS that should only apply to the Material Design app
+
+
+*{
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+}
+ion-header::after{
+  background-image:none !important;
+}
+ion-footer::before{
+  background-image:none !important;
+}
