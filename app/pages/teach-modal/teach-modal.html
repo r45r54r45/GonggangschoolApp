@@ -22,7 +22,7 @@
       <!--1페이지-->
       <ion-list>
         <ion-item class="center">
-          <div class="regularLarge grey fontMedium">수업분야</div>
+          <div class="regularLarge grey fontMedium smallTitle">수업분야</div>
         </ion-item>
         <ion-item class="center">
           <ion-select [(ngModel)]="class_area" class="big grey fontLight">
@@ -32,7 +32,7 @@
           </ion-select>
         </ion-item>
         <ion-item class="center">
-          <div class="regularLarge grey fontMedium">상세 카테고리</div>
+          <div class="regularLarge grey fontMedium smallTitle">상세 카테고리</div>
         </ion-item>
         <ion-item class="center">
           <ion-select [(ngModel)]="class_category" class="big grey fontLight">
@@ -42,61 +42,61 @@
           </ion-select>
         </ion-item>
         <ion-item class="center">
-          <div class="regularLarge grey fontMedium">수업 태그</div>
+          <div class="regularLarge grey fontMedium smallTitle">수업 태그</div>
         </ion-item>
         <ion-item class="center">
-          <ion-input class="big grey fontLight" type="text" placeholder="ex. 피아노" [(ngModel)]="class_tag"></ion-input>
+          <ion-input class="big grey fontLight inputLeft" type="text" placeholder="ex. 피아노" [(ngModel)]="class_tag"></ion-input>
         </ion-item>
       </ion-list>
     </ion-slide>
     <ion-slide>
       <ion-list>
-        <div class="big grey fontLight">제목</div>
+        <div class="big grey fontLight clearBoth" style="margin-top:3vw;">제목</div>
         <div>
           <ion-item>
-            <ion-input type="text" placeholder="제목을 입력해주세요" [(ngModel)]="class_title"></ion-input>
+            <ion-input type="text" class="regularLarge center grey" placeholder="제목을 입력해주세요 " [(ngModel)]="class_title"></ion-input>
           </ion-item>
         </div>
-        <div class="big grey fontLight">
+        <div class="big grey fontLight clearBoth largeTitle">
           희망회차 및 커리큘럼
         </div>
         <div>
           <ion-list inset>
             <ion-item *ngFor="let curriculum of class_curriculum_list; let i=index;">
               <ion-label>{{i+1}}회차</ion-label>
-              <ion-input type="text" placeholder="해당 회차 커리큐럼을 작성해주세요" class="center regularLarge" [(ngModel)]="curriculum.description"></ion-input>
+              <ion-input type="text"  placeholder="해당 회차 커리큐럼을 작성해주세요" class="grey regularLarge inputLeft" [(ngModel)]="curriculum.description"></ion-input>
             </ion-item>
           </ion-list>
         </div>
         <div>
-          <button class="transparent" (click)="rmCurriculum()"><img class=" addMinus" src="build/images/minusCircle.svg"></button>
-          <button class="transparent" (click)="addCurriculum()"><img class=" addMinus" src="build/images/addCircle.svg"></button>
+          <button class="transparent addMinusLarge" (click)="rmCurriculum()"><img class=" addMinus" src="build/images/minusCircle.svg"></button>
+          <button class="transparent addMinusLarge" (click)="addCurriculum()"><img class=" addMinus" src="build/images/addCircle.svg"></button>
         </div>
-        <div class="big grey fontLight">
+        <div class="big grey fontLight clearBoth largeTitle">
           주말에도 돼요?
         </div>
         <div>
-          <ion-input type="text" class="regularLarge center" placeholder="아니요" [(ngModel)]="class_weekend"></ion-input>
+          <ion-input type="text" class="regularLarge center grey" placeholder="아니요" [(ngModel)]="class_weekend"></ion-input>
         </div>
-        <div class="big grey fontLight">
+        <div class="big grey fontLight clearBoth largeTitle">
           회차당 수업시간
         </div>
-        <div>
-          <button class="transparent" (click)="addClassDuration()"><img class=" addMinus" src="build/images/addCircle.svg"></button>
+        <div class="addMinusPaddingT">
+          <button class="transparent addMinusLarge" (click)="addClassDuration()"><img class=" addMinus" src="build/images/addCircle.svg"></button>
         </div>
         <div>
-          <span style="font-size:40px;" class="grey fontLight">{{class_duration}}</span><span class="big grey fontLight">시간</span>
+          <span style="font-size:50px;color:#afafaf" class=" fontLight eng">{{class_duration}}</span><span style="color:#afafaf" class="big  fontLight">시간</span>
         </div>
-        <div>
-          <button class="transparent" (click)="minusClassDuration()"><img class="  addMinus" src="build/images/minusCircle.svg"></button>
+        <div class="addMinusPaddingB">
+          <button class="transparent addMinusLarge" (click)="minusClassDuration()"><img class="  addMinus" src="build/images/minusCircle.svg"></button>
         </div>
-        <div class="big grey fontLight">
+        <div class="big grey fontLight clearBoth largeTitle">
           수업 장소
         </div>
         <div>
-          <ion-input type="text" class="regularLarge center" placeholder="수업하실 장소를 입력해주세요 (ex.중앙도서관)" [(ngModel)]="class_place"></ion-input>
+          <ion-input type="text" class="regularLarge center grey" placeholder="수업하실 장소를 입력해주세요 (ex.중앙도서관)" [(ngModel)]="class_place"></ion-input>
         </div>
-        <div class="big grey fontLight">
+        <div class="big grey fontLight clearBoth largeTitle">
           언제 시간되어요?
         </div>
         <div>
@@ -120,53 +120,48 @@
         </div>
       </ion-list>
     </ion-slide>
-    <ion-slide>
-      <ion-list>
-        <div class="big grey fontLight">
+    <ion-slide class="leftAlign addClassSidePadding">
+      <ion-list >
+        <div class="big grey fontLight clearBoth largeTitle">
           경력
         </div>
         <div class="regularLarge grey fontLight">
           자신의 경력을 마구 뽐내주세요
         </div>
         <div>
-          <textarea placeholder="ex. -공모전 수상 경력" [(ngModel)]="class_history"></textarea>
+          <textarea class="regularLarge fontLight" placeholder="ex. -공모전 수상 경력" [(ngModel)]="class_history"></textarea>
         </div>
-        <div class="fontLight regular">0/500글자</div>
-        <div class="big grey fontLight">
+        <div class="fontLight regular floatRight">0/500글자</div>
+        <div class="clear:both;"></div>
+        <div class="big grey fontLight clearBoth largeTitle">
           멘티들에게 한 마디
         </div>
-        <div class="regularLarge grey fontLight">
-          코치가 멘티에게...
-        </div>
         <div>
-          <textarea class="addClassTextarea" [(ngModel)]="class_comment"></textarea>
+          <textarea class="addClassTextarea regularLarge fontLight" placeholder="코치가 멘티에게..." [(ngModel)]="class_comment"></textarea>
         </div>
-        <div class="fontLight regular">0/500글자</div>
-        <div class="big grey fontLight">
+        <div class="fontLight regular floatRight">0/500글자</div>
+        <div class="big grey fontLight clearBoth largeTitle">
           전화번호
         </div>
         <div class="regularLarge grey fontLight">
           공강스쿨 코치 매니저와의 연락을 위한 것으로써 공개되지 않습니다
         </div>
         <div>
-          <ion-input type="number" placeholder="010.1234.1234" [(ngModel)]="class_phone"></ion-input>
+          <ion-input type="number" class="big fontLight" placeholder="010.1234.1234" [(ngModel)]="class_phone"></ion-input>
         </div>
-        <div class="big grey fontLight">
+        <div class="big grey fontLight largeTitle">
           FAQ
         </div>
         <div class="regularLarge grey fontLight">
           주로 나오는 질문들의 대답을 적는 칸 입니다.
         </div>
-        <div class="big grey fontLight">
+        <div class="big grey fontLight largeTitle">
           어떻게 가르치실 예정인가요?
         </div>
-        <div class="regularLarge grey fontLight">
-          ex. 자체 교재 및 커리큘럼을 따를 생각입니다.
-        </div>
         <div>
-          <textarea [(ngModel)]="class_faq"></textarea>
+          <textarea class="regularLarge fontLight" placeholder="ex. 자체 교재 및 커리큘럼을 따를 생각입니다." [(ngModel)]="class_faq"></textarea>
         </div>
-        <div class="fontLight regular">0/500글자</div>
+        <div class="fontLight regular floatRight">0/500글자</div>
         </ion-list>
     </ion-slide>
     <ion-slide>

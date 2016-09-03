@@ -51,6 +51,9 @@
     width:20vw;
   }
   .slide-zoom{
+    text-align: center !important;
+  }
+  ion-slide.leftAlign>.slide-zoom{
     text-align: left !important;
   }
   .addClassTextarea{
@@ -60,5 +63,42 @@
   }
   .item-inner{
       border: 1px solid rgba(0, 0, 0, 0) !important;
+  }
+  ion-input>input{
+    text-align: center;
+  }
+  ion-input.inputLeft>input{
+    text-align: left;
+  }
+  textarea{
+    width:100vw;
+    height: 20vh;
+    resize:none;
+  }
+
+  ion-list > .item:first-child, ion-list > .item:last-child{
+    padding-left:16px !important;
+  }
+  .smallTitle{
+    margin-top: 12vw;
+  }
+  .largeTitle{
+    margin-top: 15vw;
+  }
+  .swiper-slide img{
+    max-height: 8vh;
+    max-width: 8vh;
+  }
+  .addClassSidePadding{
+    padding:0px 16px;
+  }
+  .addMinusPaddingT{
+    padding:15vw 0vw 5vw;
+  }
+  .addMinusPaddingB{
+    padding:10vw 0vw 10vw;
+  }
+  .addMinusLarge{
+    height:100%;
   }
 }

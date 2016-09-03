@@ -30,9 +30,14 @@
 // --------------------------------------------------
 // CSS that should only apply to the Material Design app
 
-//
-//@media (min-width: 768px) {
-//    .myelements {
-//        @include box-shadow(0px white);
-//    }
-//}
+*{
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+}
+ion-header::after{
+  background-image:none !important;
+}
+ion-footer::before{
+  background-image:none !important;
+}
