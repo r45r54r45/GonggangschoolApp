@@ -10,7 +10,59 @@
     background: red;
   }
   .coverImage{
-    height: 30vh;
+    height: 22vh;
     background: black;
+  }
+  .classList{
+    position: absolute;
+    bottom: 0px;
+    background-color: black;
+    width:20vw;
+    height:20vw;
+    z-index: 3;
+  }
+  .profileProfile{
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50% ;
+    width: 15vh !important;
+    height: 15vh !important;
+    background-color: white;
+    margin:80px 12px 2px;
+  }
+  .profileVerification{
+    border-radius: 50% ;
+    width: 3.5vh;
+    height: 3.5vh;
+    background-color: #525252;
+    margin:18px 5px 24px;
+  }
+  .textPadding{
+    margin-top:2vw;
+    padding:16px;
+  }
+  .textPaddingB{
+    padding:16px;
+    margin-bottom: 100px;
+  }
+  .classVideo{
+    background-color: grey;
+    width:100vw;
+    height:58vw;
+
+  }
+  .profileSchool{
+    position: absolute;
+    top: 28vw;
+    right: 4vw;
+    border-radius: 50%;
+    width:7vw;
+    height:7vw;
+    background: url('../images/yonsei.png') no-repeat center center;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
   }
 }
