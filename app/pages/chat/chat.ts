@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {InAppBrowser} from 'ionic-native';
 import {Class} from "../../providers/class/class";
+import {ChatDetailPage} from '../chat-detail/chat-detail';
 /*
   Generated class for the ChatPage page.
 
@@ -27,7 +28,9 @@ export class ChatPage {
   sendMessage(){
     this.socket.emit('message', { my: this.message });
   }
-
+  goToChatDetail(chatRoomId){
+    this.navCtrl.push(ChatDetailPage,{roomId: chatRoomId});
+  }
 
 
 

@@ -14,15 +14,17 @@
 <ion-content padding>
   <div class="ios-only-padding"></div>
   <ion-list class="lightGreyBg">
-    <ion-item class="chatListItem">
-      <ion-avatar item-left>
-        <img class="chatProfile" src="build//images/yonsei.png">
-      </ion-avatar>
-      <span style="float:left" class="regular grey">제목입니다 헬로우 헬로우</span>
-      <span style="float:right " class="tiny grey">3시간전 | 헬로우톡</span>
-      <div style="clear:both"></div>
-      <span class="small grey">글ㄴㄴ네용은 여기에 나옵니다. 프리뷰입니다.  프리뷰프리뷰입니다프리뷰프리뷰입니다 프리뷰프리뷰입니다 프리뷰프리뷰입니다 프리뷰프리뷰입니다</span>
-    </ion-item>
+    <a (click)="goToChatDetail(1)">
+      <ion-item class="chatListItem">
+        <ion-avatar item-left>
+          <img class="chatProfile" src="build//images/yonsei.png">
+        </ion-avatar>
+        <span style="float:left" class="regular grey">제목입니다 헬로우 헬로우</span>
+        <span style="float:right " class="tiny grey">3시간전 | 헬로우톡</span>
+        <div style="clear:both"></div>
+        <span class="small grey">글ㄴㄴ네용은 여기에 나옵니다. 프리뷰입니다.  프리뷰프리뷰입니다프리뷰프리뷰입니다 프리뷰프리뷰입니다 프리뷰프리뷰입니다 프리뷰프리뷰입니다</span>
+      </ion-item>
+    </a>
     <button (click)="click()">결제</button>
     <button (click)="click2()">테스트</button>
     <input [(ngModel)]="user">

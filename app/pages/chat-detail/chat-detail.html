@@ -1,0 +1,34 @@
+<!--
+  Generated template for the ChatDetailPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>해당 채팅방 제목</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item style="background: red; margin: 20px 0;" *ngFor="let i of [1,2,3,4]">
+      <span>dddd</span>
+    </ion-item>
+    <ion-item style="background: red;flex-direction: row-reverse;
+  text-align: right;
+  background: red; margin: 20px 0;" *ngFor="let i of [1,2,3,4]">
+      <span>dddd</span>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <input [(ngModel)]="message">
+    <button>보내기</button>
+  </ion-toolbar>
+  </ion-footer>
