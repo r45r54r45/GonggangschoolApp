@@ -13,15 +13,17 @@ import {Storage, SqlStorage} from 'ionic-angular';
 @Injectable()
 export class Class {
   public headers: Headers;
-
+  public token: string;
   constructor(private http: Http) {
     let storage = new Storage(SqlStorage);
     if (DEV) {
       console.log("Dev Mode");
+      this.token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNDcxMTEwODEyfQ.cVs-bqvTpr47Ts2pF5RDT5n8E6snUE7_nOF9OnRE8ww';
       this.headers = new Headers({'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNDcxMTEwODEyfQ.cVs-bqvTpr47Ts2pF5RDT5n8E6snUE7_nOF9OnRE8ww'});
     } else {
       storage.get('token').then((token) => {
         this.headers = new Headers({'Authorization': token});
+        this.token=token;
       });
     }
   }
@@ -29,7 +31,9 @@ export class Class {
   getAuth() {
 
   };
-
+  getUserToken(){
+    return this.token;
+  }
 
   // 유저부분
   loginUser(type, token) {

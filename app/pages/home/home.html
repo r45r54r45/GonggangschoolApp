@@ -15,7 +15,8 @@
 
 <ion-content>
   <ion-list>
-    <ion-item [ngStyle]='{"background-image": "url("+course.cover_image+") "}' (click)="clickClass(course.id)" class="classListImage" *ngFor="let course of classList; let i=index;">
+    <a (click)="clickClass(course.id)" *ngFor="let course of classList; let i=index;">
+    <ion-item [ngStyle]='{"background-image": "url("+course.cover_image+") "}'  class="classListImage" >
       <div class="classPrice">
         <span class="regular fontBold">₩ {{course.price}}원</span> <span class=" small fontBold">/ 시간</span>
       </div>
@@ -32,6 +33,7 @@
         <span class="regularLarge fontBold white">{{course.title}}</span>
       </div>
     </ion-item>
+    </a>
   </ion-list>
   <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
     <ion-infinite-scroll-content></ion-infinite-scroll-content>

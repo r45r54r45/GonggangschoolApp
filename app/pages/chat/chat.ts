@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {InAppBrowser} from 'ionic-native';
+import {Class} from "../../providers/class/class";
 /*
   Generated class for the ChatPage page.
 
@@ -8,12 +9,28 @@ import {InAppBrowser} from 'ionic-native';
   Ionic pages and navigation.
 */
 @Component({
-  templateUrl: 'build/pages/chat/chat.html'
+  templateUrl: 'build/pages/chat/chat.html',
+  providers: [Class]
 })
 export class ChatPage {
-  private imp:any;
-  constructor(private navCtrl: NavController) {
+  private socket:any;
+  private message:string;
+  private user:string;
+  constructor(private navCtrl: NavController, classService: Class) {
+    this.socket = window['io'].connect('http://localhost:3001');
+    this.socket.emit('userIdentify', { token:  classService.getUserToken()});
+    this.socket.on("message",function(data){
+      console.log(data);
+    });
   }
+
+  sendMessage(){
+    this.socket.emit('message', { my: this.message });
+  }
+
+
+
+
   click2(){
     let bro=InAppBrowser.open('http://naver.com', "_blank", "location=no,clearsessioncache=yes,clearcache=yes");
   }

@@ -25,5 +25,11 @@
     </ion-item>
     <button (click)="click()">결제</button>
     <button (click)="click2()">테스트</button>
+    <input [(ngModel)]="user">
+    <button (click)="sendUser()">유저 전송
+    </button>
+    <input [(ngModel)]="message">
+    <button (click)="sendMessage()">메세지 전송
+    </button>
   </ion-list>
 </ion-content>
