@@ -1,3 +1,19 @@
-.chat-detail {
-
+.chat-detail-page {
+  .button-comment{
+  background: none;
+  color:rgba(82, 82, 82, 0.7);
+  border: 1px solid rgba(82,82,82, .3);
+    border-radius: 20px;
+    width: 55px;
+    height: 100%;
+    line-height: 2.2 !important;
+    float: right;
+  }
+  .chatNavBar{
+    background-color: #961a1d;
+    height: 48px;
+  }
+  ion-navbar>.back-button{
+    display: none;
+  }
 }
