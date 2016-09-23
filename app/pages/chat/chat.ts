@@ -18,16 +18,10 @@ export class ChatPage {
   private message:string;
   private user:string;
   constructor(private navCtrl: NavController, classService: Class) {
-    this.socket = window['io'].connect('http://localhost:3001');
-    this.socket.emit('userIdentify', { token:  classService.getUserToken()});
-    this.socket.on("message",function(data){
-      console.log(data);
-    });
+
   }
 
-  sendMessage(){
-    this.socket.emit('message', { my: this.message });
-  }
+
   goToChatDetail(chatRoomId){
     this.navCtrl.push(ChatDetailPage,{roomId: chatRoomId});
   }
