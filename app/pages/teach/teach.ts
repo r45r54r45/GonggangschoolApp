@@ -28,16 +28,21 @@ export class TeachPage {
   public isClassOpened:boolean=false;
   public teachList:any[]=[];
   public selectedId:number;
+  public loading:any;
 
   @ViewChild('mySlider') slider:Slides;
   constructor(private navCtrl: NavController, private Modal : ModalController, private classService:Class,private loadingCtrl: LoadingController) {
-    let loading = this.loadingCtrl.create({
+    this.loading = this.loadingCtrl.create({
       content: 'Please wait...'
     });
-    loading.present();
+    this.loading.present();
     classService.getTeachList().subscribe(data=>{
       this.teachList=data.json();
-      loading.dismiss();
+      if(this.teachList.length!=0){
+        this.selectClass(this.teachList[0].id,true);
+      }else{
+        this.loading.dismiss();
+      }
     })
   }
   slideMove(moveTo) {
@@ -47,13 +52,15 @@ export class TeachPage {
     let modal=this.Modal.create(TeachModalPage);
     modal.present();
   }
-  selectClass(courseId){
+  selectClass(courseId,needLoadingEnd){
     this.selectedId=courseId;
     this.isClassOpened=true;
-    let loading = this.loadingCtrl.create({
-      content: 'Please wait...'
-    });
-    loading.present();
+    if(!needLoadingEnd){
+      this.loading = this.loadingCtrl.create({
+        content: 'Please wait...'
+      });
+      this.loading.present();
+    }
     this.classService.getBasic(courseId).subscribe(data => {
       this.classService.getProfile(courseId).subscribe(data =>{
         this.classService.getFaq(courseId).subscribe(data =>{ this.classService.getRating(courseId).subscribe(data =>{
@@ -63,7 +70,7 @@ export class TeachPage {
               item.star=makeStarRating(Math.floor(item.avg_total),"classRatingStarS");
             });
             console.log("finish");
-            loading.dismiss();
+            this.loading.dismiss();
           });
           this.rating=jsonify(data);
           this.rating.avg_time=makeStarRating(this.rating.avg_time,"classRatingStar");
