@@ -15,6 +15,18 @@
 
   <!-- This is Ionic's root component, where the app will load -->
   <ion-app></ion-app>
+  <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyBpQ2R8sgYaKFumoc8bhtkbb7lEBZCDfR0",
+      authDomain: "gongangschool-1374.firebaseapp.com",
+      databaseURL: "https://gongangschool-1374.firebaseio.com",
+      storageBucket: "gongangschool-1374.appspot.com",
+      messagingSenderId: "77101706358"
+    };
+    firebase.initializeApp(config);
+  </script>
   <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.en"></script>
   <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
   <!-- cordova.js required for cordova apps -->

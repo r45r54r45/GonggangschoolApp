@@ -3,6 +3,7 @@ import {NavController} from 'ionic-angular';
 import {HomeDetailPage} from '../home-detail/home-detail';
 import {Class} from '../../providers/class/class';
 import {LoadingController} from 'ionic-angular';
+
 /*
  Generated class for the HomePage page.
 
@@ -16,7 +17,7 @@ import {LoadingController} from 'ionic-angular';
 export class HomePage {
   public classList: any = [];
   private startCounter = 0;
-
+  public messageText:string="";
   constructor(private navCtrl: NavController, private classService: Class, private loadingCtrl: LoadingController) {
 
   }
@@ -27,6 +28,7 @@ export class HomePage {
       // loading.dismiss();
     });
   }
+
   clickClass(courseId) {
     this.navCtrl.push(HomeDetailPage, {courseId: courseId});
 

@@ -34,6 +34,9 @@ export class Class {
   getUserToken(){
     return this.token;
   }
+  getIdByToken(){
+    return this.http.get(SERVER_URL + `users/getId`, {headers: this.headers});
+  }
 
   // 유저부분
   loginUser(type, token) {

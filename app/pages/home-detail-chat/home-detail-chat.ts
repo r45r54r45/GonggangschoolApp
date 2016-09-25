@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-
+import { NavController,NavParams } from 'ionic-angular';
+import {Message} from '../../providers/message/message';
+import {Class } from '../../providers/class/class';
 /*
   Generated class for the HomeDetailChatPage page.
 
@@ -9,16 +10,18 @@ import { NavController } from 'ionic-angular';
 */
 @Component({
   templateUrl: 'build/pages/home-detail-chat/home-detail-chat.html',
+  providers: [Message,Class]
 })
 export class HomeDetailChatPage {
-
-  constructor(private navCtrl: NavController) {
-
+  public message:string;
+  constructor(private navCtrl: NavController, private messageService:Message, private params: NavParams) {
+    messageService.initRoom(params.get("courseId"),function(){});
   }
   goBack(){
     this.navCtrl.pop();
   }
-  submit(){
-    console.log("submit");
+  submit(text){
+    this.messageService.addMessage(text);
+    this.navCtrl.pop();
   }
 }

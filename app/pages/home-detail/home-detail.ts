@@ -100,7 +100,7 @@ export class HomeDetailPage {
   }
 
   ask() {
-    let modal = this.Modal.create(HomeDetailChatPage);
+    let modal = this.Modal.create(HomeDetailChatPage, {courseId: this.params.get('courseId')});
     modal.present();
   }
 

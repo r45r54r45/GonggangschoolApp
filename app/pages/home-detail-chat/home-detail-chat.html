@@ -13,12 +13,12 @@
     </ion-buttons>
     <ion-title ><span class="white">문의하기</span></ion-title>
     <ion-buttons end (click)="submit()">
-      <button royal class="white regularLarge">
+      <button royal class="white regularLarge" (click)="submit(message)">
         보내기
       </button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
 <ion-content>
-  <textarea class="chatArea" placeholder="문의 내용을 입력하세요"></textarea>
+  <textarea class="chatArea" placeholder="문의 내용을 입력하세요" [(ngModel)]="message"></textarea>
 </ion-content>
