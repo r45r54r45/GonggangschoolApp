@@ -15,7 +15,6 @@ import {Message} from '../../providers/message/message';
   providers: [Class,Message]
 })
 export class ChatPage {
-  private socket:any;
   private message:string;
   private user:string;
   constructor(private navCtrl: NavController, classService: Class, messageService: Message) {

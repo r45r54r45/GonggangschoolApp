@@ -16,7 +16,6 @@ import {Message} from '../../providers/message/message';
 export class ChatDetailPage {
   private tabBarElement: any;
   private message:string;
-  private socket:any;
   constructor(private navCtrl: NavController, classService: Class, private params:NavParams,private messageService: Message) {
     this.tabBarElement = document.querySelector('#default_tabs_bar ion-tabbar');
     messageService.initRoom(params.get("courseId"),this.listenMessage);
@@ -36,7 +35,6 @@ export class ChatDetailPage {
   }
 
   ionViewWillLeave() {
-    this.socket.disconnect();
     this.tabBarElement.style.display = 'flex';
   }
 }
