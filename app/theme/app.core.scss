@@ -275,3 +275,39 @@ table {
 .clearBoth{
   clear:both;
 }
+ion-tabbar{
+  background: #262727 !important;
+  border-top: 0px solid #b2b2b2;
+}
+.tab-button[aria-selected=true]{
+  color:white;
+}
+
+.homeIcon {
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 22px !important;
+  background-image: url("build/images/home.svg");
+  background-size:contain;
+}
+.myclassIcon {
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 22px !important;
+  background-image: url("build/images/class.svg");
+  background-size:contain;
+}
+.teachIcon {
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 22px !important;
+  background-image: url("build/images/teach.svg");
+  background-size:contain;
+}
+.mypageIcon {
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 22px !important;
+  background-image: url("build/images/myPage.svg");
+  background-size:contain;
+}

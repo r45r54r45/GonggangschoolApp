@@ -32,4 +32,15 @@
   ion-label{
     margin: 15px 0px 10px;
   }
+  ion-select>div{
+    overflow: visible;
+    padding-right: 15px;
+    color:white;
+    font-size: 12px;
+  }
+  ion-select{
+    padding-left:0px;
+    padding-top: 8px;
+  }
+
 }
