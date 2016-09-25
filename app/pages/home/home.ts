@@ -17,7 +17,9 @@ import {LoadingController} from 'ionic-angular';
 export class HomePage {
   public classList: any = [];
   private startCounter = 0;
-  public messageText:string="";
+  public category:string='f';
+  public timetable:string='f';
+
   constructor(private navCtrl: NavController, private classService: Class, private loadingCtrl: LoadingController) {
 
   }

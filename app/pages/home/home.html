@@ -40,13 +40,16 @@
   </ion-infinite-scroll>
 
 </ion-content>
-<div style="position: absolute;top:0px; left:0px; z-index:1;" >
-  <ion-item repeat="" class="transparent">
-    <ion-select [(ngModel)]="gender">
+<div style="position: absolute;top:0px; left:0px; z-index:1;width: 70vw;" >
+  <!--class="transparent">-->
+  <ion-item >
+    <ion-select [(ngModel)]="category">
       <ion-option value="f" selected="true" >Female</ion-option>
       <ion-option value="m">Male</ion-option>
     </ion-select>
-    <ion-select [(ngModel)]="gender2">
+  </ion-item>
+  <ion-item>
+    <ion-select [(ngModel)]="timetable">
       <ion-option value="f" selected="true">Female</ion-option>
       <ion-option value="m">Male</ion-option>
     </ion-select>
