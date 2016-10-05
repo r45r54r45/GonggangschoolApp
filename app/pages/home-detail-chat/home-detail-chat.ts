@@ -15,13 +15,13 @@ import {Class } from '../../providers/class/class';
 export class HomeDetailChatPage {
   public message:string;
   constructor(private navCtrl: NavController, private messageService:Message, private params: NavParams) {
-    messageService.initRoom(params.get("courseId"),function(){});
+    // messageService.initRoom(params.get("courseId"),function(){});
   }
   goBack(){
     this.navCtrl.pop();
   }
   submit(text){
-    this.messageService.addMessage(text);
+    this.messageService.initChat(text,this.params.get("courseId"),this.params.get("courseTitle"));
     this.navCtrl.pop();
   }
 }

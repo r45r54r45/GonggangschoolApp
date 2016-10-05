@@ -57,7 +57,7 @@
   </div>
   <div class=" fontLight grey paddingTop" style="font-size:20px;">짧은 평</div>
   <div>
-    <textarea class="reviewArea" placeholder="문의 내용을 입력하세요"></textarea>
+    <textarea class="reviewArea" placeholder="문의 내용을 입력하세요" [(ngModel)]="rate_description"></textarea>
   </div>
   <div>
     <button class="largeButtonLight" style="float:right;" (click)="submit()">작성</button>

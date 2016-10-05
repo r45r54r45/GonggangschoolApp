@@ -1,7 +1,11 @@
 .chat-page{
   .chatProfile{
-    max-width:14.5vw !important;
-    max-height:14.5vw !important;
+    width:14.5vw !important;
+    height:14.5vw !important;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50% ;
   }
   ion-list > .item:first-child, ion-list > .item:last-child{
     border-bottom: 1px solid rgba(82, 82, 82, .2) !important;

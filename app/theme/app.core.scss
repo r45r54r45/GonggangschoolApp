@@ -35,6 +35,18 @@
 //  url('OpenSans-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
 
 //}
+//ion-icon[tabIcon='homeIcon']:before{
+//  content: 'build/images/home.svg' !important;
+//}
+.ion-ios-customicon,
+.ion-md-customicon {
+  content: url('build/images/home.svg');
+  width: 24px;
+  height: 32px;
+  padding: 6px 4px 2px;
+  opacity: 0.9;
+}
+
 
 $font-eng: 'Open Sans', sans-serif;
 $font-kor: 'Noto Sans KR', sans-serif;

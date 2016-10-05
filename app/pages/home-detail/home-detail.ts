@@ -64,6 +64,7 @@ export class HomeDetailPage {
     });
     this.classService.getFaq(this.params.get('courseId')).subscribe(data => {
       this.faq = jsonify(data);
+      console.log(this.faq);
       this.isAjaxEnded(loading);
     });
     this.classService.getRating(this.params.get('courseId')).subscribe(data => {
@@ -100,12 +101,12 @@ export class HomeDetailPage {
   }
 
   ask() {
-    let modal = this.Modal.create(HomeDetailChatPage, {courseId: this.params.get('courseId')});
+    let modal = this.Modal.create(HomeDetailChatPage, {courseId: this.params.get('courseId'),courseTitle: this.basic.title});
     modal.present();
   }
 
   register() {
-    let modal = this.Modal.create(HomeDetailBuyPage, {courseId: this.params.get('courseId')});
+    let modal = this.Modal.create(HomeDetailBuyPage, {courseId: this.params.get('courseId'),courseTitle: this.basic.title});
     modal.present();
   }
   profileClick(uid){

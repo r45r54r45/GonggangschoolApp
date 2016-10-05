@@ -35,7 +35,7 @@ export class Class {
     return this.token;
   }
   getIdByToken(){
-    return this.http.get(SERVER_URL + `users/getId`, {headers: this.headers});
+    return this.http.get(SERVER_URL + 'users/getId', {headers: this.headers});
   }
 
   // 유저부분
@@ -62,6 +62,10 @@ export class Class {
 
   getCourseList(start) {
     let courses = this.http.get(SERVER_URL + `courses/list?start=${start}`);
+    return courses;
+  }
+  getMatchCourseList(start) {
+    let courses = this.http.get(SERVER_URL + `courses/match/list?start=${start}`, {headers: this.headers});
     return courses;
   }
 
@@ -92,6 +96,12 @@ export class Class {
     //
     return this.http.get(SERVER_URL + `courses/register/prepare?courseId=${courseId}`, {headers: this.headers});
   }
+  sendPayment(courseId,data){
+    console.log(data);
+    return this.http.post(SERVER_URL + `courses/register/payment?courseId=${courseId}`,{data:data}, {headers: this.headers});
+  }
+
+
 
   //개인정보부분
   editSchoolId(data) {
@@ -125,6 +135,9 @@ export class Class {
   //내가 들은 강의
   getMineList(){
     return this.http.get(SERVER_URL+ 'users/mine/list',{headers: this.headers});
+  }
+  sendRating(courseId, data){
+    return this.http.post(SERVER_URL + `courses/register/payment?courseId=${courseId}`,{data:data}, {headers: this.headers});
   }
 }
 

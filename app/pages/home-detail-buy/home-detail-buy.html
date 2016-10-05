@@ -34,16 +34,16 @@
     </ion-slide>
     <ion-slide>
       <div class="big white bgFullTitle paddingBuy">기초부터 중급까지 누구나 포토샵</div>
-      <div class="regularLarge white paddingSmall">코칭 시작</div>
-      <div class="big white fontLight paddingLarge">2016년 3월 17일</div>
-      <div class="regularLarge white paddingSmall">코칭 종료</div>
-      <div class="big white fontLight paddingLarge">2016년 3월 27일</div>
+      <!--<div class="regularLarge white paddingSmall">코칭 시작</div>-->
+      <!--<div class="big white fontLight paddingLarge">2016년 3월 17일</div>-->
+      <!--<div class="regularLarge white paddingSmall">코칭 종료</div>-->
+      <!--<div class="big white fontLight paddingLarge">2016년 3월 27일</div>-->
       <div class="regularLarge white paddingSmall">수강료</div>
       <div class="big white fontLight paddingLarge">{{prepare_data.price*prepare_data.class_duration}} x 4 = {{prepare_data.price*prepare_data.class_duration*4}}</div>
     </ion-slide>
     <ion-slide>
       <div class="regularLarge white">신청 완료되었습니다</div>
-      <div class="regularLarge white paddingBuy">신청해주신 이메일 abc@gmail.com 으로 수강 확인증 보내드립니다.</div>
+      <div class="regularLarge white paddingBuy">신청해주신 이메일 {{prepare_data.email}} 으로 결제 정보를 보내드립니다.</div>
     </ion-slide>
   </ion-slides>
 </ion-content>

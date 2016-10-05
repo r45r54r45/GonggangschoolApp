@@ -11,13 +11,14 @@
 <ion-content padding>
   <div class="ios-only-padding"></div>
   <ion-list class="lightGreyBg">
-    <a (click)="goToChatDetail(1)">
+    <a (click)="goToChatDetail(room.courseId)" *ngFor="let room of roomList">
       <ion-item class="chatListItem">
         <ion-avatar item-left>
-          <img class="chatProfile" src="build//images/yonsei.png">
+          <img class="chatProfile classListProfile" [ngStyle]='{"background-image": "url("+room.profile+") "}'>
         </ion-avatar>
-        <span style="float:left" class="regular grey">제목입니다 헬로우 헬로우</span>
-        <span style="float:right " class="tiny grey">3시간전 | 헬로우톡</span>
+        <span style="float:left" class="regular grey">{{room.title}}</span>
+        <span style="float:right " class="tiny grey">{{room.name}}</span>
+        <!--3시간전 |-->
         <div style="clear:both"></div>
         <span class="small grey">글ㄴㄴ네용은 여기에 나옵니다. 프리뷰입니다.  프리뷰프리뷰입니다프리뷰프리뷰입니다 프리뷰프리뷰입니다 프리뷰프리뷰입니다 프리뷰프리뷰입니다</span>
       </ion-item>

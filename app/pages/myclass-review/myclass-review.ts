@@ -1,6 +1,7 @@
 import { Component} from '@angular/core';
 import { NavController,NavParams } from 'ionic-angular';
 import {RatingComponent} from './rating';
+import {Class} from '../../providers/class/class';
 /*
   Generated class for the MyclassReviewPage page.
 
@@ -9,7 +10,7 @@ import {RatingComponent} from './rating';
 */
 @Component({
   templateUrl: 'build/pages/myclass-review/myclass-review.html',
-  directives: [RatingComponent],
+  directives: [RatingComponent,Class]
 })
 export class MyclassReviewPage {
   private rate_0: number=0;
@@ -18,7 +19,7 @@ export class MyclassReviewPage {
   private rate_3: number=0;
   private rate_description:string;
   private ratings:number[]=[];
-  constructor(private navCtrl: NavController, private params: NavParams) {
+  constructor(private navCtrl: NavController, private params: NavParams, private classService:Class) {
 
   }
   hoveringOver(num,evt){
@@ -34,6 +35,13 @@ export class MyclassReviewPage {
     }else{
       console.log(this.ratings);
       console.log(this.rate_description);
+      this.classService.sendRating(1,{
+        rating: this.ratings,
+        description: this.rate_description
+      }).subscribe(data=>{
+
+      });
+      this.navCtrl.pop();
     }
   }
 }

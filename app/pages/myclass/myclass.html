@@ -16,22 +16,25 @@
 <ion-content>
   <ion-list>
     <div *ngIf="mineList.length==0">아무것도 없당~</div>
-    <ion-item style="height:32vh;background-color:grey" class="classListImage" *ngFor="let mine of mineList" [ngStyle]='{"background-image": "url("+mine.cover_image+") "}'>
-      <!--<div class="classDate">-->
-        <!--<span class="regular fontBold">7월28일</span>-->
-      <!--</div>-->
-      <div class="center">
+    <ion-item style="height:32vh;background-color:grey" class="classListImage"  *ngFor="let mine of mineList" [ngStyle]='{"background-image": "url("+mine.cover_image+") "}'>
+      <div class="classDate"  *ngIf="mine.isPaid">
+        <span class="regular fontBold">{{mine.Buy.start_date|date:'dd-MM-yy'}}</span>
+      </div>
+      <div class="classDate"  *ngIf="!mine.isPaid">
+        <span class="regular fontBold">결제대기중</span>
+      </div>
+      <div class="center" >
         <img class="classListProfile" [ngStyle]='{"background-image": "url("+mine.owner.profile+") "}'>
       </div>
-      <div class="center">
+      <div class="center" >
         <span class="regular white">{{mine.owner.name}}</span> <img class="yonseiLogoSmall" src="build//images/yonsei.png" />
       </div>
-      <div class="center">
+      <div class="center" >
         <span class="regularLarge fontBold white">{{mine.title}}</span>
       </div>
-      <div class="topLayer center" *ngIf="mine.hasRating">
-        <div class="white regularLarge fontBold">기초부터 중급까지 누구나 포토샵<br></div>
-        <button (click)="openReview()" class="transparent largeButton regularLarge" style="margin-top:6vw;">리뷰하기</button>
+      <div class="topLayer center" *ngIf="!mine.isRated&&mine.isPaid">
+        <div class="white regularLarge fontBold">{{mine.title}}<br></div>
+        <button (click)="openReview(mine.id)" class="transparent largeButton regularLarge" style="margin-top:6vw;">리뷰하기</button>
       </div>
     </ion-item>
   </ion-list>

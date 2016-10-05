@@ -25,6 +25,7 @@ export class HomeDetailBuyPage {
       this.prepare_data = jsonify(data);
       this.school_id = this.prepare_data.school_id;
       this.phone = this.prepare_data.phone;
+      console.log(this.prepare_data);
     });
   }
 
@@ -38,6 +39,16 @@ export class HomeDetailBuyPage {
   next() {
     let current = this.slider.getActiveIndex();
     this.slider.slideTo(++current, 500);
+    if(current==3){
+      let data={
+        total_price:this.prepare_data.price*this.prepare_data.class_duration*4,
+        email: this.prepare_data.email
+      };
+      this.classService.sendPayment(this.params.get("courseId"),data).subscribe(data=>{
+
+      });
+      this.navCtrl.pop();
+    }
     switch (current) {
       case 1:
         if (this.phone != this.prepare_data.phone) {
@@ -48,6 +59,7 @@ export class HomeDetailBuyPage {
           this.classService.editSchoolId(this.prepare_data.school_id).subscribe(data=>{
           });
         }
+        //TODO 수업 데이터 가져오기
         this.buttonText = "결제";
         break;
       case 2:

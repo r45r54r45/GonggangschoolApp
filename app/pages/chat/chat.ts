@@ -17,11 +17,25 @@ import {Message} from '../../providers/message/message';
 export class ChatPage {
   private message:string;
   private user:string;
-  constructor(private navCtrl: NavController, classService: Class, messageService: Message) {
+  public roomList:any=[];
+  constructor(private navCtrl: NavController, private classService: Class, private messageService: Message) {
 
+  }
+  onPageDidEnter() {
+    this.roomList=[];
+    this.messageService.getRooms((data,courseId)=>{
+      data.subscribe(data=>{
+        let info=data.json();
+        this.roomList.push({
+          title: info.title,
+          name: info.owner.name,
+          profile: info.owner.profile,
+          courseId: courseId
+        });
+      });
+    });
   }
   goToChatDetail(courseId){
     this.navCtrl.push(ChatDetailPage,{courseId: courseId});
   }
-
 }
