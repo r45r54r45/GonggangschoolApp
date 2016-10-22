@@ -101,7 +101,7 @@ export class HomeDetailPage {
   }
 
   ask() {
-    let modal = this.Modal.create(HomeDetailChatPage, {courseId: this.params.get('courseId'),courseTitle: this.basic.title});
+    let modal = this.Modal.create(HomeDetailChatPage, {courseId: this.params.get('courseId'),courseTitle: this.basic.title, uid:this.basic.owner.id});
     modal.present();
   }
 

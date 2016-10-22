@@ -23,7 +23,7 @@ export class MypagePage {
       content: 'Please wait...'
     });
     loading.present();
-    this.classService.getUserInfo().subscribe(data=>{
+    this.classService.getUserInfo(-1).subscribe(data=>{
       this.userData=data.json();
       let list=document.getElementsByClassName("mypage_td");
       for(let i=0; i<list.length; i++){

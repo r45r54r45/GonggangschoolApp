@@ -11,7 +11,7 @@
 <ion-content padding>
   <div class="ios-only-padding"></div>
   <ion-list class="lightGreyBg">
-    <a (click)="goToChatDetail(room.courseId)" *ngFor="let room of roomList">
+    <a (click)="goToChatDetail(room.roomId,room.title)" *ngFor="let room of roomList">
       <ion-item class="chatListItem">
         <ion-avatar item-left>
           <img class="chatProfile classListProfile" [ngStyle]='{"background-image": "url("+room.profile+") "}'>
@@ -20,7 +20,7 @@
         <span style="float:right " class="tiny grey">{{room.name}}</span>
         <!--3시간전 |-->
         <div style="clear:both"></div>
-        <span class="small grey">글ㄴㄴ네용은 여기에 나옵니다. 프리뷰입니다.  프리뷰프리뷰입니다프리뷰프리뷰입니다 프리뷰프리뷰입니다 프리뷰프리뷰입니다 프리뷰프리뷰입니다</span>
+        <span class="small grey">{{room.lastMessage}}</span>
       </ion-item>
     </a>
   </ion-list>

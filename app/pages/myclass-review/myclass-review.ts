@@ -10,7 +10,8 @@ import {Class} from '../../providers/class/class';
 */
 @Component({
   templateUrl: 'build/pages/myclass-review/myclass-review.html',
-  directives: [RatingComponent,Class]
+  providers: [Class],
+  directives: [RatingComponent]
 })
 export class MyclassReviewPage {
   private rate_0: number=0;
@@ -39,9 +40,8 @@ export class MyclassReviewPage {
         rating: this.ratings,
         description: this.rate_description
       }).subscribe(data=>{
-
+        this.navCtrl.pop();
       });
-      this.navCtrl.pop();
     }
   }
 }

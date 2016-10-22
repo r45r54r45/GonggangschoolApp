@@ -38,16 +38,87 @@
 //ion-icon[tabIcon='homeIcon']:before{
 //  content: 'build/images/home.svg' !important;
 //}
-.ion-ios-customicon,
-.ion-md-customicon {
-  content: url('build/images/home.svg');
+
+.ion-ios-home,
+ .ion-md-home {
+   content: url('/build/images/home.svg');
+   width: 24px;
+   height: 32px;
+   padding: 6px 4px 2px;
+   opacity: 0.9;
+ }
+.ion-ios-home-outline,
+.ion-md-home-outline {
+  content: url('/build/images/home.svg');
   width: 24px;
   height: 32px;
   padding: 6px 4px 2px;
   opacity: 0.9;
 }
-
-
+.ion-ios-class,
+ .ion-md-class {
+   content: url('/build/images/class.svg');
+   width: 24px;
+   height: 32px;
+   padding: 6px 4px 2px;
+   opacity: 0.9;
+ }
+.ion-ios-class-outline,
+.ion-md-class-outline {
+  content: url('/build/images/class.svg');
+  width: 24px;
+  height: 32px;
+  padding: 6px 4px 2px;
+  opacity: 0.9;
+}
+.ion-ios-myPage,
+.ion-md-myPage {
+  content: url('/build/images/myPage.svg');
+  width: 24px;
+  height: 32px;
+  padding: 6px 4px 2px;
+  opacity: 0.9;
+}
+.ion-ios-myPage-outline,
+.ion-md-myPage-outline {
+  content: url('/build/images/myPage.svg');
+  width: 24px;
+  height: 32px;
+  padding: 6px 4px 2px;
+  opacity: 0.9;
+}
+.ion-ios-teach,
+.ion-md-teach {
+  content: url('/build/images/teach.svg');
+  width: 24px;
+  height: 32px;
+  padding: 6px 4px 2px;
+  opacity: 0.9;
+}
+.ion-ios-teach-outline,
+.ion-md-teach-outline {
+  content: url('/build/images/teach.svg');
+  width: 24px;
+  height: 32px;
+  padding: 6px 4px 2px;
+  opacity: 0.9;
+}
+.ion-ios-chat,
+.ion-md-chat {
+  content: url('/build/images/chat.svg');
+  width: 24px;
+  height: 32px;
+  padding: 6px 4px 2px;
+  opacity: 0.9;
+}
+.ion-ios-chat-outline,
+.ion-md-chat-outline {
+  content: url('/build/images/chat.svg');
+  width: 24px;
+  height: 32px;
+  padding: 6px 4px 2px;
+  opacity: 0.9;
+}
 $font-eng: 'Open Sans', sans-serif;
 $font-kor: 'Noto Sans KR', sans-serif;
 $grey: #525252;
@@ -295,31 +366,31 @@ ion-tabbar{
   color:white;
 }
 
-.homeIcon {
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 22px !important;
-  background-image: url("build/images/home.svg");
-  background-size:contain;
-}
-.myclassIcon {
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 22px !important;
-  background-image: url("build/images/class.svg");
-  background-size:contain;
-}
-.teachIcon {
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 22px !important;
-  background-image: url("build/images/teach.svg");
-  background-size:contain;
-}
-.mypageIcon {
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 22px !important;
-  background-image: url("build/images/myPage.svg");
-  background-size:contain;
-}
+//.homeIcon {
+//  background-repeat: no-repeat;
+//  background-position: center;
+//  height: 22px !important;
+//  background-image: url("build/images/home.svg");
+//  background-size:contain;
+//}
+//.myclassIcon {
+//  background-repeat: no-repeat;
+//  background-position: center;
+//  height: 22px !important;
+//  background-image: url("build/images/class.svg");
+//  background-size:contain;
+//}
+//.teachIcon {
+//  background-repeat: no-repeat;
+//  background-position: center;
+//  height: 22px !important;
+//  background-image: url("build/images/teach.svg");
+//  background-size:contain;
+//}
+//.mypageIcon {
+//  background-repeat: no-repeat;
+//  background-position: center;
+//  height: 22px !important;
+//  background-image: url("build/images/myPage.svg");
+//  background-size:contain;
+//}

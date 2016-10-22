@@ -55,8 +55,13 @@ export class Class {
     return this.http.post(SERVER_URL + "users/register", userdata);
   }
 
-  getUserInfo() {
-    return this.http.get(SERVER_URL + "users/info", {headers: this.headers});
+  getUserInfo(uid) {
+    if(uid==-1){
+      return this.http.get(SERVER_URL + "users/info", {headers: this.headers});
+    }else{
+      return this.http.get(SERVER_URL + "users/info?uid="+uid,{headers: this.headers});
+    }
+
   }
 
 

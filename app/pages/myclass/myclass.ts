@@ -3,6 +3,7 @@ import { NavController ,LoadingController } from 'ionic-angular';
 import { ModalController } from 'ionic-angular';
 import {MyclassReviewPage} from '../myclass-review/myclass-review';
 import {Class} from '../../providers/class/class';
+
 /*
   Generated class for the MyclassPage page.
 

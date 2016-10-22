@@ -67,6 +67,9 @@
   .footerButton1{
     background-color: #262727;
   }
+  .footerButton1.activated{
+    background-color: #262727 !important;
+  }
   .footerButton2{
     background-color: #961a1d;
   }

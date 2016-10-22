@@ -16,4 +16,16 @@
   ion-navbar>.back-button{
     display: none;
   }
+  ion-label{
+    text-overflow: initial;
+    white-space: initial;
+  }
+  ion-list > .item:first-child, ion-list > .item:last-child, ion-list > .item > .item-inner {
+    border: none !important;
+  }
+  ion-list{
+    padding-top: 48px;
+    padding-bottom: 44px;
+    margin: -1px 0 0 0;
+  }
 }

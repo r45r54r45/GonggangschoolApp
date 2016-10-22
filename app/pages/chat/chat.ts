@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import {InAppBrowser} from 'ionic-native';
+import { NavController,LoadingController } from 'ionic-angular';
+// import {InAppBrowser} from 'ionic-native';
 import {Class} from "../../providers/class/class";
 import {ChatDetailPage} from '../chat-detail/chat-detail';
 import {Message} from '../../providers/message/message';
@@ -18,24 +18,30 @@ export class ChatPage {
   private message:string;
   private user:string;
   public roomList:any=[];
-  constructor(private navCtrl: NavController, private classService: Class, private messageService: Message) {
+  constructor(private navCtrl: NavController, private classService: Class, private messageService: Message, private loadingCtrl: LoadingController) {
+
 
   }
   onPageDidEnter() {
     this.roomList=[];
-    this.messageService.getRooms((data,courseId)=>{
-      data.subscribe(data=>{
-        let info=data.json();
-        this.roomList.push({
-          title: info.title,
-          name: info.owner.name,
-          profile: info.owner.profile,
-          courseId: courseId
-        });
-      });
+    let loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+    loading.present();
+    this.messageService.getRooms((data,roomId)=>{
+      this.roomList.push({
+            roomId: roomId,
+            title: data.courseTitle,
+            name: data.person2.name,
+            profile: data.person2.profile,
+            courseId: data.courseId,
+            lastTime: data.lastTime,
+            lastMessage: data.lastMessage
+          });
+      loading.dismiss();
     });
   }
-  goToChatDetail(courseId){
-    this.navCtrl.push(ChatDetailPage,{courseId: courseId});
+  goToChatDetail(roomId,roomTitle){
+    this.navCtrl.push(ChatDetailPage,{roomId: roomId,roomTitle:roomTitle});
   }
 }

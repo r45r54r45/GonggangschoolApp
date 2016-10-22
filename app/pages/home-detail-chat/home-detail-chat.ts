@@ -21,7 +21,7 @@ export class HomeDetailChatPage {
     this.navCtrl.pop();
   }
   submit(text){
-    this.messageService.initChat(text,this.params.get("courseId"),this.params.get("courseTitle"));
+    this.messageService.initChat(text,this.params.get("courseId"),this.params.get("courseTitle"),this.params.get("uid"));
     this.navCtrl.pop();
   }
 }

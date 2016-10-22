@@ -3,6 +3,8 @@ import { NavController,App } from 'ionic-angular';
 import {LoginRegisterPage} from '../login-register/login-register';
 import {Page, Platform, Storage, SqlStorage} from 'ionic-angular';
 import {InAppBrowser} from 'ionic-native';
+
+//TODO fix ionic-native build issue
 import {CordovaOauth, Facebook, Google} from 'ng2-cordova-oauth/core';
 import {Class} from '../../providers/class/class';
 import {TabsPage} from '../tabs/tabs';
