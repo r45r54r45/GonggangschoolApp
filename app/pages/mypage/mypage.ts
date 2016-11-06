@@ -25,12 +25,13 @@ export class MypagePage {
     loading.present();
     this.classService.getUserInfo(-1).subscribe(data=>{
       this.userData=data.json();
+      console.log(this.userData);
       let list=document.getElementsByClassName("mypage_td");
       for(let i=0; i<list.length; i++){
         list[i].classList.remove("selected");
       }
-      this.userData.avail_time.split(',').forEach((item, index)=>{
-        document.getElementById("td_"+item).classList.add("selected");
+      this.userData.avail_time.forEach((item, index)=>{
+        document.getElementById("mypage_td_"+item.time).classList.add("selected");
       });
       loading.dismiss();
     });
@@ -46,14 +47,16 @@ export class MypagePage {
       content: 'Please wait...'
     });
     loading.present();
-    if(status=="ON"){
-      this.classService.editStatus("false").subscribe(data=>{
+    if(status==1){
+      this.classService.editStatus(false).subscribe(data=>{
         console.log(data.json());
+        this.userData.status=0;
         loading.dismiss();
       });
     }else{
-      this.classService.editStatus("true").subscribe(data=>{
+      this.classService.editStatus(true).subscribe(data=>{
         console.log(data.json());
+        this.userData.status=1;
         loading.dismiss();
       });
     }

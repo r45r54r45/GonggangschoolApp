@@ -20,26 +20,25 @@ export class MypageSchedulePage {
   }
 
   onPageDidEnter() {
-    this.params.get("data").split(',').forEach((item, index)=> {
-      console.log(item);
-      document.getElementById("edit_td_" + item).classList.add("selected");
-      this.avail_time_list.push(item);
+    this.params.get("data").forEach((item, index)=> {
+      document.getElementById("mypage_edit_td_" + item.time).classList.add("selected");
+      this.avail_time_list.push(item.time);
     });
   }
 
   availTimeClick(row, col) {
     console.log(row, col);
-    if (document.getElementById("edit_td_" + row + "_" + col).classList.contains("selected")) {
-      document.getElementById("edit_td_" + row + "_" + col).classList.toggle("selected");
+    if (document.getElementById("mypage_edit_td_" + row + "_" + col).classList.contains("selected")) {
+      document.getElementById("mypage_edit_td_" + row + "_" + col).classList.toggle("selected");
       this.avail_time_list.splice(this.avail_time_list.indexOf(row + "_" + col), 1);
     } else {
-      document.getElementById("edit_td_" + row + "_" + col).classList.toggle("selected");
+      document.getElementById("mypage_edit_td_" + row + "_" + col).classList.toggle("selected");
       this.avail_time_list.push(row + "_" + col);
     }
   }
 
   submit() {
-    this.classService.editSchedule(this.avail_time_list.toString()).subscribe(data=> {
+    this.classService.editSchedule(this.avail_time_list).subscribe(data=> {
       console.log(data.json());
       this.navCtrl.pop();
     });

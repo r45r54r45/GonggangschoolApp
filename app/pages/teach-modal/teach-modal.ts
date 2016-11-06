@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {NavController} from 'ionic-angular';
 import {Slides} from 'ionic-angular';
 import {ViewChild} from '@angular/core';
+import {Class} from '../../providers/class/class'
 /*
  Generated class for the TeachModalPage page.
 
@@ -10,6 +11,7 @@ import {ViewChild} from '@angular/core';
  */
 @Component({
   templateUrl: 'build/pages/teach-modal/teach-modal.html',
+  providers: [Class]
 })
 export class TeachModalPage {
   mySlideOptions = {
@@ -21,8 +23,8 @@ export class TeachModalPage {
   private prevButtonShow:boolean = false;
   private headerTitle:string[] = ['1:1 수업 종류를<br/>선택해주세요!', '1:1 수업 정보를<br/>작성해주세요!', '코치 정보를<br/>작성해주세요!'];
   private headerTitleIndex:number = 0;
-  private class_area:string="";
-  private class_category:string="";
+  private class_area:string="-1";
+  private class_category:string='-1';
   private class_tag:string="";
   private class_title:string="";
   private class_weekend:string="";
@@ -39,13 +41,24 @@ export class TeachModalPage {
   private availTime:string = "";
   private selectedGroupId:number=0;
 
+
+  private category1list:any=[];
+  private category2list:any=[];
   @ViewChild('mySlider') slider:Slides;
 
-  constructor(private navCtrl:NavController) {
+  constructor(private navCtrl:NavController, private classService: Class) {
     this.class_curriculum_list = [];
     this.class_curriculum_list.push({description: ""});
+    this.classService.getCategory(1).subscribe(data=>{
+     this.category1list=data.json().category;
+      //ㅇㅇㅇ
+    });
   }
-
+  cate1Selected(e){
+    this.classService.getCategory(2,e).subscribe(data=>{
+      this.category2list=data.json().category;
+    });
+  }
   slideMove(moveTo) {
     this.slider.slideTo(moveTo, 500);
   }
@@ -67,7 +80,7 @@ export class TeachModalPage {
     let current = this.slider.getActiveIndex();
     switch(current){
       case 0:
-        if(this.class_area==""||this.class_category==""||this.class_tag==""){
+        if(this.class_area=="-1"||this.class_category=='-1'||this.class_tag==""){
           alert('모든 정보를 채워주세요');
           return;
         }
@@ -93,6 +106,8 @@ export class TeachModalPage {
       this.headerTitleIndex++;
       this.prevButtonShow = false;
       this.bottomRightButton="확인";
+    }else if(current==4) {
+      this.submit();
       this.navCtrl.pop();
     }else{
       this.prevButtonShow = true;
@@ -123,8 +138,8 @@ export class TeachModalPage {
 
   availTimeClick(row, col) {
     console.log(row, col);
-    if (document.getElementById("td_" + row + "_" + col).classList.contains("selected")) {
-      let groupId=document.getElementById("td_" + row + "_" + col).classList.item(1);
+    if (document.getElementById("make_td_" + row + "_" + col).classList.contains("selected")) {
+      let groupId=document.getElementById("make_td_" + row + "_" + col).classList.item(1);
       let groupList=[].slice.call(document.getElementsByClassName(groupId));
       groupList.forEach((item, index)=>{
         item.classList.remove("selected");
@@ -137,7 +152,7 @@ export class TeachModalPage {
     }else if (row + this.class_duration - 1 <= 10) {
       this.selectedGroupId++;
       for (let i = row; i < row + this.class_duration; i++) {
-        let classList = document.getElementById("td_" + i + "_" + col).classList;
+        let classList = document.getElementById("make_td_" + i + "_" + col).classList;
         classList.add("selected");
         classList.add("selectedGroup"+this.selectedGroupId);
         this.availTimeArray.push(this.availTimeToString(i, col));
@@ -150,6 +165,26 @@ export class TeachModalPage {
   submit() {
 
     this.availTime = this.availTimeArray.toString();
+
+    let data={
+        class_area:this.class_area,
+        class_category:this.class_category,
+        class_tag: this.class_tag,
+        class_title:this.class_title,
+        class_weekend:this.class_weekend,
+        class_place:this.class_place,
+        class_history:this.class_history,
+        class_comment:this.class_comment,
+        class_phone:this.class_phone,
+        class_faq:this.class_faq,
+        avail_time:this.availTime,
+        class_curriculum_list:this.class_curriculum_list,
+        class_duration:this.class_duration
+    }
+    console.log(data);
+    this.classService.sendNewCourse(data).subscribe(datum=>{
+      console.log("new course result: ", datum.json().result);
+    });
   }
   private isCurriculumEmpty(curriculumArray){
     for(let i=0; i<curriculumArray.length; i++){
@@ -161,7 +196,7 @@ export class TeachModalPage {
   }
   private isSelectedTimeOverlap(row, col){
     for (let i = row; i < row + this.class_duration; i++) {
-      let classList = document.getElementById("td_" + i + "_" + col).classList;
+      let classList = document.getElementById("make_td_" + i + "_" + col).classList;
       if(classList.contains("selected")){
         return true;
       }
@@ -176,6 +211,6 @@ export class TeachModalPage {
   }
 
   private availTimeToString(row, col) {
-    return '(' + row + '_' + col + ')';
+    return row + '_' + col;
   }
 }

@@ -164,11 +164,28 @@
     margin: 0px 15px 15px 0px;
   }
   .ratingText{
-    padding-left:14vw;
     display:inline-block;
     line-height: 18px;
   }
   .ratingTextPadding{
     padding-top:20px;
+  }
+  table{
+    margin:auto;
+    td{
+      height: 5.8vh;
+      border: 1px solid rgba(0,0,0,.1);
+
+    }
+    th{
+      padding: 20px 0px 10px;
+      text-align: center;
+    }
+    td:nth-child(1){
+      width: 5vw;
+      color: #525252;
+      font-size: 12px;
+      border:none;
+    }
   }
 }

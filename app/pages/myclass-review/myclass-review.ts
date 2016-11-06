@@ -21,7 +21,7 @@ export class MyclassReviewPage {
   private rate_description:string;
   private ratings:number[]=[];
   constructor(private navCtrl: NavController, private params: NavParams, private classService:Class) {
-
+    console.log('cid',this.params.get('cid'));
   }
   hoveringOver(num,evt){
     this.ratings[num-1]=evt;
@@ -36,9 +36,12 @@ export class MyclassReviewPage {
     }else{
       console.log(this.ratings);
       console.log(this.rate_description);
-      this.classService.sendRating(1,{
-        rating: this.ratings,
-        description: this.rate_description
+      this.classService.sendRating(this.params.get('cid'),{
+        time: this.ratings[0],
+        curriculum: this.ratings[1],
+        feedback: this.ratings[2],
+        prepare: this.ratings[3],
+        body: this.rate_description
       }).subscribe(data=>{
         this.navCtrl.pop();
       });

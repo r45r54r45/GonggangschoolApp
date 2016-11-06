@@ -29,10 +29,10 @@
   <div style="height:32vh;" class="TeachImage" style="height:auto;overflow:scroll;" [ngStyle]='{"background-image": "url("+basic.cover_image+") "}'>
     <div style="padding: 21px 0px 16px;">
       <div class="center">
-        <img class="TeachProfile" [ngStyle]='{"background-image": "url("+basic.owner.profile+") "}'>
+        <img class="TeachProfile" [ngStyle]='{"background-image": "url("+basic.profile+") "}'>
       </div>
       <div class="center">
-        <span class="regular white">{{basic.owner.name}}{{(basic.owner.major?"|":"")}}{{basic.owner.major||""}}</span> <img class="yonseiLogoSmall" src="build//images/yonsei.png"/>
+        <span class="regular white">{{basic.name}}{{(basic.major?"|":"")}}{{basic.major||""}}</span> <img class="yonseiLogoSmall" src="build//images/yonsei.png"/>
       </div>
       <div class="center">
         <span class="regularLarge fontBold white">{{basic.title}}</span>
@@ -49,7 +49,7 @@
       <ion-list>
         <div class="center greeting">
           <span class="regularLarge grey fontLight">안녕하세요,<br></span>
-          <span class="grey fontLight" style="font-size:20px;">{{basic.owner.name}}입니다!</span>
+          <span class="grey fontLight" style="font-size:20px;">{{basic.name}}입니다!</span>
         </div>
         <div class="center">
           <img class="profileVerification">
@@ -59,7 +59,7 @@
         <div class="lightGreyBg">
           <div class="left floatLeft classProfileTitle regularLarge grey ">코치 경력</div>
           <div>
-            <div class="left classProfile regular">{{profile.owner.Coach_info.history}}</div>
+            <div class="left classProfile regular">{{profile.info.history}}</div>
             <!--<div class="left classProfile regular">상상창의 디자인 경진대회 대상</div>-->
             <!--<div class="left classProfile regular">사람사람 디자인 인턴</div>-->
           </div>
@@ -67,35 +67,35 @@
         <div class="whiteBg">
           <div class="left floatLeft classProfileTitle regularLarge grey">켜리큘럼</div>
           <div>
-            <div class="left classProfile regular" *ngFor="let curriculum of profile.Curriculums; let i=index;">
-              {{i+1}}회: {{curriculum.description}}
-            </div>
+            <!--<div class="left classProfile regular" *ngFor="let curriculum of profile.info.curriculum let i=index;">-->
+              <!--{{i+1}}회: {{curriculum.description}}-->
+            <!--</div>-->
           </div>
         </div>
         <div class="lightGreyBg">
           <div class="left floatLeft classProfileTitle regularLarge grey">진행사항</div>
           <div>
-            <div class="left classProfileS regular">회당 {{profile.class_duration}}시간 총 4회</div>
+            <div class="left classProfileS regular">회당 {{profile.info.duration}}시간 총 4회</div>
           </div>
         </div>
         <div class="lightGreyBg">
           <div class="left floatLeft classProfileTitle regularLarge grey">수강료</div>
           <div>
-            <div class="left classProfileS regular">₩{{profile.price}} / 시간 총
-              ₩{{profile.price*profile.class_duration*4}}
+            <div class="left classProfileS regular">₩{{profile.info.price}} / 시간 총
+              ₩{{profile.info.price*profile.info.duration*4}}
             </div>
           </div>
         </div>
         <div class="lightGreyBg">
           <div class="left floatLeft classProfileTitle regularLarge grey">장소</div>
           <div>
-            <div class="left classProfileS regular">{{profile.place}}</div>
+            <div class="left classProfileS regular">{{profile.info.place}}</div>
           </div>
         </div>
         <div class="lightGreyBg" style="padding-bottom:15px;">
           <div class="left floatLeft classProfileTitle regularLarge grey">준비물</div>
           <div>
-            <div class="left classProfileS regular">{{profile.required_material}}</div>
+            <div class="left classProfileS regular">{{profile.info.required_material}}</div>
           </div>
         </div>
         <table>
@@ -118,7 +118,16 @@
       </ion-list>
     </ion-slide>
     <ion-slide>
-      <h1>Slide 2</h1>
+      <ion-list>
+        <ion-item>
+          <div class="regularLarge grey">
+            어떻게 가르치나요?
+          </div>
+          <div class="regular grey">
+            {{profile.info.faq_how}}
+          </div>
+        </ion-item>
+      </ion-list>
     </ion-slide>
     <ion-slide>
       <div class="classRatingSection">
@@ -153,7 +162,7 @@
         <div class="whiteBg classRating">
           <button class="transparent floatRight grey small">
             <br>
-            리뷰 8개
+            리뷰 {{commentCount}}개
           </button>
         </div>
       </div>

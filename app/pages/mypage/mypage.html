@@ -57,8 +57,8 @@
     <ion-row class="myProfileListItem myProfileItemHeight">
       <ion-col width-33 class="white regular fontMedium vertC">학생 모집</ion-col>
         <ion-col width-67 >
-          <div style="float:left" class="white regular fontLight vertC">{{(userData.status=='ON'?'모집중':'모집 안함')}}</div>
-          <div style="float:right" class="toggleButton"><ion-toggle (click)="editStatus(userData.status)" checked="{{(userData.status=='ON'?true:false)}}"></ion-toggle></div>
+          <div style="float:left" class="white regular fontLight vertC">{{(userData.status==1?'모집중':'모집 안함')}}</div>
+          <div style="float:right" class="toggleButton"><ion-toggle (click)="editStatus(userData.status)" checked="{{(userData.status==1?true:false)}}"></ion-toggle></div>
           <div style="clear:both"></div>
         </ion-col>
     </ion-row>
@@ -82,7 +82,7 @@
     <tbody>
     <tr *ngFor="let row of [1,2,3,4,5,6,7,8,9,10]; let rowIndex=index;">
       <td><span class="regular white">{{rowIndex+1}}</span></td>
-      <td class="mypage_td" [attr.id]="'td_' + (rowIndex+1)+'_'+(colIndex+1)" *ngFor="let col of [1,2,3,4,5]; let colIndex=index;"></td>
+      <td class="mypage_td" [attr.id]="'mypage_td_' + (rowIndex+1)+'_'+(colIndex+1)" *ngFor="let col of [1,2,3,4,5]; let colIndex=index;"></td>
     </tr>
     </tbody>
   </table>

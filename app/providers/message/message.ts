@@ -23,6 +23,30 @@ export class Message {
       this._room.on('child_added', callback, this);
     });
   }
+  doesMessageOpened(courseId){
+    return new Promise(function(resolve, reject){
+      this.classService.getIdByToken().subscribe(data=>{
+        let userId=data.json().uid;
+        window['firebase'].database().ref('room').orderByChild('courseId').equalTo(courseId).once('value').then(function(snapshot){
+          let max_count=snapshot.numChildren();
+          if(max_count==0){
+            resolve({result:false,roomId:null});
+          }
+          let count=0;
+          snapshot.forEach(function(childSnapshot) {
+            let roomId=childSnapshot.key;
+            if(childSnapshot.val().person1.id==userId){
+              resolve({result:true,roomId:roomId});
+            }
+            count++;
+            if(count==max_count){
+              resolve({result:false,roomId:null});
+            }
+          });
+        })
+      });
+    }.bind(this));
+  }
   addMessage(text,myUid){
     let now=Date.now();
     window['firebase'].database().ref('message/'+this._roomId+"/"+now).set({'message':text,'person':myUid});
@@ -35,9 +59,10 @@ export class Message {
     this.classService.getIdByToken().subscribe(data=> {
       let uid = data.json().uid;
       this.classService.getUserInfo(-1).subscribe(data=>{
-        let myData=data.json();
+        let myData=data.json()[0];
+        console.log("mydata",myData);
         this.classService.getUserInfo(yourId).subscribe(data=> {
-          let yourData = data.json();
+          let yourData = data.json()[0];
           let roomData = {
             person1: {
               id: uid,
@@ -57,7 +82,7 @@ export class Message {
           let roomId = window['firebase'].database().ref('room').push().key;
           let updates = {};
           updates['/room/' + roomId] = roomData;
-          updates['/message/' + roomId + '/' + Date.now()] = {person: 'me', message: text};
+          updates['/message/' + roomId + '/' + Date.now()] = {person: uid, message: text};
           updates['/person/' + uid + '/' + roomId] = true;
           updates['/person/' + yourData.id + '/' + roomId] = true;
           window['firebase'].database().ref().update(updates);

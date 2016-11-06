@@ -18,9 +18,13 @@ export class ChatPage {
   private message:string;
   private user:string;
   public roomList:any=[];
+  public tabBarElement:any;
   constructor(private navCtrl: NavController, private classService: Class, private messageService: Message, private loadingCtrl: LoadingController) {
+    this.tabBarElement = document.querySelector('#default_tabs_bar ion-tabbar');
 
-
+  }
+  ionViewWillEnter() {
+    this.tabBarElement.style.display = 'flex';
   }
   onPageDidEnter() {
     this.roomList=[];
@@ -41,6 +45,7 @@ export class ChatPage {
       loading.dismiss();
     });
   }
+
   goToChatDetail(roomId,roomTitle){
     this.navCtrl.push(ChatDetailPage,{roomId: roomId,roomTitle:roomTitle});
   }

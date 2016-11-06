@@ -16,18 +16,18 @@
 <ion-content>
   <ion-list>
     <a (click)="clickClass(course.id)" *ngFor="let course of classList; let i=index;">
-    <ion-item [ngStyle]='{"background-image": "url("+course.cover_image+") "}'  class="classListImage" >
+    <ion-item [ngStyle]='{"background-image": "linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9)),url("+course.cover_image+") "}'  class="classListImage" >
       <div class="classPrice">
         <span class="regular fontBold">₩ {{course.price}}원</span> <span class=" small fontBold">/ 시간</span>
       </div>
       <div class="center">
-        <img class="classListProfile" [ngStyle]='{"background-image": "url("+course.owner.profile+") "}'>
+        <img class="classListProfile" [ngStyle]='{"background-image": "url("+course.profile+") "}'>
       </div>
       <div>
         <span></span>
       </div>
       <div class="center">
-        <span class="regular white">{{course.owner.name}}{{(course.owner.major?"|":"")}}{{course.owner.major||""}}</span> <img class="yonseiLogoSmall" src="build//images/yonsei.png" />
+        <span class="regular white">{{course.name}}{{(course.major?"|":"")}}{{course.major||""}}</span> <img class="yonseiLogoSmall" src="build//images/yonsei.png" />
       </div>
       <div class="center">
         <span class="regularLarge fontBold white">{{course.title}}</span>
@@ -35,7 +35,7 @@
     </ion-item>
     </a>
   </ion-list>
-  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+  <ion-infinite-scroll  ng-if="moreDataCanBeLoaded()" (ionInfinite)="doInfinite($event)">
     <ion-infinite-scroll-content></ion-infinite-scroll-content>
   </ion-infinite-scroll>
 
@@ -43,10 +43,8 @@
 <div style="position: absolute;top:0px; left:0px; z-index:1;" >
   <ion-item class="transparent">
     <ion-select [(ngModel)]="category" (ionChange)="updateCategory($event,category)">
-      <ion-option value="all" selected="true" class="white regular">전체 </ion-option>
-      <ion-option value="2" class="white regular">음악</ion-option>
-      <ion-option value="3" class="white regular">미술</ion-option>
-      <ion-option value="4" class="white regular">체육</ion-option>
+      <ion-option value="all" selected class="white regular">전체 </ion-option>
+      <ion-option *ngFor="let category of categoryList" value="{{category.id}}" class="white regular">{{category.name}}</ion-option>
     </ion-select>
     <ion-select [(ngModel)]="timetable" (ionChange)="updateTimetable(timetable)">
       <ion-option value="all" selected="true" class="white regular">전체 시간표</ion-option>

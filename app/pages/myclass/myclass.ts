@@ -24,15 +24,13 @@ export class MyclassPage {
     });
     loading.present();
     this.classService.getMineList().subscribe(data=>{
-      this.mineList=data.json()[0].buyer;
+      this.mineList=data.json();
       console.log(this.mineList);
       loading.dismiss();
     });
   }
   openReview(courseId){
-    let modal=this.Modal.create(MyclassReviewPage);
-    console.log(courseId);
-    //TODO course id 를 모달에 정보 같이 보내기
+    let modal=this.Modal.create(MyclassReviewPage,{cid:courseId});
     modal.present();
   }
 }

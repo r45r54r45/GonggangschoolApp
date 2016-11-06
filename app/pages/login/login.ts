@@ -77,6 +77,8 @@ export class LoginPage {
             if(data.json().isNew){
               this.goToRegister(formData);
             }else{
+              let storage = new Storage(SqlStorage);
+              storage.set('token', data.json().token);
               this.goToMenu();
             }
           });

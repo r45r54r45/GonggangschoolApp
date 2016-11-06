@@ -67,7 +67,4 @@ export class ChatDetailPage {
     this.tabBarElement.style.display = 'none';
   }
 
-  ionViewWillLeave() {
-    this.tabBarElement.style.display = 'flex';
-  }
 }

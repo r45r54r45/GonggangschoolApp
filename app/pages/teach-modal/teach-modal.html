@@ -25,10 +25,9 @@
           <div class="regularLarge grey fontMedium smallTitle">수업분야</div>
         </ion-item>
         <ion-item class="center">
-          <ion-select [(ngModel)]="class_area" class="big grey fontLight">
-            <ion-option value="" class="big grey" selected>음악</ion-option>
-            <ion-option value="n64">Nintendo64</ion-option>
-            <ion-option value="ps">PlayStation</ion-option>
+          <ion-select [(ngModel)]="class_area" class="big grey fontLight" (ionChange)="cate1Selected($event)">
+            <ion-option value="-1" class="big grey" selected>골라주세요</ion-option>
+            <ion-option value="{{c1.id}}" *ngFor="let c1 of category1list">{{c1.name}}</ion-option>
           </ion-select>
         </ion-item>
         <ion-item class="center">
@@ -36,9 +35,8 @@
         </ion-item>
         <ion-item class="center">
           <ion-select [(ngModel)]="class_category" class="big grey fontLight">
-            <ion-option value="" selected>악기</ion-option>
-            <ion-option value="n64">Nintendo64</ion-option>
-            <ion-option value="ps">PlayStation</ion-option>
+            <ion-option value="-1" selected>골라주세요</ion-option>
+            <ion-option value="{{c2.id}}" *ngFor="let c2 of category2list">{{c2.name}}</ion-option>
           </ion-select>
         </ion-item>
         <ion-item class="center">
@@ -112,7 +110,7 @@
             <tbody>
               <tr *ngFor="let row of [1,2,3,4,5,6,7,8,9,10]; let rowIndex=index;">
                 <td>{{rowIndex+1}}</td>
-                <td [attr.id]="'td_' + (rowIndex+1)+'_'+(colIndex+1)" (click)="availTimeClick(rowIndex+1,colIndex+1)" *ngFor="let col of [1,2,3,4,5]; let colIndex=index;"></td>
+                <td [attr.id]="'make_td_' + (rowIndex+1)+'_'+(colIndex+1)" (click)="availTimeClick(rowIndex+1,colIndex+1)" *ngFor="let col of [1,2,3,4,5]; let colIndex=index;"></td>
               </tr>
             </tbody>
           </table>

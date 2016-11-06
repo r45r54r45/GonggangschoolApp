@@ -1,5 +1,5 @@
 .home-page {
-  .classListImage{
+  .classListImage {
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -7,40 +7,46 @@
     -moz-background-size: cover;
     -o-background-size: cover;
   }
-  .classListProfile{
+  .classListProfile {
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    border-radius: 50% ;
+    border-radius: 50%;
     width: 15vh;
     height: 15vh;
     background-color: white;
-    margin:22px 12px 2px;
+    margin: 22px 12px 2px;
   }
-  .classPrice{
-    background-color: rgba(0 , 0, 0, .8);
+  .classPrice {
+    background-color: rgba(0, 0, 0, .8);
     color: white;
     position: absolute;
-    top:0px;
-    right:0px;
+    top: 0px;
+    right: 0px;
     padding: 3px 11px 6px;
   }
   ion-list > .item:first-child, ion-list > .item:last-child, ion-list > .item > .item-inner, ion-item > .item-inner {
     border: none !important;
     padding: 4px !important;
   }
-  ion-label{
+  ion-label {
     margin: 15px 0px 10px;
   }
-  ion-select>div{
+  ion-select > div {
     overflow: visible;
     padding-right: 15px;
-    color:white;
+    color: white;
     font-size: 12px;
   }
-  ion-select{
-    padding-left:0px;
+  ion-select {
+    padding-left: 0px;
     padding-top: 8px;
   }
+  //ion-infinite-scroll-content {
+  //  min-height: 0;
+  //}
+  //ion-list {
+  //  margin: -1px 0 32px 0;
+  //}
 
 }

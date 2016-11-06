@@ -10,16 +10,17 @@
   <!--<ion-title>home.detail</ion-title>-->
   <!--</ion-navbar>-->
   <ion-toolbar>
-    <div style="height:32vh;" class="classListImage" [ngStyle]='{"background-image": "url("+basic.cover_image+") "}'>
+    <div style="height:32vh;" class="classListImage" [ngStyle]='{"background-image": "linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9)),url("+basic.cover_image+") "}'>
       <div style="padding: 21px 0px 16px;">
         <div style="position: absolute; top:0px; right:0px;">
           <button (click)="goBack()" class="closeButton"><img src="build/images/close.svg"/></button>
         </div>
         <div class="center">
-          <img (click)="profileClick(basic.owner.id)" class="classListProfile" *ngIf="basic.cover_image" [ngStyle]='{"background-image": "url("+basic.owner.profile+") "}'>
+          <!--(click)="profileClick(basic.uid)"-->
+          <img  class="classListProfile" *ngIf="basic.cover_image" [ngStyle]='{"background-image": "url("+basic.profile+") "}'>
         </div>
         <div class="center">
-          <span class="regular white">{{basic.owner.name}}{{(basic.owner.major?"|":"")}}{{basic.owner.major||""}}</span>
+          <span class="regular white">{{basic.name}}{{(basic.major?"|":"")}}{{basic.major||""}}</span>
           <img class="yonseiLogoSmall" src="build/images/yonsei.png"/>
         </div>
         <div class="center">
@@ -42,7 +43,7 @@
       <ion-list>
         <div class="center greeting">
           <span class="regularLarge grey fontLight">안녕하세요,<br></span>
-          <span class="grey fontLight" style="font-size:20px;">{{basic.owner.name}}입니다!</span>
+          <span class="grey fontLight" style="font-size:20px;">{{basic.name}}입니다!</span>
         </div>
         <div class="center">
           <img class="profileVerification">
@@ -52,7 +53,7 @@
         <div class="lightGreyBg">
           <div class="left floatLeft classProfileTitle regularLarge grey ">코치 경력</div>
           <div>
-            <div class="left classProfile regular">{{profile.owner.Coach_info.history}}</div>
+            <div class="left classProfile regular">{{profile.info.history}}</div>
             <!--<div class="left classProfile regular">상상창의 디자인 경진대회 대상</div>-->
             <!--<div class="left classProfile regular">사람사람 디자인 인턴</div>-->
           </div>
@@ -60,7 +61,7 @@
         <div class="whiteBg">
           <div class="left floatLeft classProfileTitle regularLarge grey">켜리큘럼</div>
           <div>
-            <div class="left classProfile regular" *ngFor="let curriculum of profile.Curriculums; let i=index;">
+            <div class="left classProfile regular" *ngFor="let curriculum of profile.curriculum; let i=index;">
               {{i+1}}회: {{curriculum.description}}
             </div>
           </div>
@@ -68,42 +69,42 @@
         <div class="lightGreyBg">
           <div class="left floatLeft classProfileTitle regularLarge grey">진행사항</div>
           <div>
-            <div class="left classProfileS regular">회당 {{profile.class_duration}}시간 총 4회</div>
+            <div class="left classProfileS regular">회당 {{profile.info.duration}}시간 총 {{profile.info.total_weeks}}회</div>
           </div>
         </div>
         <div class="lightGreyBg">
           <div class="left floatLeft classProfileTitle regularLarge grey">수강료</div>
           <div>
-            <div class="left classProfileS regular">₩{{profile.price}} / 시간 총
-              ₩{{profile.price*profile.class_duration*4}}
+            <div class="left classProfileS regular">₩{{profile.info.price}} / 시간 총
+              ₩{{(profile.info.price)*profile.info.duration*profile.info.total_weeks}}
             </div>
           </div>
         </div>
         <div class="lightGreyBg">
           <div class="left floatLeft classProfileTitle regularLarge grey">장소</div>
           <div>
-            <div class="left classProfileS regular">{{profile.place}}</div>
+            <div class="left classProfileS regular">{{profile.info.place}}</div>
           </div>
         </div>
         <div class="lightGreyBg" style="padding-bottom:15px;">
           <div class="left floatLeft classProfileTitle regularLarge grey">준비물</div>
           <div>
-            <div class="left classProfileS regular">{{profile.required_material}}</div>
+            <div class="left classProfileS regular">{{profile.info.required_material}}</div>
           </div>
         </div>
         <table>
           <thead>
-          <th></th>
-          <th>월</th>
-          <th>화</th>
-          <th>수</th>
-          <th>목</th>
-          <th>금</th>
+          <th class="regular grey fontMedium"></th>
+          <th class="regular grey fontMedium">월</th>
+          <th class="regular grey fontMedium">화</th>
+          <th class="regular grey fontMedium">수</th>
+          <th class="regular grey fontMedium">목</th>
+          <th class="regular grey fontMedium">금</th>
           </thead>
           <tbody>
           <tr *ngFor="let row of [1,2,3,4,5,6,7,8,9,10]; let rowIndex=index;">
             <td>{{rowIndex+1}}</td>
-            <td [attr.id]="'td_' + (rowIndex+1)+'_'+(colIndex+1)"
+            <td [attr.id]="'show_td_' + (rowIndex+1)+'_'+(colIndex+1)"
                 *ngFor="let col of [1,2,3,4,5]; let colIndex=index;"></td>
           </tr>
           </tbody>
@@ -117,7 +118,7 @@
             어떻게 가르치나요?
           </div>
           <div class="regular grey">
-            {{faq.faq_how}}
+            {{profile.info.faq_how}}
           </div>
         </ion-item>
       </ion-list>
@@ -155,7 +156,7 @@
         <div class="whiteBg classRating">
           <button class="transparent floatRight grey small">
             <br>
-            리뷰 8개
+            리뷰 {{commentCount}}개
           </button>
         </div>
       </div>
@@ -164,7 +165,7 @@
         <div class="" *ngFor="let comment_item of comment;">
           <img src="build/images/yonsei.png" class="floatLeft ratingProfile"/>
           <div class="transparent floatRight tiny grey">
-            {{comment_item.createdAt|date:'dd-MM-yy'}}
+            <!--{{comment_item.createdAt|date:'dd-MM-yy'}}-->
           </div>
           <div class="left regular grey" style="line-height: 22px;">
             {{comment_item.name}}
@@ -176,29 +177,6 @@
           </div>
           <div style="clear:both"></div>
         </div>
-        <!--<div class="ratingTextPadding">-->
-        <!--<img src="build//images/yonsei.png"class="floatLeft ratingProfile"/>-->
-        <!--<div class="transparent floatRight tiny grey">-->
-        <!--07.28.16-->
-        <!--</div>-->
-        <!--<div class="left regular grey" style="line-height: 22px;">-->
-        <!--헬로우톡우-->
-        <!--<div class="transparent">-->
-        <!--<img class="classRatingStarS" src="build/images/star.svg"/>-->
-        <!--<img class="classRatingStarS" src="build/images/star.svg"/>-->
-        <!--<img class="classRatingStarS" src="build/images/star.svg"/>-->
-        <!--<img class="classRatingStarS" src="build/images/starLine.svg"/>-->
-        <!--<img class="classRatingStarS" src="build/images/starLine.svg"/>-->
-        <!--</div>-->
-        <!--<span class="regular ratingText">-->
-        <!--수업 설명 계속 합니다. 수업 설명 계 속 합니다속 합니다속 합니다.-->
-        <!--업 설속 합니다합니다 설명 계속 합속 합니다니다속 합속 합니니다-->
-        <!--합니다계속 속 합니다설명 계속 합니다.-->
-        <!--</span>-->
-        <!--</div>-->
-
-        <!--<div style="clear:both"></div>-->
-        <!--</div>-->
       </div>
 
     </ion-slide>
@@ -208,6 +186,6 @@
 <ion-footer class="noPadding">
   <ion-toolbar>
     <button (click)="ask()" class="footerButton1 regularLarge fontBold">문의</button>
-    <button (click)="register()" class="footerButton2 regularLarge fontBold">신청하기</button>
+    <button (click)="register()" class="footerButton2 regularLarge fontBold" [attr.disabled]="bought?true:null">신청하기</button>
   </ion-toolbar>
 </ion-footer>

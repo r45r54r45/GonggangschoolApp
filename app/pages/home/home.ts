@@ -17,37 +17,48 @@ import {LoadingController} from 'ionic-angular';
 export class HomePage {
   public classList: any = [];
   private startCounter = 0;
-  public category:string='all';
-  public timetable:string='all';
+  public category: string = 'all';
+  public categoryList: any = [];
+  public timetable: string = 'all';
+  public tabBarElement: any;
 
   constructor(private navCtrl: NavController, private classService: Class, private loadingCtrl: LoadingController) {
-
+    this.tabBarElement = document.querySelector('#default_tabs_bar ion-tabbar');
   }
-  onPageDidEnter(){
+
+  ionViewWillEnter() {
+    this.tabBarElement.style.display = 'flex';
+  }
+
+  onPageDidEnter() {
     this.startCounter = 0;
-
     this.classService.getCourseList(this.startCounter).subscribe(data => {
-      this.classList = jsonify(data);
-      console.log(this.classList);
-      // loading.dismiss();
+      console.info("getCourseList",data.json());
+      this.classList = data.json().courses;
     });
+    this.classService.getCategory(1).subscribe(data=> {
+      this.categoryList = data.json().category;
+    })
   }
-  updateTimetable(value){
+
+  updateTimetable(value) {
     let loading = this.loadingCtrl.create({
       content: 'Please wait...'
     });
     loading.present();
-    if(value=="all"){
-      this.startCounter=0;
-      this.classList=[];
+    this.category = 'all';
+    if (value == "all") {
+      this.startCounter = 0;
+      this.classList = [];
       this.classService.getCourseList(this.startCounter).subscribe(data => {
-        this.classList = data.json();
+        this.classList = data.json().courses;
         console.log(this.classList);
         loading.dismiss();
       });
-    }else{
-      this.startCounter=0;
-      this.classList=[];
+    } else {
+      this.startCounter = 0;
+      this.classList = [];
+      console.log("get match course list");
       this.classService.getMatchCourseList(this.startCounter).subscribe(data => {
         this.classList = data.json();
         console.log(this.classList);
@@ -55,29 +66,46 @@ export class HomePage {
       });
     }
   }
-  updateCategory(event,value){
-    // event.preventDefault();
-    // console.log(value);
-    alert('현재 준비중인 기능입니다.');
+
+  updateCategory(event, value) {
+    this.timetable = 'all';
+    this.category = event;
+    let loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+    loading.present();
+    if (event == 'all') {
+      this.startCounter = 0;
+      this.classList = [];
+      this.classService.getCourseList(this.startCounter).subscribe(data => {
+        this.classList = data.json().courses;
+        console.log(this.classList);
+        loading.dismiss();
+      });
+      return;
+    }
+    this.classService.getCategoryCourseList(this.startCounter, event).subscribe(data=> {
+      this.classList = data.json().courses;
+      loading.dismiss();
+    });
   }
+
   clickClass(courseId) {
     this.navCtrl.push(HomeDetailPage, {courseId: courseId});
   }
 
   doInfinite(infinite) {
-    console.log("start",this.startCounter);
-    this.classService.getCourseList(this.startCounter+10).subscribe(data => {
-      if (jsonify(data).length == 0) {
+    console.log("start", this.startCounter);
+    this.classService.getCourseList(this.startCounter + 5).subscribe(data => {
+      console.log(data.json())
+      if (!data.json().hasMore) {
         infinite.enable(false);
       } else {
-        this.startCounter += 10;
-        this.classList = this.classList.concat(jsonify(data));
-        infinite.complete();
+        this.startCounter += 5;
       }
+      infinite.complete();
+      this.classList = this.classList.concat(data.json().courses);
     });
   }
 }
 
-var jsonify = function (data) {
-  return JSON.parse(data._body);
-}
